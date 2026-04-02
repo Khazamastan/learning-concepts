@@ -1,0 +1,143 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  color: #0f172a;
+  background-color: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: #f8fafc;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+}
+
+.hero__rating {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero__rating-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.rating {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.rating__helper {
+  margin-top: 1rem;
+  color: #475569;
+}
+
+.reviews {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.review {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.review h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.star-rating {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.star-rating__group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.star-rating__btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.star-rating__btn:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.star-rating__btn[aria-checked='true'] .star-rating__icon {
+  transform: scale(1.05);
+}
+
+.star-rating__btn--active .star-rating__icon {
+  filter: drop-shadow(0 4px 8px rgba(250, 204, 21, 0.4));
+}
+
+.star-rating__icon {
+  width: 36px;
+  height: 36px;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.star-rating__value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 1.25rem;
+  }
+
+  .star-rating__icon {
+    width: 28px;
+    height: 28px;
+  }
+}

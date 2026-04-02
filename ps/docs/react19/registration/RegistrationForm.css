@@ -1,0 +1,52 @@
+.registration {
+  display: grid;
+  gap: 1rem;
+  padding: 2.5rem;
+  max-width: 520px;
+  margin: 4rem auto;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 32px 64px rgba(15, 23, 42, 0.12);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.registration input,
+.registration select {
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.75rem;
+  border: 1px solid #cbd5f5;
+}
+
+.registration fieldset {
+  border: 1px solid #cbd5f5;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.registration button {
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.registration button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.registration__status {
+  margin-top: 0.5rem;
+  color: #2563eb;
+}
+
+.registration__preview {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  white-space: pre-wrap;
+}

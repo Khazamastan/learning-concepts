@@ -1,0 +1,30 @@
+.focus-reveal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.focus-reveal__logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: inherit;
+}
+
+.focus-reveal__skip {
+  position: absolute;
+  left: -9999px;
+  top: 1.5rem;
+  padding: 0.6rem 1rem;
+  background: #082f49;
+  border-radius: 999px;
+  border: 1px solid #38bdf8;
+  color: #e0f2fe;
+}
+
+.focus-reveal__skip.is-visible {
+  left: 1.5rem;
+}

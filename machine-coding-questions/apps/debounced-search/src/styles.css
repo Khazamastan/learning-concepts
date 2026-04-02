@@ -1,0 +1,164 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #0f172a;
+  background: linear-gradient(135deg, #ecfeff, #e0f2fe 45%, #f5f5ff 100%);
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  background: transparent;
+}
+
+.search-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(2rem, 4vw, 5rem);
+}
+
+.search-card {
+  width: min(640px, 95vw);
+  background: #ffffff;
+  border-radius: 28px;
+  padding: clamp(2.25rem, 4vw, 3.25rem);
+  box-shadow: 0 35px 70px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 1.75rem;
+  border: 1px solid rgba(14, 116, 144, 0.12);
+}
+
+header {
+  display: grid;
+  gap: 0.65rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.2vw, 2.35rem);
+  letter-spacing: -0.015em;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0284c7;
+}
+
+.support {
+  margin: 0;
+  color: #475569;
+}
+
+.search-field {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.label-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+input {
+  width: 100%;
+  border-radius: 16px;
+  padding: 0.95rem 1.25rem;
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  font-size: 1.05rem;
+  background: rgba(240, 249, 255, 0.8);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 4px rgba(125, 211, 252, 0.45);
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: #0369a1;
+}
+
+.loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.loading::after {
+  content: '';
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  border: 2px solid rgba(2, 132, 199, 0.2);
+  border-top-color: #0284c7;
+  animation: spin 0.8s linear infinite;
+}
+
+.api-hits {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.12);
+  color: #075985;
+  font-weight: 600;
+}
+
+.results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  max-height: min(340px, 50vh);
+  overflow-y: auto;
+}
+
+.results li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.1rem;
+  border-radius: 18px;
+  background: rgba(240, 249, 255, 0.9);
+  border: 1px solid transparent;
+  transition: transform 120ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.results li:focus,
+.results li:hover {
+  outline: none;
+  transform: translateY(-2px);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 20px 35px rgba(14, 165, 233, 0.18);
+}
+
+.name {
+  font-weight: 600;
+}
+
+.role {
+  color: #2563eb;
+  font-size: 0.95rem;
+}
+
+.empty {
+  justify-content: center;
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

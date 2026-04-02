@@ -1,0 +1,25 @@
+.pokemon-table__wrapper {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+}
+
+.pokemon-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pokemon-table th,
+.pokemon-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.pokemon-table tbody tr:nth-child(odd) {
+  background: #f8fafc;
+}
+
+.pokemon-table tbody tr:hover {
+  background: #e0f2fe;
+}

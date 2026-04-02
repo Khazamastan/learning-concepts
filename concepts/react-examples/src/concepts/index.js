@@ -1,0 +1,22 @@
+export const concepts = [
+  { id: 'http-protocols', title: 'HTTP/HTTPS, HTTP/2, HTTP/3', component: () => import('./http-protocols.jsx') },
+  { id: 'api-architectures', title: 'REST, GraphQL, gRPC', component: () => import('./api-architectures.jsx') },
+  { id: 'realtime-communication', title: 'WebSockets, SSE, Polling', component: () => import('./realtime-communication.jsx') },
+  { id: 'cors-auth', title: 'CORS, Auth, Cookies, Tokens', component: () => import('./cors-auth.jsx') },
+  { id: 'cdn-edge', title: 'CDNs & Edge Delivery', component: () => import('./cdn-edge.jsx') },
+  { id: 'caching-strategies', title: 'Browser & CDN Caching', component: () => import('./caching-strategies.jsx') },
+  { id: 'compression', title: 'Compression (gzip, Brotli)', component: () => import('./compression.jsx') },
+  { id: 'asset-optimization', title: 'Image & Asset Optimization', component: () => import('./asset-optimization.jsx') },
+  { id: 'performance-optimizations', title: 'Lazy Loading, Code Splitting, Tree Shaking', component: () => import('./performance-optimizations.jsx') },
+  { id: 'resource-hints', title: 'Prefetch, Preload, Preconnect, dns-prefetch', component: () => import('./resource-hints.jsx') },
+  { id: 'rendering-strategies', title: 'CSR, SSR, SSG, ISR', component: () => import('./rendering-strategies.jsx') },
+  { id: 'micro-frontends', title: 'Micro-frontends & Modularization', component: () => import('./micro-frontends.jsx') },
+  { id: 'state-management', title: 'Client vs. Server State Management', component: () => import('./state-management.jsx') },
+  { id: 'resiliency', title: 'Retry, Backoff, Circuit Breakers', component: () => import('./resiliency.jsx') },
+  { id: 'offline-first', title: 'Offline-first & Service Workers', component: () => import('./offline-first.jsx') },
+  { id: 'error-handling', title: 'Error Handling & Graceful Degradation', component: () => import('./error-handling.jsx') },
+  { id: 'feature-flags', title: 'Feature Flags & A/B Testing', component: () => import('./feature-flags.jsx') },
+  { id: 'web-security', title: 'Security: XSS, CSRF, CSP, SameSite', component: () => import('./web-security.jsx') },
+  { id: 'observability', title: 'Observability: Logging & Error Tracking', component: () => import('./observability.jsx') },
+  { id: 'core-web-vitals', title: 'Core Web Vitals (LCP, CLS, INP, TTFB, FID)', component: () => import('./core-web-vitals.jsx') }
+];

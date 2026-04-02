@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus-Only Reveal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="#home">Focus Demo</a>
+      <button class="skip-link" data-focus-visible-target="true">Skip to main content</button>
+    </header>
+    <main id="home" tabindex="-1">
+      <h1>Keyboard-Only Visibility</h1>
+      <p>Use the Tab key to focus the skip link. Pointer clicks keep it hidden.</p>
+    </main>
+    <script src="focus.js"></script>
+  </body>
+</html>

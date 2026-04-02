@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla Autocomplete</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Pokémon Search</h1>
+      <form class="search" role="search" aria-label="Pokémon search">
+        <label class="search__label" for="query">Search Pokémon</label>
+        <input id="query" name="query" type="search" autocomplete="off" placeholder="Start typing..." />
+        <ul id="suggestions" class="search__suggestions" role="listbox" aria-hidden="true"></ul>
+      </form>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+// Sass mixins showcase
+@mixin button-base($background, $color: #ffffff) {
+  background: $background;
+  color: $color;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+@mixin focus-ring($color: #2563eb) {
+  outline: 2px solid $color;
+  outline-offset: 2px;
+}
+
+.button-primary {
+  @include button-base(#2563eb);
+
+  &:focus-visible {
+    @include focus-ring();
+  }
+}

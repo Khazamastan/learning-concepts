@@ -1,0 +1,62 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, #bae6fd, #f8fafc 60%);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.directory {
+  width: min(90vw, 960px);
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+.directory__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.directory__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 120ms ease;
+}
+
+.button--primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.button--secondary {
+  background: #f1f5f9;
+  color: #0f172a;
+  box-shadow: inset 0 0 0 1px #cbd5f5;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.directory__status {
+  margin-top: 1rem;
+  color: #2563eb;
+}
+
+.directory__error {
+  margin-top: 1rem;
+  color: #b91c1c;
+}

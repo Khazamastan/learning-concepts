@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="registration.css" />
+  </head>
+  <body>
+    <main class="form-container">
+      <h1>Register</h1>
+      <form id="registration" novalidate>
+        <label for="fullName">Full Name</label>
+        <input id="fullName" name="fullName" required />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required />
+
+        <label for="role">Role</label>
+        <select id="role" name="role" required>
+          <option value="">Select role</option>
+          <option value="designer">Designer</option>
+          <option value="engineer">Engineer</option>
+          <option value="pm">Product Manager</option>
+        </select>
+
+        <fieldset>
+          <legend>Plan</legend>
+          <label><input type="radio" name="plan" value="basic" required /> Basic</label>
+          <label><input type="radio" name="plan" value="pro" /> Pro</label>
+          <label><input type="radio" name="plan" value="team" /> Team</label>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <pre id="output" class="output" aria-live="polite"></pre>
+    </main>
+    <script src="registration.js"></script>
+  </body>
+</html>

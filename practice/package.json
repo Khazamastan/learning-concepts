@@ -1,0 +1,33 @@
+{
+  "name": "frontend-challenges",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "yarn@1.22.22",
+  "workspaces": [
+    "star-rating",
+    "pop-over",
+    "accordion",
+    "carousel",
+    "data-grid",
+    "responsive-navbar",
+    "infinite-scroll",
+    "typeahead-trie",
+    "debounce",
+    "tic-tac-toe",
+    "snake-ladder",
+    "calendar-picker",
+    "throttle",
+    "hof-utilities",
+    "analog-clock",
+    "todo-app",
+    "language-toggle",
+    "giphy-search",
+    "connect-four",
+    "nested-checkboxes",
+    "poll-widget",
+    "event-emitter",
+    "promise-all",
+    "array-flatten",
+    "custom-sort"
+  ]
+}
