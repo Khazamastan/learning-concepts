@@ -1,0 +1,146 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+}
+
+.board-shell {
+  min-height: 100vh;
+  display: grid;
+  gap: 1.5rem;
+  padding: 2.5rem clamp(1rem, 4vw, 4rem) 3.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+}
+
+header p {
+  margin: 0.35rem 0 0;
+  color: #94a3b8;
+}
+
+.board {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 320px);
+  gap: 1.4rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.column {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 18px;
+  padding: 1.1rem;
+  display: grid;
+  gap: 1rem;
+  box-shadow: 0 16px 30px rgba(2, 6, 23, 0.45);
+}
+
+.column.dragging-over {
+  outline: 2px dashed rgba(56, 189, 248, 0.5);
+  outline-offset: -6px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.count {
+  background: rgba(148, 163, 184, 0.18);
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.85rem;
+}
+
+.cards {
+  display: grid;
+  gap: 0.75rem;
+  min-height: 60px;
+}
+
+.card {
+  background: rgba(30, 41, 59, 0.85);
+  border-radius: 12px;
+  padding: 0.75rem;
+  line-height: 1.4;
+  box-shadow: 0 10px 20px rgba(2, 6, 23, 0.35);
+}
+
+.card.dragging {
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #0f172a;
+}
+
+.add-card {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.add-card textarea {
+  border-radius: 10px;
+  border: none;
+  padding: 0.6rem;
+  resize: vertical;
+  min-height: 60px;
+  font-family: inherit;
+  background: rgba(15, 23, 42, 0.6);
+  color: inherit;
+}
+
+.add-card button {
+  justify-self: start;
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 1.2rem;
+  background: linear-gradient(135deg, #22d3ee, #14b8a6);
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-column {
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 18px;
+  padding: 1.1rem;
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+}
+
+.add-column input {
+  border-radius: 10px;
+  border: none;
+  padding: 0.6rem;
+  background: rgba(15, 23, 42, 0.7);
+  color: inherit;
+}
+
+.add-column button {
+  justify-self: start;
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  background: rgba(148, 163, 184, 0.25);
+  color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-column button:hover {
+  background: rgba(148, 163, 184, 0.4);
+}

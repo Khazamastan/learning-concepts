@@ -1,0 +1,9 @@
+{
+  "name": "what-is-the-paradigm-of-javascript-language",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

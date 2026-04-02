@@ -1,0 +1,9 @@
+{
+  "name": "design-and-implement-localstorage-api-frontend-problem-solving-javascript-interview-question",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

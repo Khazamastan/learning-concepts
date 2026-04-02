@@ -1,0 +1,81 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(160deg, #f8fafc 0%, #e0f2fe 55%, #fce7f3 100%);
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.promisify-app {
+  width: min(640px, 100%);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.promisify-app header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+}
+
+.promisify-app header p {
+  margin: 0;
+  color: #475569;
+}
+
+.card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.6rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+input {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+}
+
+.checkbox {
+  align-items: center;
+  grid-template-columns: auto 1fr;
+}
+
+button {
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 18px 36px rgba(79, 70, 229, 0.35);
+}
+
+.result-card pre {
+  margin: 0;
+  background: rgba(148, 163, 184, 0.18);
+  border-radius: 1rem;
+  padding: 1rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.error {
+  color: #ef4444;
+  font-weight: 600;
+}

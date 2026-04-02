@@ -1,0 +1,9 @@
+{
+  "name": "implement-a-function-to-read-a-field-inside-a-nested-object-aws-frontend-interview-question-javascript-interview-question",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

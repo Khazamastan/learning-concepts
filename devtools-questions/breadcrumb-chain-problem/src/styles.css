@@ -1,0 +1,107 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(160deg, #f8fafc 0%, #e0f2fe 55%, #f0fdfa 100%);
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.breadcrumb-demo {
+  width: min(960px, 100%);
+  display: grid;
+  gap: 1.75rem;
+}
+
+.breadcrumb-demo header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+}
+
+.breadcrumb-demo header p {
+  margin: 0;
+  color: #475569;
+}
+
+.card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.8rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 1rem;
+}
+
+.editor-card textarea {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 1rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.9rem;
+}
+
+.editor-card input {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+}
+
+.editor-card button {
+  justify-self: flex-start;
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 18px 36px rgba(79, 70, 229, 0.35);
+}
+
+.error {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb li {
+  position: relative;
+  padding-right: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: "›";
+  position: absolute;
+  right: 0.2rem;
+  top: 0;
+  color: #94a3b8;
+}
+
+.breadcrumb li[aria-current="page"] {
+  color: #1d4ed8;
+}
+
+.result-card pre {
+  margin: 0;
+  background: rgba(148, 163, 184, 0.18);
+  border-radius: 1rem;
+  padding: 1rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}

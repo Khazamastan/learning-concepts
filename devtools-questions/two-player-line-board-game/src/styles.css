@@ -1,0 +1,134 @@
+:root {
+  color-scheme: dark;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #111827 0%, #020617 70%);
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.line-game {
+  width: min(1040px, 100%);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.line-game header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+}
+
+.line-game header p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 3fr 2fr;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.65);
+  border-radius: 1.5rem;
+  padding: 1.6rem;
+  box-shadow: 0 28px 70px rgba(2, 6, 23, 0.45);
+  backdrop-filter: blur(12px);
+  display: grid;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 6px;
+  background: rgba(148, 163, 184, 0.12);
+  padding: 12px;
+  border-radius: 1.25rem;
+}
+
+.cell {
+  position: relative;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 0.9rem;
+  background: rgba(148, 163, 184, 0.12);
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+}
+
+.cell.winning {
+  box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.7);
+}
+
+.marker {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 30px rgba(248, 250, 252, 0.35);
+}
+
+.status {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.winner {
+  color: #fde68a;
+}
+
+.history-card ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.history-card button {
+  width: 100%;
+  background: rgba(148, 163, 184, 0.18);
+  border: none;
+  border-radius: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  color: #e2e8f0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.history-card button:disabled {
+  background: rgba(59, 130, 246, 0.3);
+  cursor: default;
+}
+
+.toggle {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.9rem;
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

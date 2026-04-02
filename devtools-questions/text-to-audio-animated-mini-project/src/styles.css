@@ -1,0 +1,130 @@
+:root {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #0ea5e9, #1e1b4b);
+  min-height: 100vh;
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+}
+
+.stage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+
+.card {
+  width: min(520px, 100%);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 40px 32px;
+  display: grid;
+  gap: 16px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.35);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin: 8px 0 0;
+  color: #475569;
+}
+
+label {
+  font-weight: 600;
+}
+
+textarea,
+select {
+  font: inherit;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  padding: 14px 16px;
+  background: #f8fafc;
+  resize: vertical;
+  min-height: 120px;
+}
+
+select {
+  min-height: auto;
+}
+
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+button {
+  padding: 16px;
+  border-radius: 999px;
+  border: none;
+  background: #6366f1;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+button:disabled {
+  background: #cbd5f5;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #4f46e5;
+}
+
+.error {
+  margin: 0;
+  color: #dc2626;
+}
+
+.visualizer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 8px;
+  height: 56px;
+}
+
+.visualizer span {
+  width: 10px;
+  height: 16px;
+  border-radius: 6px;
+  background: #6366f1;
+  transform-origin: center bottom;
+  opacity: 0.25;
+}
+
+.visualizer--playing span {
+  animation: pulse 1s ease-in-out infinite;
+  opacity: 1;
+}
+
+.visualizer--idle span {
+  opacity: 0.4;
+}
+
+.visualizer--error span {
+  background: #dc2626;
+  opacity: 0.8;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}

@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+  OPERATOR
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  EXPIRED
+}
+
+model User {
+  id             String     @id @default(uuid())
+  email          String     @unique
+  passwordHash   String
+  firstName      String
+  lastName       String
+  role           Role       @default(CUSTOMER)
+  refreshToken   String?    @db.Text
+  reservations   Reservation[]
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+}
+
+model Movie {
+  id           String      @id @default(uuid())
+  title        String
+  synopsis     String      @db.Text
+  genre        String
+  cast         String[]
+  releaseDate  DateTime
+  posterUrl    String?
+  durationMins Int?
+  screenings   Screening[]
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+model Hall {
+  id          String      @id @default(uuid())
+  name        String
+  location    String
+  seatMap     Json
+  seats       Seat[]
+  screenings  Screening[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Seat {
+  id       String   @id @default(uuid())
+  label    String
+  row      String
+  number   Int
+  hallId   String
+  hall     Hall     @relation(fields: [hallId], references: [id])
+  reserved ReservationSeat[]
+}
+
+model Screening {
+  id          String       @id @default(uuid())
+  movieId     String
+  hallId      String
+  startTime   DateTime
+  endTime     DateTime
+  pricingGroup String
+  basePrice   Int
+  movie       Movie        @relation(fields: [movieId], references: [id])
+  hall        Hall         @relation(fields: [hallId], references: [id])
+  reservations Reservation[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Reservation {
+  id              String             @id @default(uuid())
+  userId          String
+  screeningId     String
+  status          ReservationStatus  @default(PENDING)
+  totalAmount     Int
+  paymentIntentId String?
+  expiresAt       DateTime
+  user            User               @relation(fields: [userId], references: [id])
+  screening       Screening          @relation(fields: [screeningId], references: [id])
+  seats           ReservationSeat[]
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  @@index([screeningId, status])
+}
+
+model ReservationSeat {
+  id            String       @id @default(uuid())
+  reservationId String
+  seatId        String
+  reservation   Reservation  @relation(fields: [reservationId], references: [id])
+  seat          Seat         @relation(fields: [seatId], references: [id])
+  @@unique([reservationId, seatId])
+}

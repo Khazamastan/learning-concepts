@@ -1,0 +1,68 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1e293b, #0f172a 70%);
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 16px;
+}
+
+.counter {
+  background: rgba(15, 23, 42, 0.86);
+  border-radius: 22px;
+  padding: 36px;
+  width: min(340px, 100%);
+  display: grid;
+  gap: 18px;
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.45);
+}
+
+.counter__value {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.counter__controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.counter__controls button {
+  border: none;
+  background: rgba(59, 130, 246, 0.25);
+  color: #93c5fd;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.counter__controls button:hover {
+  transform: translateY(-1px);
+}
+
+.counter__step {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.counter__step input {
+  width: 70px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  text-align: center;
+}

@@ -1,0 +1,190 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1d4ed8 0%, #0f172a 55%, #020617 100%);
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.cinema-app {
+  width: min(900px, 100%);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cinema-app header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.5rem);
+}
+
+.cinema-app header p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.8);
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.65);
+  border-radius: 1.5rem;
+  padding: 1.6rem;
+  box-shadow: 0 28px 70px rgba(2, 6, 23, 0.4);
+  backdrop-filter: blur(12px);
+}
+
+.screen-card {
+  text-align: center;
+}
+
+.screen {
+  border-radius: 999px;
+  padding: 0.4rem 2rem;
+  background: linear-gradient(90deg, rgba(250, 204, 21, 0.8), rgba(236, 72, 153, 0.6));
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.screen-hint {
+  margin-top: 0.6rem;
+  color: rgba(226, 232, 240, 0.65);
+  font-size: 0.85rem;
+}
+
+.layout-card {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.seat-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+}
+
+.row-label {
+  font-weight: 700;
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, auto));
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  border-radius: 0.9rem;
+  border: none;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0f172a;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.seat.vip {
+  background: linear-gradient(135deg, #facc15, #f97316);
+}
+
+.seat.standard {
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+}
+
+.seat.economy {
+  background: linear-gradient(135deg, #34d399, #059669);
+}
+
+.seat.reserved {
+  background: rgba(148, 163, 184, 0.5);
+  color: rgba(30, 41, 59, 0.8);
+  cursor: not-allowed;
+}
+
+.seat.selected {
+  box-shadow: 0 0 0 3px rgba(248, 250, 252, 0.9);
+}
+
+.seat:disabled {
+  cursor: not-allowed;
+}
+
+.seat:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.25);
+}
+
+.aisle {
+  width: 24px;
+  height: 24px;
+}
+
+.legend-card {
+  display: grid;
+  gap: 1rem;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.legend {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-item .badge {
+  width: 16px;
+  height: 16px;
+  border-radius: 0.4rem;
+  display: inline-block;
+}
+
+.badge.vip {
+  background: linear-gradient(135deg, #facc15, #f97316);
+}
+
+.badge.standard {
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+}
+
+.badge.economy {
+  background: linear-gradient(135deg, #34d399, #059669);
+}
+
+.badge.reserved {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+.badge.selected {
+  background: rgba(252, 211, 77, 0.9);
+}
+
+.summary strong {
+  color: #fde68a;
+}
+
+@media (max-width: 640px) {
+  .seat {
+    width: 36px;
+    height: 36px;
+  }
+
+  .seat-grid {
+    gap: 0.3rem;
+  }
+}

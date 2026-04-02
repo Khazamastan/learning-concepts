@@ -1,0 +1,189 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(185deg, #f8fafc 0%, #e0f2fe 100%);
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2.5rem 1.5rem;
+}
+
+.progress-demo {
+  width: min(640px, 95vw);
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  display: grid;
+  gap: 1.75rem;
+  box-shadow: 0 45px 120px rgba(15, 23, 42, 0.15);
+}
+
+.progress-demo header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+}
+
+.progress-demo header p {
+  margin: 0;
+  color: #475569;
+}
+
+.progress-card {
+  background: linear-gradient(120deg, #eff6ff, #c7d2fe);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  display: grid;
+  gap: 1.25rem;
+  box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.22);
+}
+
+.progress-track {
+  width: 100%;
+  height: 20px;
+  background: rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #2563eb, #9333ea);
+  border-radius: inherit;
+  transition: width 0.2s ease-out;
+}
+
+.progress-fill.is-complete {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.progress-meta {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.progress-meta button {
+  background: rgba(15, 23, 42, 0.08);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.15s ease;
+}
+
+.progress-meta button:hover {
+  transform: translateY(-1px);
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.controls button {
+  background: rgba(15, 23, 42, 0.08);
+  border: none;
+  border-radius: 0.9rem;
+  padding: 0.65rem 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.controls button.primary {
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  color: white;
+}
+
+.controls button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(148, 163, 184, 0.4);
+}
+
+.controls .toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.speed {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.speed span {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.speed-options {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.speed-options label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: #334155;
+  background: rgba(30, 64, 175, 0.1);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.speed-options label.active {
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  color: white;
+  box-shadow: 0 18px 40px rgba(79, 70, 229, 0.35);
+}
+
+.speed-options label input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .progress-demo {
+    padding: 1.75rem;
+  }
+
+  .progress-meta {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .progress-meta button {
+    width: 100%;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .controls button {
+    width: 100%;
+  }
+}

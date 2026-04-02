@@ -1,0 +1,145 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #e0e7ff 0%, #f8fafc 45%, #ffffff 100%);
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.gallery {
+  width: min(960px, 96vw);
+  display: grid;
+  gap: 2rem;
+}
+
+.gallery header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+}
+
+.gallery header p {
+  margin: 0;
+  color: #475569;
+  max-width: 720px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  perspective: 1600px;
+}
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.25, 1);
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 80px rgba(15, 23, 42, 0.18);
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background: linear-gradient(160deg, rgba(37, 99, 235, 0.85), rgba(59, 130, 246, 0.65));
+  color: white;
+}
+
+.flip-card-back {
+  background: #ffffff;
+  color: #111827;
+  transform: rotateY(180deg);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.card-content {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 12px 30px rgba(15, 23, 42, 0.25));
+}
+
+.card-content h2,
+.card-content h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.card-content p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.card-content ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.4rem;
+  color: #334155;
+}
+
+.hint {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.flip-card-back .hint {
+  color: #64748b;
+}
+
+.flip-card-inner:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.85);
+  outline-offset: 6px;
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    gap: 1.5rem;
+  }
+
+  .flip-card {
+    aspect-ratio: 4 / 5;
+  }
+}

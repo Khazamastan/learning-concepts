@@ -1,0 +1,9 @@
+{
+  "name": "implement-lodash-pick-from-scratch-problem-solving-frontend-interview-question",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

@@ -1,0 +1,211 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(160deg, #f8fafc 0%, #e2e8f0 55%, #fef2f2 100%);
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.checkout-app {
+  width: min(1024px, 100%);
+  display: grid;
+  gap: 1.75rem;
+}
+
+.checkout-app header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+}
+
+.checkout-app header p {
+  margin: 0;
+  color: #475569;
+  max-width: 640px;
+}
+
+.layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 3fr 2fr;
+}
+
+.card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.8rem;
+  box-shadow: 0 28px 75px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 1.25rem;
+}
+
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.items li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  padding-bottom: 1rem;
+}
+
+.items li:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 1rem;
+  background: rgba(148, 163, 184, 0.18);
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+
+.info h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.info p {
+  margin: 0.15rem 0;
+  color: #64748b;
+}
+
+.price {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.actions {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.actions input {
+  width: 70px;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.4rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.actions button {
+  border: none;
+  background: transparent;
+  color: #ef4444;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: right;
+}
+
+.promo label {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.promo-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.promo-row input {
+  flex: 1;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.7rem 1rem;
+}
+
+.promo-row button {
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.error {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.success {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.summary-card dl {
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.summary-card dt {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.summary-card dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.summary-card dd.negative {
+  color: #16a34a;
+}
+
+.summary-card .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.checkout-button {
+  background: #1f2937;
+  color: white;
+  border: none;
+  padding: 0.85rem 1.4rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.checkout-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.footnote {
+  font-size: 0.88rem;
+  color: #475569;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

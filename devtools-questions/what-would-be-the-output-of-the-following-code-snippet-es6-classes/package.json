@@ -1,0 +1,9 @@
+{
+  "name": "output-es6-classes",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

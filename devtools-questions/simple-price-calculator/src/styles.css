@@ -1,0 +1,95 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f4f4ff;
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px 16px;
+}
+
+.price-calculator {
+  width: min(840px, 100%);
+  background: #fff;
+  border-radius: 28px;
+  padding: 36px;
+  box-shadow: 0 24px 60px rgba(99, 102, 241, 0.1);
+  display: grid;
+  gap: 24px;
+}
+
+.price-calculator__grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+}
+
+.price-calculator__form {
+  display: grid;
+  gap: 18px;
+}
+
+.price-calculator__form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.price-calculator__form input {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  font-size: 1rem;
+}
+
+.price-calculator__summary {
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.price-calculator__summary h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.price-calculator__summary dl {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.price-calculator__summary dt {
+  font-weight: 600;
+  color: #64748b;
+}
+
+.price-calculator__summary dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.price-calculator__summary footer {
+  margin-top: 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.price-calculator__summary footer strong {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 860px) {
+  .price-calculator__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,163 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617 70%);
+  color: #f8fafc;
+}
+
+body {
+  margin: 0;
+}
+
+.dictionary-app {
+  min-height: 100vh;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+header {
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+}
+
+header h1 {
+  font-size: clamp(2.4rem, 6vw, 3rem);
+  margin: 0;
+}
+
+header p {
+  margin: 0;
+  color: #cbd5f5;
+}
+
+.search {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.search input {
+  flex: 1;
+  max-width: 420px;
+  border-radius: 999px;
+  border: none;
+  padding: 0.85rem 1.3rem;
+  background: rgba(15, 23, 42, 0.7);
+  color: inherit;
+  font-size: 1rem;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2);
+}
+
+.search button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.6rem;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #0f172a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.results {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.entry {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 22px;
+  padding: 1.8rem;
+  box-shadow: 0 26px 50px rgba(2, 6, 23, 0.45);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.entry-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.entry-header h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.4rem);
+}
+
+.phonetic {
+  color: #22d3ee;
+  font-weight: 600;
+}
+
+.meaning {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.meaning h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  color: #a5b4fc;
+}
+
+.meaning ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.meaning li p {
+  margin: 0;
+}
+
+blockquote {
+  margin: 0.35rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 3px solid rgba(59, 130, 246, 0.4);
+  color: #cbd5f5;
+  font-style: italic;
+}
+
+.synonyms {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  color: #cbd5f5;
+}
+
+.synonym {
+  border: none;
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  background: rgba(56, 189, 248, 0.16);
+  color: #38bdf8;
+  cursor: pointer;
+}
+
+.hint {
+  text-align: center;
+  color: #a5b4fc;
+}
+
+.error {
+  text-align: center;
+  color: #f87171;
+}
+
+@media (max-width: 600px) {
+  .search {
+    flex-direction: column;
+  }
+
+  .search button {
+    width: 100%;
+  }
+}

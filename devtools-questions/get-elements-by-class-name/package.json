@@ -1,0 +1,9 @@
+{
+  "name": "get-elements-by-class-name",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

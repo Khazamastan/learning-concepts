@@ -1,0 +1,103 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(150deg, #f8fafc 0%, #e9d5ff 55%, #fef3c7 100%);
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.counter-demo {
+  width: min(900px, 100%);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.counter-demo header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+}
+
+.counter-demo header p {
+  margin: 0;
+  color: #475569;
+}
+
+.card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.8rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.buttons button {
+  border: none;
+  border-radius: 0.9rem;
+  padding: 0.75rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(129, 140, 248, 0.18);
+  color: #4338ca;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.buttons .count {
+  background: rgba(59, 130, 246, 0.18);
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.reset {
+  background: rgba(239, 68, 68, 0.15);
+  color: #b91c1c;
+  border: none;
+  border-radius: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  justify-self: flex-start;
+}
+
+.state-card ul,
+.log-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.state-card li,
+.log-card li {
+  background: rgba(148, 163, 184, 0.18);
+  border-radius: 0.85rem;
+  padding: 0.65rem 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button,
+  .reset {
+    width: 100%;
+  }
+}

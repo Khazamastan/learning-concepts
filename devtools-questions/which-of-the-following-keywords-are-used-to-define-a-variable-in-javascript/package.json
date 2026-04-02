@@ -1,0 +1,9 @@
+{
+  "name": "which-of-the-following-keywords-are-used-to-define-a-variable-in-javascript",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

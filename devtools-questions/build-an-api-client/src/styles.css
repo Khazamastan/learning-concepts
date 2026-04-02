@@ -1,0 +1,127 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(150deg, #f8fafc 0%, #e0f2fe 55%, #fef3c7 100%);
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.api-client-demo {
+  width: min(960px, 100%);
+  display: grid;
+  gap: 1.75rem;
+}
+
+.api-client-demo header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+}
+
+.api-client-demo header p {
+  margin: 0;
+  color: #475569;
+}
+
+.card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.8rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 1rem;
+}
+
+.config-card label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.config-card input {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.buttons button {
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 18px 36px rgba(79, 70, 229, 0.35);
+}
+
+.buttons button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.log-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.log-card li {
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  display: grid;
+  gap: 0.5rem;
+}
+
+.log-card li[data-status="error"] {
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.log-card .row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.log-card .url {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.log-card pre {
+  margin: 0;
+  background: rgba(15, 23, 42, 0.12);
+  border-radius: 0.75rem;
+  padding: 0.7rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,111 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(140deg, #f8fafc 0%, #e0f2fe 55%, #fef9c3 100%);
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.table-app {
+  width: min(960px, 100%);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.table-app header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+}
+
+.table-app header p {
+  margin: 0;
+  color: #475569;
+}
+
+.card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.6rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 1rem;
+}
+
+.row {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: center;
+}
+
+.row input {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+}
+
+button {
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.4rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 18px 36px rgba(79, 70, 229, 0.35);
+}
+
+.add-row {
+  justify-self: flex-start;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.6rem;
+  text-align: left;
+}
+
+th {
+  background: rgba(148, 163, 184, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+th button {
+  background: rgba(239, 68, 68, 0.2);
+  color: #b91c1c;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.6rem;
+  box-shadow: none;
+}
+
+td input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  th,
+  td {
+    font-size: 0.9rem;
+  }
+}

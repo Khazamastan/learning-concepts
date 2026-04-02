@@ -1,0 +1,9 @@
+{
+  "name": "what-is-the-output-of-the-following-code-promise-scheduling-event-loop-javascript-quiz",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Event capturing demo</title>
+  </head>
+  <body>
+    <div id="grandfather">
+      <div id="father">
+        <button id="child">Click Me</button>
+      </div>
+    </div>
+
+    <script>
+      function bindEvent(id) {
+        document
+          .getElementById(id)
+          .addEventListener(
+            "click",
+            (e) => console.log(e.target.getAttribute("id")),
+            true
+          );
+      }
+
+      bindEvent("grandfather");
+      bindEvent("father");
+      bindEvent("child");
+    </script>
+  </body>
+</html>

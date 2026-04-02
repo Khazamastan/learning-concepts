@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Defer vs Async Demo</title>
+    <script defer src="deferred.js"></script>
+    <script async src="async-a.js"></script>
+    <script async src="async-b.js"></script>
+  </head>
+  <body>
+    <h1>Check the console to compare script timings</h1>
+    <script>
+      console.log('inline script runs immediately while other files download');
+    </script>
+  </body>
+</html>

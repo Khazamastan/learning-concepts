@@ -1,0 +1,28 @@
+{
+  "name": "cinema-booking-platform",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run start:dev --workspace apps/backend\" \"npm run dev --workspace apps/frontend\"",
+    "build": "npm run build --workspace apps/backend && npm run build --workspace apps/frontend",
+    "lint": "npm run lint --workspaces",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:reset": "docker compose down -v && docker compose up -d"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "packageManager": "npm@10.5.0"
+}

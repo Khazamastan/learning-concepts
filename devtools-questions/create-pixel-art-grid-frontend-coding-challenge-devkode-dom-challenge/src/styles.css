@@ -1,0 +1,119 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617 70%);
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+  display: grid;
+  gap: 2rem;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: clamp(2.1rem, 4vw, 2.9rem);
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.toolbar {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+.palette {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.swatch {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.swatch:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 16px rgba(15, 23, 42, 0.4);
+}
+
+.swatch.active {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.35);
+}
+
+.size-control {
+  display: grid;
+  gap: 0.3rem;
+  text-align: center;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.size-control span {
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.clear {
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1.6rem;
+  background: linear-gradient(135deg, #22d3ee, #6366f1);
+  color: #0f172a;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: transform 0.1s ease;
+}
+
+.clear:hover {
+  transform: translateY(-2px);
+}
+
+.canvas {
+  width: min(90vw, 720px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  display: grid;
+  border: 16px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.75);
+  box-shadow: 0 24px 40px rgba(2, 6, 23, 0.5);
+  cursor: crosshair;
+  user-select: none;
+}
+
+.pixel {
+  width: 100%;
+  height: 100%;
+  transition: background-color 0.1s linear;
+}
+
+.pixel:hover {
+  outline: 1px solid rgba(255, 255, 255, 0.08);
+  outline-offset: -1px;
+}

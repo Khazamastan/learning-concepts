@@ -1,0 +1,80 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0b1120, #020617 70%);
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+}
+
+.rating-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 0.35rem;
+}
+
+header p {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.stars {
+  display: flex;
+  gap: 1rem;
+  font-size: clamp(2.8rem, 8vw, 4.2rem);
+  text-shadow: 0 12px 30px rgba(251, 191, 36, 0.25);
+}
+
+.star {
+  cursor: pointer;
+  color: rgba(148, 163, 184, 0.35);
+  transition: transform 0.12s ease, color 0.12s ease;
+  outline: none;
+}
+
+.star:hover,
+.star:focus-visible {
+  transform: translateY(-6px);
+  color: #f97316;
+}
+
+.star.active {
+  color: #fbbf24;
+}
+
+footer {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.caption {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
+.reset {
+  align-self: center;
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 1.4rem;
+  background: rgba(148, 163, 184, 0.2);
+  color: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.reset:hover {
+  background: rgba(148, 163, 184, 0.35);
+}

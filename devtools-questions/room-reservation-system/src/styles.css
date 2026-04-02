@@ -1,0 +1,92 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 72px 16px;
+}
+
+.reservation {
+  width: min(880px, 100%);
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.18);
+  display: grid;
+  gap: 24px;
+}
+
+.reservation__layout {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 320px 1fr;
+}
+
+form {
+  display: grid;
+  gap: 16px;
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+form input,
+form select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+}
+
+form button {
+  margin-top: 4px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reservation__list {
+  display: grid;
+  gap: 12px;
+}
+
+.reservation__list article {
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 16px;
+  padding: 18px;
+  background: #f8fafc;
+  display: grid;
+  gap: 6px;
+}
+
+.reservation__list button {
+  justify-self: start;
+  border: none;
+  background: rgba(248, 113, 113, 0.2);
+  color: #b91c1c;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 860px) {
+  .reservation__layout {
+    grid-template-columns: 1fr;
+  }
+}

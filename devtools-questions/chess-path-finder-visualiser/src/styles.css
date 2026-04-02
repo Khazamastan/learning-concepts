@@ -1,0 +1,94 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(160deg, #f8fafc 0%, #e0f2fe 60%, #ede9fe 100%);
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.chess-app {
+  width: min(720px, 100%);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.chess-app header h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.9rem, 2.7vw, 2.5rem);
+}
+
+.chess-app header p {
+  margin: 0;
+  color: #475569;
+}
+
+.card {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 1.6rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+  display: grid;
+  gap: 1rem;
+}
+
+.board-card {
+  justify-items: center;
+}
+
+.board {
+  display: grid;
+  width: min(420px, 90vw);
+  gap: 0;
+}
+
+.cell {
+  aspect-ratio: 1;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.1s ease;
+}
+
+.cell.light {
+  background: #f1f5f9;
+}
+
+.cell.dark {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.cell.path {
+  box-shadow: inset 0 0 0 4px rgba(59, 130, 246, 0.4);
+}
+
+.cell.start {
+  background: #22c55e;
+  color: white;
+}
+
+.cell.end {
+  background: #ef4444;
+  color: white;
+}
+
+.cell:hover {
+  transform: translateY(-2px);
+}
+
+.info-card ol {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.3rem;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>getScript demo</title>
+    <script type="module">
+      import { getScript } from '/js-ds/src/solutions/get-script/get-script.js';
+
+      document.addEventListener('DOMContentLoaded', async () => {
+        try {
+          await getScript('https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js', {
+            cacheBust: true,
+            attributes: { 'data-origin': 'lodash-cdn' },
+          });
+
+          console.log('Lodash loaded?', typeof window._ === 'function');
+          console.log('_.chunk([1,2,3,4], 2) →', window._.chunk([1, 2, 3, 4], 2));
+        } catch (error) {
+          console.error('Failed to load script:', error);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    Open the console to see the output.
+  </body>
+</html>

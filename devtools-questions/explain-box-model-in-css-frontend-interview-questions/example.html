@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Box Model Demo</title>
+    <style>
+      body { font-family: system-ui, sans-serif; padding: 2rem; background: #0f172a; color: #e2e8f0; }
+      .box {
+        width: 300px;
+        margin: 24px;
+        padding: 24px;
+        border: 8px solid #38bdf8;
+        background: rgba(56, 189, 248, 0.15);
+      }
+      .box::before {
+        content: 'content';
+        display: block;
+        background: rgba(15, 23, 42, 0.7);
+        padding: 24px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Box Model</h1>
+    <p>The highlighted rectangle shows content, padding, border, and margin in the default <code>content-box</code> mode.</p>
+    <div class="box"></div>
+  </body>
+</html>

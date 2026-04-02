@@ -1,0 +1,107 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0b1120;
+  color: #e2e8f0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 64px 16px;
+}
+
+.velocity-chart {
+  width: min(900px, 100%);
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: 0 30px 70px rgba(2, 6, 23, 0.55);
+}
+
+.velocity-chart header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.velocity-chart header p {
+  margin: 8px 0 24px;
+  color: #94a3b8;
+}
+
+.velocity-chart__grid {
+  display: grid;
+  gap: 18px;
+}
+
+.velocity-card {
+  background: #111c32;
+  border-radius: 18px;
+  padding: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.velocity-card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.velocity-card__bars {
+  display: grid;
+  gap: 10px;
+}
+
+.velocity-card__bar {
+  position: relative;
+  border-radius: 12px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.velocity-card__bar--committed {
+  background: linear-gradient(135deg, rgba(147, 197, 253, 0.35), #3b82f6);
+}
+
+.velocity-card__bar--completed {
+  background: linear-gradient(135deg, rgba(134, 239, 172, 0.35), #22c55e);
+}
+
+.velocity-card__bar span {
+  mix-blend-mode: screen;
+}
+
+.velocity-card footer {
+  display: flex;
+  gap: 16px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.velocity-card__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.velocity-card__label::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.velocity-card__label.committed::before {
+  background: #60a5fa;
+}
+
+.velocity-card__label.completed::before {
+  background: #34d399;
+}
