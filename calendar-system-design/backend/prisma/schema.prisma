@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum CalendarRole {
+  OWNER
+  EDITOR
+  VIEWER
+}
+
+enum AttendanceStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+}
+
+enum InviteStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+  TENTATIVE
+}
+
+model User {
+  id           String                @id @default(cuid())
+  email        String                @unique
+  name         String?
+  calendars    Calendar[]            @relation("CalendarOwner")
+  memberships  CalendarMembership[]
+  events       Event[]               @relation("EventOrganizer")
+  invites      Invite[]              @relation("InviteRecipient")
+  createdAt    DateTime              @default(now())
+  updatedAt    DateTime              @updatedAt
+}
+
+model Calendar {
+  id           String                @id @default(cuid())
+  name         String
+  description  String?
+  ownerId      String
+  owner        User                  @relation("CalendarOwner", fields: [ownerId], references: [id])
+  memberships  CalendarMembership[]
+  events       Event[]
+  createdAt    DateTime              @default(now())
+  updatedAt    DateTime              @updatedAt
+}
+
+model CalendarMembership {
+  id         String       @id @default(cuid())
+  calendarId String
+  userId     String
+  role       CalendarRole @default(VIEWER)
+  calendar   Calendar     @relation(fields: [calendarId], references: [id])
+  user       User         @relation(fields: [userId], references: [id])
+  createdAt  DateTime     @default(now())
+
+  @@unique([calendarId, userId])
+}
+
+model Event {
+  id                  String             @id @default(cuid())
+  calendarId          String
+  organizerId         String
+  title               String
+  description         String?
+  location            String?
+  start               DateTime
+  end                 DateTime
+  isAllDay            Boolean            @default(false)
+  recurrenceRule      String?
+  recurrenceEnd       DateTime?
+  recurrenceTimezone  String?
+  calendar            Calendar           @relation(fields: [calendarId], references: [id])
+  organizer           User               @relation("EventOrganizer", fields: [organizerId], references: [id])
+  attendees           EventAttendee[]
+  invites             Invite[]
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+}
+
+model EventAttendee {
+  id        String            @id @default(cuid())
+  eventId   String
+  userId    String
+  status    AttendanceStatus  @default(PENDING)
+  event     Event             @relation(fields: [eventId], references: [id])
+  user      User              @relation(fields: [userId], references: [id])
+  createdAt DateTime          @default(now())
+
+  @@unique([eventId, userId])
+}
+
+model Invite {
+  id           String        @id @default(cuid())
+  eventId      String
+  email        String
+  status       InviteStatus  @default(PENDING)
+  responseAt   DateTime?
+  recipientId  String?
+  event        Event         @relation(fields: [eventId], references: [id])
+  recipient    User?         @relation("InviteRecipient", fields: [recipientId], references: [id])
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@unique([eventId, email])
+}
