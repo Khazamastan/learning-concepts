@@ -16,6 +16,7 @@ export const concepts = [
   { id: 'offline-first', title: 'Offline-first & Service Workers', component: () => import('./offline-first.jsx') },
   { id: 'error-handling', title: 'Error Handling & Graceful Degradation', component: () => import('./error-handling.jsx') },
   { id: 'feature-flags', title: 'Feature Flags & A/B Testing', component: () => import('./feature-flags.jsx') },
+  { id: 'toast-notifications', title: 'Toast Notifications & UX Micro-feedback', component: () => import('./toast-notifications.jsx') },
   { id: 'web-security', title: 'Security: XSS, CSRF, CSP, SameSite', component: () => import('./web-security.jsx') },
   { id: 'observability', title: 'Observability: Logging & Error Tracking', component: () => import('./observability.jsx') },
   { id: 'core-web-vitals', title: 'Core Web Vitals (LCP, CLS, INP, TTFB, FID)', component: () => import('./core-web-vitals.jsx') }

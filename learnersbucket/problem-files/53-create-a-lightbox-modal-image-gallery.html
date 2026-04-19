@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem 53 - Lightbox Modal Image Gallery</title>
+  <style>
+    :root {
+      --bg: #f5f6fb;
+      --panel: #fff;
+      --text: #151515;
+      --muted: #666;
+      --border: #ddd;
+      --accent: #0057ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: var(--bg);
+      color: var(--text);
+      padding: 22px;
+    }
+
+    .shell {
+      max-width: 1020px;
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      border: 1px solid #d6d6d6;
+      overflow: hidden;
+      cursor: pointer;
+      padding: 0;
+      background: #000;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 180ms ease;
+    }
+
+    .thumb:hover img { transform: scale(1.05); }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.86);
+      display: none;
+      z-index: 40;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .overlay.open { display: grid; }
+
+    .lightbox {
+      width: min(1000px, 100%);
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 72vh;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .actions { display: flex; gap: 10px; }
+
+    button, select {
+      border: 1px solid #d7d7d7;
+      border-radius: 8px;
+      padding: 7px 10px;
+      background: #fff;
+    }
+
+    .overlay .actions button {
+      background: #111;
+      color: #fff;
+      border-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <section class="shell">
+    <h2 style="margin:0;">Lightbox (Modal Image Gallery)</h2>
+    <div class="row">
+      <label>
+        Approach:
+        <select id="approach">
+          <option value="direct">1) Direct listeners per thumbnail</option>
+          <option value="delegate">2) Event delegation on gallery</option>
+          <option value="hash">3) URL hash deep-link lightbox</option>
+        </select>
+      </label>
+      <span id="status" style="color:#666;">Ready</span>
+    </div>
+
+    <div class="grid" id="gallery"></div>
+  </section>
+
+  <div class="overlay" id="overlay">
+    <div class="lightbox" id="lightbox">
+      <img id="lightImage" alt="lightbox" />
+      <div class="actions">
+        <button id="prev" type="button">Prev</button>
+        <button id="next" type="button">Next</button>
+        <button id="close" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80'
+    ];
+
+    const approach = document.getElementById('approach');
+    const status = document.getElementById('status');
+    const gallery = document.getElementById('gallery');
+    const overlay = document.getElementById('overlay');
+    const lightImage = document.getElementById('lightImage');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const closeBtn = document.getElementById('close');
+
+    gallery.innerHTML = images
+      .map(
+        (src, idx) =>
+          `<button class="thumb" data-index="${idx}" type="button"><img src="${src}" alt="thumb-${idx + 1}"/></button>`
+      )
+      .join('');
+
+    const thumbs = Array.from(document.querySelectorAll('.thumb'));
+    let index = 0;
+    let cleanup = null;
+
+    function render() {
+      lightImage.src = images[index];
+      status.textContent = `Viewing image ${index + 1} / ${images.length}`;
+    }
+
+    function openAt(i) {
+      index = (i + images.length) % images.length;
+      render();
+      overlay.classList.add('open');
+    }
+
+    function closeLightbox() {
+      overlay.classList.remove('open');
+      status.textContent = 'Ready';
+    }
+
+    prev.addEventListener('click', () => {
+      index = (index - 1 + images.length) % images.length;
+      render();
+      if (approach.value === 'hash') location.hash = `img-${index + 1}`;
+    });
+
+    next.addEventListener('click', () => {
+      index = (index + 1) % images.length;
+      render();
+      if (approach.value === 'hash') location.hash = `img-${index + 1}`;
+    });
+
+    closeBtn.addEventListener('click', () => {
+      if (approach.value === 'hash') {
+        history.replaceState('', document.title, window.location.pathname + window.location.search);
+      }
+      closeLightbox();
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeBtn.click();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (!overlay.classList.contains('open')) return;
+      if (e.key === 'Escape') closeBtn.click();
+      if (e.key === 'ArrowRight') next.click();
+      if (e.key === 'ArrowLeft') prev.click();
+    });
+
+    function setupDirect() {
+      const listeners = thumbs.map((thumb) => {
+        const onClick = () => openAt(Number(thumb.dataset.index));
+        thumb.addEventListener('click', onClick);
+        return () => thumb.removeEventListener('click', onClick);
+      });
+
+      status.textContent = 'Approach 1 active';
+      return () => listeners.forEach((off) => off());
+    }
+
+    function setupDelegate() {
+      const onClick = (e) => {
+        const btn = e.target.closest('.thumb');
+        if (!btn) return;
+        openAt(Number(btn.dataset.index));
+      };
+
+      gallery.addEventListener('click', onClick);
+      status.textContent = 'Approach 2 active';
+
+      return () => gallery.removeEventListener('click', onClick);
+    }
+
+    function setupHash() {
+      const onClick = (e) => {
+        const btn = e.target.closest('.thumb');
+        if (!btn) return;
+        const i = Number(btn.dataset.index);
+        location.hash = `img-${i + 1}`;
+      };
+
+      const onHash = () => {
+        const match = location.hash.match(/^#img-(\d+)$/);
+        if (!match) {
+          closeLightbox();
+          return;
+        }
+        openAt(Number(match[1]) - 1);
+      };
+
+      gallery.addEventListener('click', onClick);
+      window.addEventListener('hashchange', onHash);
+      onHash();
+
+      status.textContent = 'Approach 3 active (URL hash)';
+
+      return () => {
+        gallery.removeEventListener('click', onClick);
+        window.removeEventListener('hashchange', onHash);
+      };
+    }
+
+    function mount(mode) {
+      cleanup?.();
+      closeLightbox();
+      if (mode === 'delegate') cleanup = setupDelegate();
+      else if (mode === 'hash') cleanup = setupHash();
+      else cleanup = setupDirect();
+    }
+
+    approach.addEventListener('change', (e) => mount(e.target.value));
+    mount('direct');
+  </script>
+</body>
+</html>

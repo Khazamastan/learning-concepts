@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem 52 - Responsive Slideshow Gallery</title>
+  <style>
+    :root {
+      --bg: #eef3ff;
+      --panel: #fff;
+      --text: #131313;
+      --muted: #666;
+      --border: #ddd;
+      --accent: #225dff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: linear-gradient(140deg, #dde8ff, var(--bg));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+    }
+
+    .shell {
+      width: min(980px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.1);
+      display: grid;
+      gap: 12px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid #d7d7d7;
+      background: #000;
+    }
+
+    .track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 420ms ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .fade-layer {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .fade-layer img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 420ms ease;
+      opacity: 0;
+    }
+
+    .fade-layer img.active { opacity: 1; }
+
+    .snap {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      height: 100%;
+      scrollbar-width: none;
+    }
+
+    .snap::-webkit-scrollbar { display: none; }
+
+    .snap .slide { scroll-snap-align: start; }
+
+    button, select {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fff;
+      padding: 6px 10px;
+    }
+
+    .status { color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <section class="shell">
+    <h2 style="margin:0;">Responsive Slideshow Gallery</h2>
+    <div class="row">
+      <label>
+        Approach:
+        <select id="approach">
+          <option value="translate">1) TranslateX Slider</option>
+          <option value="fade">2) Fade Transitions</option>
+          <option value="snap">3) Scroll Snap Carousel</option>
+        </select>
+      </label>
+      <button id="prev">Prev</button>
+      <button id="next">Next</button>
+      <button id="toggle">Pause</button>
+      <span class="status" id="status">Slide 1</span>
+    </div>
+
+    <div class="viewport" id="viewport"></div>
+  </section>
+
+  <script>
+    const images = [
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80'
+    ];
+
+    const approach = document.getElementById('approach');
+    const viewport = document.getElementById('viewport');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const toggle = document.getElementById('toggle');
+    const status = document.getElementById('status');
+
+    let index = 0;
+    let intervalId = null;
+    let paused = false;
+    let cleanup = null;
+
+    function updateStatus() {
+      status.textContent = `Slide ${index + 1} / ${images.length}`;
+    }
+
+    function startAutoplay(stepFn) {
+      clearInterval(intervalId);
+      if (paused) return;
+      intervalId = setInterval(() => {
+        index = (index + 1) % images.length;
+        stepFn();
+      }, 2200);
+    }
+
+    function setupTranslate() {
+      viewport.innerHTML = `
+        <div class="track" id="track">
+          ${images.map((src) => `<figure class="slide"><img src="${src}" alt="slide"/></figure>`).join('')}
+        </div>
+      `;
+
+      const track = document.getElementById('track');
+      const render = () => {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        updateStatus();
+      };
+
+      render();
+      startAutoplay(render);
+
+      return {
+        next: () => { index = (index + 1) % images.length; render(); },
+        prev: () => { index = (index - 1 + images.length) % images.length; render(); },
+        pause: () => startAutoplay(render),
+        destroy: () => clearInterval(intervalId)
+      };
+    }
+
+    function setupFade() {
+      viewport.innerHTML = `
+        <div class="fade-layer" id="fadeLayer">
+          ${images.map((src, i) => `<img class="${i === index ? 'active' : ''}" src="${src}" alt="slide"/>`).join('')}
+        </div>
+      `;
+
+      const nodes = Array.from(viewport.querySelectorAll('img'));
+      const render = () => {
+        nodes.forEach((el, i) => el.classList.toggle('active', i === index));
+        updateStatus();
+      };
+
+      render();
+      startAutoplay(render);
+
+      return {
+        next: () => { index = (index + 1) % images.length; render(); },
+        prev: () => { index = (index - 1 + images.length) % images.length; render(); },
+        pause: () => startAutoplay(render),
+        destroy: () => clearInterval(intervalId)
+      };
+    }
+
+    function setupSnap() {
+      viewport.innerHTML = `
+        <div class="snap" id="snap">
+          ${images.map((src) => `<figure class="slide"><img src="${src}" alt="slide"/></figure>`).join('')}
+        </div>
+      `;
+
+      const snap = document.getElementById('snap');
+
+      const render = () => {
+        snap.scrollTo({ left: index * snap.clientWidth, behavior: 'smooth' });
+        updateStatus();
+      };
+
+      const onScroll = () => {
+        const i = Math.round(snap.scrollLeft / snap.clientWidth);
+        index = Math.max(0, Math.min(images.length - 1, i));
+        updateStatus();
+      };
+
+      snap.addEventListener('scroll', onScroll, { passive: true });
+      render();
+      startAutoplay(render);
+
+      return {
+        next: () => { index = (index + 1) % images.length; render(); },
+        prev: () => { index = (index - 1 + images.length) % images.length; render(); },
+        pause: () => startAutoplay(render),
+        destroy: () => {
+          clearInterval(intervalId);
+          snap.removeEventListener('scroll', onScroll);
+        }
+      };
+    }
+
+    let api = null;
+
+    function mount(mode) {
+      api?.destroy?.();
+      if (mode === 'fade') api = setupFade();
+      else if (mode === 'snap') api = setupSnap();
+      else api = setupTranslate();
+    }
+
+    approach.addEventListener('change', (e) => mount(e.target.value));
+    next.addEventListener('click', () => api?.next?.());
+    prev.addEventListener('click', () => api?.prev?.());
+    toggle.addEventListener('click', () => {
+      paused = !paused;
+      toggle.textContent = paused ? 'Play' : 'Pause';
+      api?.pause?.();
+    });
+
+    mount('translate');
+  </script>
+</body>
+</html>

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import './styles.css';
 
 const PAGE_SIZE = 18;
-const TOTAL_ARTICLES = 180;
+const TOTAL_ARTICLES = 15;
 
 const NEWS = Array.from({ length: TOTAL_ARTICLES }, (_, index) => {
   const id = index + 1;

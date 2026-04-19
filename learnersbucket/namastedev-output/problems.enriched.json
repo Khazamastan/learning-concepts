@@ -1,0 +1,1451 @@
+{
+  "generatedAt": "2026-04-19T04:54:37.413Z",
+  "totalProblems": 37,
+  "curatedCount": 37,
+  "fallbackCount": 0,
+  "problems": [
+    {
+      "title": "pyramid pattern",
+      "url": "https://namastedev.com/practice/pyramid-pattern",
+      "page": 1,
+      "rowIndex": 1,
+      "columns": {
+        "Title": "pyramid pattern",
+        "Description": "Build a centered pyramid of * characters using loops.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Tcs"
+      },
+      "description": "Build a centered pyramid of * characters using loops.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given an integer n, build a centered pyramid pattern using * where row i contains (2*i - 1) stars and leading spaces so that the pyramid is centered.",
+        "examples": [
+          {
+            "input": "n = 4",
+            "output": "\"   *\\n  ***\\n *****\\n*******\"",
+            "explanation": "Each row grows by 2 stars and decreases one leading space."
+          },
+          {
+            "input": "n = 1",
+            "output": "\"*\"",
+            "explanation": "Single row is the smallest valid pyramid."
+          }
+        ],
+        "code": "function pyramidPattern(n) {\n  if (!Number.isInteger(n) || n <= 0) return '';\n\n  const rows = [];\n  for (let i = 1; i <= n; i += 1) {\n    const spaces = ' '.repeat(n - i);\n    const stars = '*'.repeat(2 * i - 1);\n    rows.push(spaces + stars);\n  }\n\n  return rows.join('\\n');\n}",
+        "complexity": {
+          "time": "O(n^2)",
+          "space": "O(n^2) due to output size"
+        }
+      }
+    },
+    {
+      "title": "Deep Omit",
+      "url": "https://namastedev.com/practice/deep-omit",
+      "page": 1,
+      "rowIndex": 2,
+      "columns": {
+        "Title": "Deep Omit",
+        "Description": "Remove specified keys from a deeply nested object or array.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Airbnb, Salesforce, Swiggy"
+      },
+      "description": "Remove specified keys from a deeply nested object or array.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given a nested object/array and a list of keys, remove those keys at every depth while preserving the rest of the structure.",
+        "examples": [
+          {
+            "input": "obj = { a: 1, b: { c: 2, d: 3 }, e: [{ c: 4, f: 5 }] }, keys = [\"c\"]",
+            "output": "{ a: 1, b: { d: 3 }, e: [{ f: 5 }] }",
+            "explanation": "Key c is removed everywhere in objects, including objects inside arrays."
+          },
+          {
+            "input": "obj = { keep: true }, keys = [\"x\"]",
+            "output": "{ keep: true }",
+            "explanation": "If key does not exist, object remains unchanged."
+          }
+        ],
+        "code": "function deepOmit(value, keysToOmit) {\n  const blocked = new Set(keysToOmit);\n\n  function walk(node) {\n    if (Array.isArray(node)) {\n      return node.map(walk);\n    }\n\n    if (node && typeof node === 'object') {\n      const out = {};\n      for (const [key, val] of Object.entries(node)) {\n        if (blocked.has(key)) continue;\n        out[key] = walk(val);\n      }\n      return out;\n    }\n\n    return node;\n  }\n\n  return walk(value);\n}",
+        "complexity": {
+          "time": "O(N)",
+          "space": "O(H) recursion + output"
+        }
+      }
+    },
+    {
+      "title": "Debounce",
+      "url": "https://namastedev.com/practice/debounce",
+      "page": 1,
+      "rowIndex": 3,
+      "columns": {
+        "Title": "Debounce",
+        "Description": "Implement a `debounce` function that limits how often a given function can be called.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Twitter, Stripe, Uber, Ola"
+      },
+      "description": "Implement a `debounce` function that limits how often a given function can be called.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Implement debounce(fn, wait) so fn runs only after there has been no new call for wait milliseconds. Preserve this and latest arguments.",
+        "examples": [
+          {
+            "input": "Calls at t=0ms, 50ms, 90ms with wait=100ms",
+            "output": "Only one execution at ~190ms with last call arguments",
+            "explanation": "Timer resets on every new call."
+          },
+          {
+            "input": "debounced.cancel()",
+            "output": "Pending invocation is dropped",
+            "explanation": "Useful when component unmounts or route changes."
+          }
+        ],
+        "code": "function debounce(fn, wait = 0) {\n  let timer = null;\n  let lastArgs;\n  let lastThis;\n\n  function invoke() {\n    const result = fn.apply(lastThis, lastArgs);\n    lastArgs = undefined;\n    lastThis = undefined;\n    return result;\n  }\n\n  function debounced(...args) {\n    lastArgs = args;\n    lastThis = this;\n\n    if (timer) clearTimeout(timer);\n    timer = setTimeout(() => {\n      timer = null;\n      invoke();\n    }, wait);\n  }\n\n  debounced.cancel = function () {\n    if (timer) clearTimeout(timer);\n    timer = null;\n    lastArgs = undefined;\n    lastThis = undefined;\n  };\n\n  debounced.flush = function () {\n    if (!timer) return;\n    clearTimeout(timer);\n    timer = null;\n    return invoke();\n  };\n\n  return debounced;\n}",
+        "complexity": {
+          "time": "O(1) per call",
+          "space": "O(1)"
+        }
+      }
+    },
+    {
+      "title": "Word Search",
+      "url": "https://namastedev.com/practice/word-search",
+      "page": 1,
+      "rowIndex": 4,
+      "columns": {
+        "Title": "Word Search",
+        "Description": "Your task is to find all the words from the list that can be constructed from letters of sequentially adjacent cells in the board.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Meta, Google"
+      },
+      "description": "Your task is to find all the words from the list that can be constructed from letters of sequentially adjacent cells in the board.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given a 2D board and a list of words, return all words that can be formed by sequentially adjacent cells (up/down/left/right) without reusing a cell in the same word path.",
+        "examples": [
+          {
+            "input": "board = [[\"o\",\"a\",\"a\",\"n\"],[\"e\",\"t\",\"a\",\"e\"],[\"i\",\"h\",\"k\",\"r\"],[\"i\",\"f\",\"l\",\"v\"]], words = [\"oath\",\"pea\",\"eat\",\"rain\"]",
+            "output": "[\"oath\", \"eat\"]",
+            "explanation": "Only oath and eat can be traced by valid adjacent paths."
+          },
+          {
+            "input": "board = [[\"a\",\"b\"],[\"c\",\"d\"]], words = [\"abcb\"]",
+            "output": "[]",
+            "explanation": "Cell reuse in a single path is not allowed."
+          }
+        ],
+        "code": "function findWords(board, words) {\n  if (!board.length || !board[0].length || !words.length) return [];\n\n  const root = {};\n  for (const word of words) {\n    let node = root;\n    for (const ch of word) {\n      if (!node[ch]) node[ch] = {};\n      node = node[ch];\n    }\n    node.word = word;\n  }\n\n  const rows = board.length;\n  const cols = board[0].length;\n  const found = [];\n  const dirs = [\n    [1, 0],\n    [-1, 0],\n    [0, 1],\n    [0, -1]\n  ];\n\n  function dfs(r, c, parent) {\n    const ch = board[r][c];\n    const node = parent[ch];\n    if (!node) return;\n\n    if (node.word) {\n      found.push(node.word);\n      node.word = null;\n    }\n\n    board[r][c] = '#';\n\n    for (const [dr, dc] of dirs) {\n      const nr = r + dr;\n      const nc = c + dc;\n      if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) continue;\n      if (board[nr][nc] === '#') continue;\n      dfs(nr, nc, node);\n    }\n\n    board[r][c] = ch;\n\n    if (Object.keys(node).length === 0) {\n      delete parent[ch];\n    }\n  }\n\n  for (let r = 0; r < rows; r += 1) {\n    for (let c = 0; c < cols; c += 1) {\n      dfs(r, c, root);\n    }\n  }\n\n  return found;\n}",
+        "complexity": {
+          "time": "O(M*N*4^L) worst case, usually lower with Trie pruning",
+          "space": "O(total chars in words + L recursion)"
+        }
+      }
+    },
+    {
+      "title": "Combination Sum",
+      "url": "https://namastedev.com/practice/combination-sum",
+      "page": 1,
+      "rowIndex": 5,
+      "columns": {
+        "Title": "Combination Sum",
+        "Description": "Write a function that returns all unique combinations of candidates where the chosen numbers sum to the target.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Meesho, Airbnb"
+      },
+      "description": "Write a function that returns all unique combinations of candidates where the chosen numbers sum to the target.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given distinct candidate numbers and a target, return all unique combinations where chosen numbers sum to target. You can use a candidate multiple times.",
+        "examples": [
+          {
+            "input": "candidates = [2,3,6,7], target = 7",
+            "output": "[[2,2,3],[7]]",
+            "explanation": "Both combinations sum to 7."
+          },
+          {
+            "input": "candidates = [2,4], target = 5",
+            "output": "[]",
+            "explanation": "No valid combination exists."
+          }
+        ],
+        "code": "function combinationSum(candidates, target) {\n  const nums = [...new Set(candidates)].sort((a, b) => a - b);\n  const result = [];\n  const path = [];\n\n  function backtrack(start, remaining) {\n    if (remaining === 0) {\n      result.push([...path]);\n      return;\n    }\n\n    for (let i = start; i < nums.length; i += 1) {\n      const value = nums[i];\n      if (value > remaining) break;\n\n      path.push(value);\n      backtrack(i, remaining - value);\n      path.pop();\n    }\n  }\n\n  backtrack(0, target);\n  return result;\n}",
+        "complexity": {
+          "time": "Exponential in number of combinations",
+          "space": "O(target) recursion depth (excluding output)"
+        }
+      }
+    },
+    {
+      "title": "Map Async Limit",
+      "url": "https://namastedev.com/practice/map-async-limit",
+      "page": 1,
+      "rowIndex": 6,
+      "columns": {
+        "Title": "Map Async Limit",
+        "Description": "Run an asynchronous function over an array with limited concurrency.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Netflix, Uber, Tcs"
+      },
+      "description": "Run an asynchronous function over an array with limited concurrency.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Run an async mapper over an array while allowing at most limit operations in parallel, and return results in input order.",
+        "examples": [
+          {
+            "input": "items = [1,2,3,4], limit = 2, mapper = async x => x * 2",
+            "output": "[2,4,6,8]",
+            "explanation": "Only 2 mapper calls run concurrently at any time."
+          },
+          {
+            "input": "items = [], limit = 3",
+            "output": "[]",
+            "explanation": "Empty input returns immediately."
+          }
+        ],
+        "code": "async function mapAsyncLimit(items, limit, mapper) {\n  if (!Array.isArray(items)) throw new TypeError('items must be an array');\n  if (!Number.isInteger(limit) || limit <= 0) {\n    throw new RangeError('limit must be a positive integer');\n  }\n\n  const result = new Array(items.length);\n  let nextIndex = 0;\n\n  async function worker() {\n    while (true) {\n      const current = nextIndex;\n      nextIndex += 1;\n      if (current >= items.length) break;\n      result[current] = await mapper(items[current], current, items);\n    }\n  }\n\n  const workerCount = Math.min(limit, items.length);\n  const workers = Array.from({ length: workerCount }, () => worker());\n  await Promise.all(workers);\n\n  return result;\n}",
+        "complexity": {
+          "time": "O(n) async tasks",
+          "space": "O(n)"
+        }
+      }
+    },
+    {
+      "title": "Search Rotated Array",
+      "url": "https://namastedev.com/practice/search-rotated-array",
+      "page": 1,
+      "rowIndex": 7,
+      "columns": {
+        "Title": "Search Rotated Array",
+        "Description": "Search for a target in a rotated sorted array",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Cisco, Yahoo, Intel, Oyo"
+      },
+      "description": "Search for a target in a rotated sorted array",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given a rotated sorted array with distinct elements, return the index of target using O(log n) time, or -1 if not present.",
+        "examples": [
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 0",
+            "output": "4",
+            "explanation": "0 is located at index 4."
+          },
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 3",
+            "output": "-1",
+            "explanation": "3 does not exist in the array."
+          }
+        ],
+        "code": "function searchRotatedArray(nums, target) {\n  let left = 0;\n  let right = nums.length - 1;\n\n  while (left <= right) {\n    const mid = left + ((right - left) >> 1);\n\n    if (nums[mid] === target) return mid;\n\n    if (nums[left] <= nums[mid]) {\n      if (nums[left] <= target && target < nums[mid]) {\n        right = mid - 1;\n      } else {\n        left = mid + 1;\n      }\n    } else {\n      if (nums[mid] < target && target <= nums[right]) {\n        left = mid + 1;\n      } else {\n        right = mid - 1;\n      }\n    }\n  }\n\n  return -1;\n}",
+        "complexity": {
+          "time": "O(log n)",
+          "space": "O(1)"
+        }
+      }
+    },
+    {
+      "title": "Sum of Consecutive Integers",
+      "url": "https://namastedev.com/practice/sum-of-consecutive-integers",
+      "page": 1,
+      "rowIndex": 8,
+      "columns": {
+        "Title": "Sum of Consecutive Integers",
+        "Description": "Determine if a given number can be expressed as the sum of two or more consecutive positive integers.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Amazon, Microsoft, Meta"
+      },
+      "description": "Determine if a given number can be expressed as the sum of two or more consecutive positive integers.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Return true if n can be represented as the sum of two or more consecutive positive integers, otherwise false.",
+        "examples": [
+          {
+            "input": "n = 15",
+            "output": "true",
+            "explanation": "15 = 1+2+3+4+5 and also 4+5+6."
+          },
+          {
+            "input": "n = 8",
+            "output": "false",
+            "explanation": "8 cannot be written as sum of >=2 consecutive positive integers."
+          }
+        ],
+        "code": "function canBeSumOfConsecutiveIntegers(n) {\n  if (!Number.isInteger(n) || n < 3) return false;\n\n  for (let len = 2; (len * (len + 1)) / 2 <= n; len += 1) {\n    const numerator = n - (len * (len - 1)) / 2;\n    if (numerator > 0 && numerator % len === 0) {\n      return true;\n    }\n  }\n\n  return false;\n}",
+        "complexity": {
+          "time": "O(sqrt(n))",
+          "space": "O(1)"
+        }
+      }
+    },
+    {
+      "title": "PromiseAll With Concurrency Limit",
+      "url": "https://namastedev.com/practice/promiseall-with-concurrency-limit",
+      "page": 1,
+      "rowIndex": 9,
+      "columns": {
+        "Title": "PromiseAll With Concurrency Limit",
+        "Description": "Implement a function that works like `Promise.all()` but with a concurrency limit.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Netflix, Uber, Paytm"
+      },
+      "description": "Implement a function that works like `Promise.all()` but with a concurrency limit.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Implement Promise.all behavior for an array of async task functions, but run at most limit tasks in parallel and preserve result order.",
+        "examples": [
+          {
+            "input": "tasks = [() => Promise.resolve(1), () => Promise.resolve(2)], limit = 1",
+            "output": "[1,2]",
+            "explanation": "Runs sequentially due to limit=1 but keeps output ordering."
+          },
+          {
+            "input": "One task rejects",
+            "output": "Promise rejects immediately with that error",
+            "explanation": "Matches Promise.all fail-fast behavior."
+          }
+        ],
+        "code": "function promiseAllWithConcurrencyLimit(taskFns, limit) {\n  return new Promise((resolve, reject) => {\n    if (!Array.isArray(taskFns)) {\n      reject(new TypeError('taskFns must be an array'));\n      return;\n    }\n\n    if (!Number.isInteger(limit) || limit <= 0) {\n      reject(new RangeError('limit must be a positive integer'));\n      return;\n    }\n\n    const total = taskFns.length;\n    if (total === 0) {\n      resolve([]);\n      return;\n    }\n\n    const results = new Array(total);\n    let nextIndex = 0;\n    let inFlight = 0;\n    let completed = 0;\n    let stopped = false;\n\n    function launch() {\n      if (stopped) return;\n\n      while (inFlight < limit && nextIndex < total) {\n        const current = nextIndex;\n        nextIndex += 1;\n\n        const task = taskFns[current];\n        if (typeof task !== 'function') {\n          stopped = true;\n          reject(new TypeError('Each item in taskFns must be a function'));\n          return;\n        }\n\n        inFlight += 1;\n\n        Promise.resolve()\n          .then(() => task())\n          .then((value) => {\n            results[current] = value;\n            completed += 1;\n            inFlight -= 1;\n\n            if (completed === total) {\n              resolve(results);\n              return;\n            }\n\n            launch();\n          })\n          .catch((error) => {\n            stopped = true;\n            reject(error);\n          });\n      }\n    }\n\n    launch();\n  });\n}",
+        "complexity": {
+          "time": "O(n) async tasks",
+          "space": "O(n)"
+        }
+      }
+    },
+    {
+      "title": "JSON.stringify",
+      "url": "https://namastedev.com/practice/jsonstringify",
+      "page": 1,
+      "rowIndex": 10,
+      "columns": {
+        "Title": "JSON.stringify",
+        "Description": "Implement a custom version of `JSON.stringify`.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Adobe, Stripe, Paytm"
+      },
+      "description": "Implement a custom version of `JSON.stringify`.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Implement a custom JSON stringify function for primitives, arrays, and objects with cycle detection and behavior close to native JSON.stringify.",
+        "examples": [
+          {
+            "input": "value = { a: 1, b: [true, null, \"x\"] }",
+            "output": "\"{\\\"a\\\":1,\\\"b\\\":[true,null,\\\"x\\\"]}\"",
+            "explanation": "Objects and arrays are serialized recursively."
+          },
+          {
+            "input": "value has circular reference",
+            "output": "Throws TypeError",
+            "explanation": "Circular structures cannot be serialized to standard JSON."
+          }
+        ],
+        "code": "function customJSONStringify(value) {\n  const seen = new Set();\n  const escapeMap = {\n    '\"': '\\\\\"',\n    '\\\\': '\\\\\\\\',\n    '\\b': '\\\\b',\n    '\\f': '\\\\f',\n    '\\n': '\\\\n',\n    '\\r': '\\\\r',\n    '\\t': '\\\\t'\n  };\n\n  function quote(str) {\n    return (\n      '\"' +\n      str.replace(/[\"\\\\\\u0000-\\u001F]/g, (ch) => {\n        if (escapeMap[ch]) return escapeMap[ch];\n        const hex = ch.charCodeAt(0).toString(16).padStart(4, '0');\n        return '\\\\u' + hex;\n      }) +\n      '\"'\n    );\n  }\n\n  function serialize(val) {\n    if (val && typeof val.toJSON === 'function') {\n      val = val.toJSON();\n    }\n\n    if (val === null) return 'null';\n\n    const t = typeof val;\n\n    if (t === 'string') return quote(val);\n    if (t === 'number') return Number.isFinite(val) ? String(val) : 'null';\n    if (t === 'boolean') return String(val);\n    if (t === 'bigint') throw new TypeError('Do not know how to serialize a BigInt');\n    if (t === 'undefined' || t === 'function' || t === 'symbol') return undefined;\n\n    if (seen.has(val)) {\n      throw new TypeError('Converting circular structure to JSON');\n    }\n\n    seen.add(val);\n\n    if (Array.isArray(val)) {\n      const parts = val.map((item) => {\n        const out = serialize(item);\n        return out === undefined ? 'null' : out;\n      });\n      seen.delete(val);\n      return '[' + parts.join(',') + ']';\n    }\n\n    const parts = [];\n    for (const key of Object.keys(val)) {\n      const out = serialize(val[key]);\n      if (out !== undefined) {\n        parts.push(quote(key) + ':' + out);\n      }\n    }\n\n    seen.delete(val);\n    return '{' + parts.join(',') + '}';\n  }\n\n  return serialize(value);\n}",
+        "complexity": {
+          "time": "O(N)",
+          "space": "O(H) recursion + cycle set"
+        }
+      }
+    },
+    {
+      "title": "List Format",
+      "url": "https://namastedev.com/practice/list-format",
+      "page": 2,
+      "rowIndex": 1,
+      "columns": {
+        "Title": "List Format",
+        "Description": "Write a function that takes an array of strings and returns a human-readable list",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Twitter, Linkedin, Oyo"
+      },
+      "description": "Write a function that takes an array of strings and returns a human-readable list",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Convert an array of strings into a human-readable list, for example: [\"A\",\"B\",\"C\"] -> \"A, B, and C\".",
+        "examples": [
+          {
+            "input": "items = [\"Alice\", \"Bob\", \"Charlie\"]",
+            "output": "\"Alice, Bob, and Charlie\"",
+            "explanation": "Three or more items are comma-separated with conjunction before the last item."
+          },
+          {
+            "input": "items = [\"Alice\", \"Bob\"]",
+            "output": "\"Alice and Bob\"",
+            "explanation": "Two items are joined directly with conjunction."
+          }
+        ],
+        "code": "function listFormat(items, options = {}) {\n  const conjunction = options.conjunction || 'and';\n  const serialComma = options.serialComma !== false;\n  const clean = items.filter((item) => item !== null && item !== undefined).map(String);\n\n  if (clean.length === 0) return '';\n  if (clean.length === 1) return clean[0];\n  if (clean.length === 2) return clean[0] + ' ' + conjunction + ' ' + clean[1];\n\n  const head = clean.slice(0, -1).join(', ');\n  const comma = serialComma ? ',' : '';\n  const tail = clean[clean.length - 1];\n  return head + comma + ' ' + conjunction + ' ' + tail;\n}",
+        "complexity": {
+          "time": "O(n)",
+          "space": "O(n)"
+        }
+      }
+    },
+    {
+      "title": "Reverse Words in a String",
+      "url": "https://namastedev.com/practice/reverse-words-in-a-string",
+      "page": 2,
+      "rowIndex": 2,
+      "columns": {
+        "Title": "Reverse Words in a String",
+        "Description": "Given an input string s, reverse the order of the words.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Salesforce, Microsoft, Amazon, Meta, Linkedin"
+      },
+      "description": "Given an input string s, reverse the order of the words.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given a string, reverse the order of words and return a string with single spaces between words and no leading/trailing spaces.",
+        "examples": [
+          {
+            "input": "s = \"  hello   world  \"",
+            "output": "\"world hello\"",
+            "explanation": "Extra spaces are normalized."
+          },
+          {
+            "input": "s = \"a good   example\"",
+            "output": "\"example good a\"",
+            "explanation": "Word order is reversed while each word remains unchanged."
+          }
+        ],
+        "code": "function reverseWords(s) {\n  return s.trim().split(/\\s+/).reverse().join(' ');\n}",
+        "complexity": {
+          "time": "O(n)",
+          "space": "O(n)"
+        }
+      }
+    },
+    {
+      "title": "Throttle",
+      "url": "https://namastedev.com/practice/throttle",
+      "page": 2,
+      "rowIndex": 3,
+      "columns": {
+        "Title": "Throttle",
+        "Description": "Implement a Throttle Function",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Twitter, Linkedin, Airbnb"
+      },
+      "description": "Implement a Throttle Function",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Implement throttle(fn, wait) so fn executes at most once per wait milliseconds, with configurable leading/trailing behavior.",
+        "examples": [
+          {
+            "input": "Rapid calls every 20ms with wait=100ms",
+            "output": "Function executes about once every 100ms",
+            "explanation": "Intermediate calls are skipped/coalesced depending on options."
+          },
+          {
+            "input": "options = { leading: false, trailing: true }",
+            "output": "First call is delayed; latest args fire at end of window",
+            "explanation": "Useful for scroll/resize updates."
+          }
+        ],
+        "code": "function throttle(fn, wait = 0, options = {}) {\n  let timer = null;\n  let lastCallTime = 0;\n  let lastArgs;\n  let lastThis;\n\n  const leading = options.leading !== false;\n  const trailing = options.trailing !== false;\n\n  function invoke(now) {\n    lastCallTime = now;\n    fn.apply(lastThis, lastArgs);\n    lastArgs = undefined;\n    lastThis = undefined;\n  }\n\n  function startTimer(remaining) {\n    timer = setTimeout(() => {\n      timer = null;\n      if (trailing && lastArgs) {\n        invoke(Date.now());\n      }\n    }, remaining);\n  }\n\n  return function throttled(...args) {\n    const now = Date.now();\n\n    if (!lastCallTime && !leading) {\n      lastCallTime = now;\n    }\n\n    const remaining = wait - (now - lastCallTime);\n    lastArgs = args;\n    lastThis = this;\n\n    if (remaining <= 0 || remaining > wait) {\n      if (timer) {\n        clearTimeout(timer);\n        timer = null;\n      }\n      invoke(now);\n    } else if (!timer && trailing) {\n      startTimer(remaining);\n    }\n  };\n}",
+        "complexity": {
+          "time": "O(1) per call",
+          "space": "O(1)"
+        }
+      }
+    },
+    {
+      "title": "Flatten Nested Objects",
+      "url": "https://namastedev.com/practice/flatten-nested-objects",
+      "page": 2,
+      "rowIndex": 4,
+      "columns": {
+        "Title": "Flatten Nested Objects",
+        "Description": "Write a function that flattens a nested JavaScript object into a single-level object, where keys represent the path to each value using dot notation.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "DP World"
+      },
+      "description": "Write a function that flattens a nested JavaScript object into a single-level object, where keys represent the path to each value using dot notation.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Flatten a nested object into a single-level object where keys represent paths using dot notation (and array indices when needed).",
+        "examples": [
+          {
+            "input": "obj = { user: { name: \"A\", address: { city: \"Pune\" } } }",
+            "output": "{ \"user.name\": \"A\", \"user.address.city\": \"Pune\" }",
+            "explanation": "Nested keys are joined by dots."
+          },
+          {
+            "input": "obj = { tags: [\"js\", \"ts\"] }",
+            "output": "{ \"tags[0]\": \"js\", \"tags[1]\": \"ts\" }",
+            "explanation": "Array indices are preserved in bracket format."
+          }
+        ],
+        "code": "function flattenNestedObjects(obj) {\n  const out = {};\n\n  function walk(value, path) {\n    if (Array.isArray(value)) {\n      if (value.length === 0) {\n        out[path] = [];\n        return;\n      }\n      for (let i = 0; i < value.length; i += 1) {\n        const nextPath = path ? path + '[' + i + ']' : '[' + i + ']';\n        walk(value[i], nextPath);\n      }\n      return;\n    }\n\n    if (value && typeof value === 'object') {\n      const keys = Object.keys(value);\n      if (keys.length === 0) {\n        out[path] = {};\n        return;\n      }\n\n      for (const key of keys) {\n        const nextPath = path ? path + '.' + key : key;\n        walk(value[key], nextPath);\n      }\n      return;\n    }\n\n    out[path] = value;\n  }\n\n  for (const key of Object.keys(obj)) {\n    walk(obj[key], key);\n  }\n\n  return out;\n}",
+        "complexity": {
+          "time": "O(N)",
+          "space": "O(H) recursion + output"
+        }
+      }
+    },
+    {
+      "title": "Priority Queue",
+      "url": "https://namastedev.com/practice/priority-queue",
+      "page": 2,
+      "rowIndex": 5,
+      "columns": {
+        "Title": "Priority Queue",
+        "Description": "Implement a Priority Queue data structure in JavaScript from scratch.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Paypal, Swiggy"
+      },
+      "description": "Implement a Priority Queue data structure in JavaScript from scratch.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Implement a priority queue using a binary heap. Support insertion, peek, pop/remove highest-priority item, and size queries.",
+        "examples": [
+          {
+            "input": "pq.push(5), pq.push(1), pq.push(3), pq.pop()",
+            "output": "1 (for min-heap comparator)",
+            "explanation": "Smallest element is extracted first in a min-heap."
+          },
+          {
+            "input": "pq.size() after three pushes",
+            "output": "3",
+            "explanation": "Size tracks number of elements in heap."
+          }
+        ],
+        "code": "class PriorityQueue {\n  constructor(compare = (a, b) => a - b) {\n    this.heap = [];\n    this.compare = compare;\n  }\n\n  size() {\n    return this.heap.length;\n  }\n\n  peek() {\n    return this.heap[0];\n  }\n\n  push(value) {\n    this.heap.push(value);\n    this.#bubbleUp(this.heap.length - 1);\n  }\n\n  pop() {\n    if (this.heap.length === 0) return undefined;\n\n    const top = this.heap[0];\n    const last = this.heap.pop();\n\n    if (this.heap.length > 0) {\n      this.heap[0] = last;\n      this.#bubbleDown(0);\n    }\n\n    return top;\n  }\n\n  #bubbleUp(index) {\n    while (index > 0) {\n      const parent = Math.floor((index - 1) / 2);\n      if (this.compare(this.heap[index], this.heap[parent]) >= 0) break;\n      [this.heap[index], this.heap[parent]] = [this.heap[parent], this.heap[index]];\n      index = parent;\n    }\n  }\n\n  #bubbleDown(index) {\n    const n = this.heap.length;\n\n    while (true) {\n      let smallest = index;\n      const left = 2 * index + 1;\n      const right = 2 * index + 2;\n\n      if (left < n && this.compare(this.heap[left], this.heap[smallest]) < 0) {\n        smallest = left;\n      }\n\n      if (right < n && this.compare(this.heap[right], this.heap[smallest]) < 0) {\n        smallest = right;\n      }\n\n      if (smallest === index) break;\n\n      [this.heap[index], this.heap[smallest]] = [this.heap[smallest], this.heap[index]];\n      index = smallest;\n    }\n  }\n}",
+        "complexity": {
+          "time": "push/pop O(log n), peek O(1)",
+          "space": "O(n)"
+        }
+      }
+    },
+    {
+      "title": "Find the Single Element in a Sorted Array",
+      "url": "https://namastedev.com/practice/find-the-single-element-in-a-sorted-array",
+      "page": 2,
+      "rowIndex": 6,
+      "columns": {
+        "Title": "Find the Single Element in a Sorted Array",
+        "Description": "Your task is to find and return the element that appears only once.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Apple, Netflix"
+      },
+      "description": "Your task is to find and return the element that appears only once.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "In a sorted array where every element appears exactly twice except one element that appears once, find that single element in O(log n).",
+        "examples": [
+          {
+            "input": "nums = [1,1,2,3,3,4,4,8,8]",
+            "output": "2",
+            "explanation": "2 is the only value without a pair."
+          },
+          {
+            "input": "nums = [3,3,7,7,10,11,11]",
+            "output": "10",
+            "explanation": "Binary search uses pair-index alignment."
+          }
+        ],
+        "code": "function singleElementInSortedArray(nums) {\n  let left = 0;\n  let right = nums.length - 1;\n\n  while (left < right) {\n    let mid = left + ((right - left) >> 1);\n    if (mid % 2 === 1) mid -= 1;\n\n    if (nums[mid] === nums[mid + 1]) {\n      left = mid + 2;\n    } else {\n      right = mid;\n    }\n  }\n\n  return nums[left];\n}",
+        "complexity": {
+          "time": "O(log n)",
+          "space": "O(1)"
+        }
+      }
+    },
+    {
+      "title": "Flatten Deep Object",
+      "url": "https://namastedev.com/practice/flatten-deep-object",
+      "page": 2,
+      "rowIndex": 7,
+      "columns": {
+        "Title": "Flatten Deep Object",
+        "Description": "Flatten a nested object using dot notation (e.g., `{a: {b: 1}}` → `{'a.b': 1}`).",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Airbnb, Cisco, Flipkart"
+      },
+      "description": "Flatten a nested object using dot notation (e.g., `{a: {b: 1}}` → `{'a.b': 1}`).",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Flatten a nested object into dot-separated key paths. For arrays, index positions are included as part of the key path.",
+        "examples": [
+          {
+            "input": "obj = { a: { b: 1 }, c: [2,3] }",
+            "output": "{ \"a.b\": 1, \"c.0\": 2, \"c.1\": 3 }",
+            "explanation": "All leaf nodes become flat entries."
+          },
+          {
+            "input": "obj = { x: {} }",
+            "output": "{ \"x\": {} }",
+            "explanation": "Empty object is preserved as a leaf value."
+          }
+        ],
+        "code": "function flattenDeepObject(obj) {\n  const out = {};\n\n  function walk(node, path) {\n    if (Array.isArray(node)) {\n      if (node.length === 0) {\n        out[path] = [];\n        return;\n      }\n      for (let i = 0; i < node.length; i += 1) {\n        const nextPath = path ? path + '.' + i : String(i);\n        walk(node[i], nextPath);\n      }\n      return;\n    }\n\n    if (node && typeof node === 'object') {\n      const keys = Object.keys(node);\n      if (keys.length === 0) {\n        out[path] = {};\n        return;\n      }\n      for (const key of keys) {\n        const nextPath = path ? path + '.' + key : key;\n        walk(node[key], nextPath);\n      }\n      return;\n    }\n\n    out[path] = node;\n  }\n\n  for (const key of Object.keys(obj)) {\n    walk(obj[key], key);\n  }\n\n  return out;\n}",
+        "complexity": {
+          "time": "O(N)",
+          "space": "O(H) recursion + output"
+        }
+      }
+    },
+    {
+      "title": "Topological Sort (DFS)",
+      "url": "https://namastedev.com/practice/topological-sort-dfs",
+      "page": 2,
+      "rowIndex": 8,
+      "columns": {
+        "Title": "Topological Sort (DFS)",
+        "Description": "Find a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Meta, Amazon, Atlassian, Uber"
+      },
+      "description": "Find a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given a DAG with vertices labeled 0..V-1 and directed edges [u,v], return a topological ordering using DFS. Return [] when a cycle exists.",
+        "examples": [
+          {
+            "input": "V = 6, edges = [[5,2],[5,0],[4,0],[4,1],[2,3],[3,1]]",
+            "output": "One valid order: [5,4,2,3,1,0]",
+            "explanation": "Every edge direction is respected in the ordering."
+          },
+          {
+            "input": "V = 2, edges = [[0,1],[1,0]]",
+            "output": "[]",
+            "explanation": "Cycle means no topological ordering exists."
+          }
+        ],
+        "code": "function topologicalSortDFS(vertices, edges) {\n  const graph = Array.from({ length: vertices }, () => []);\n  for (const [u, v] of edges) {\n    graph[u].push(v);\n  }\n\n  const state = new Array(vertices).fill(0);\n  const order = [];\n\n  function dfs(node) {\n    if (state[node] === 1) return false;\n    if (state[node] === 2) return true;\n\n    state[node] = 1;\n\n    for (const next of graph[node]) {\n      if (!dfs(next)) return false;\n    }\n\n    state[node] = 2;\n    order.push(node);\n    return true;\n  }\n\n  for (let node = 0; node < vertices; node += 1) {\n    if (state[node] === 0 && !dfs(node)) {\n      return [];\n    }\n  }\n\n  return order.reverse();\n}",
+        "complexity": {
+          "time": "O(V + E)",
+          "space": "O(V + E)"
+        }
+      }
+    },
+    {
+      "title": "Implement Promise Race",
+      "url": "https://namastedev.com/practice/implement-promise-race",
+      "page": 2,
+      "rowIndex": 9,
+      "columns": {
+        "Title": "Implement Promise Race",
+        "Description": "Polyfill `Promise.race()` that resolves or rejects as soon as the first promise in the iterable settles.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Netflix, Reddit, Tcs"
+      },
+      "description": "Polyfill `Promise.race()` that resolves or rejects as soon as the first promise in the iterable settles.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Polyfill Promise.race(iterable): return a promise that settles as soon as the first input promise/value settles.",
+        "examples": [
+          {
+            "input": "race([delayResolve(100, \"A\"), delayResolve(10, \"B\")])",
+            "output": "\"B\"",
+            "explanation": "Fastest settled promise wins."
+          },
+          {
+            "input": "race([Promise.reject(\"E\"), delayResolve(50, \"A\")])",
+            "output": "Rejects with \"E\"",
+            "explanation": "First settled can also be a rejection."
+          }
+        ],
+        "code": "function promiseRace(iterable) {\n  return new Promise((resolve, reject) => {\n    let hasItems = false;\n\n    for (const item of iterable) {\n      hasItems = true;\n      Promise.resolve(item).then(resolve, reject);\n    }\n\n    // If iterable is empty, native Promise.race returns a pending promise.\n    if (!hasItems) {\n      // Intentionally do nothing.\n    }\n  });\n}",
+        "complexity": {
+          "time": "O(n) to register handlers",
+          "space": "O(1) extra"
+        }
+      }
+    },
+    {
+      "title": "Lazy Evaluation",
+      "url": "https://namastedev.com/practice/lazy-evaluation",
+      "page": 2,
+      "rowIndex": 10,
+      "columns": {
+        "Title": "Lazy Evaluation",
+        "Description": "Create a lazy function evaluator that allows chaining of functions",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Apple, Paytm"
+      },
+      "description": "Create a lazy function evaluator that allows chaining of functions",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Create a lazy evaluator that supports function chaining and executes only when value() (or evaluate()) is called.",
+        "examples": [
+          {
+            "input": "lazy(2).add(3).multiply(4).value()",
+            "output": "20",
+            "explanation": "Execution happens at value(), not during chaining."
+          },
+          {
+            "input": "lazy(10).map(x => x - 1).map(x => x * 2).value()",
+            "output": "18",
+            "explanation": "Custom transformations are queued and applied in order."
+          }
+        ],
+        "code": "class LazyValue {\n  constructor(initial) {\n    this.initial = initial;\n    this.operations = [];\n  }\n\n  map(fn) {\n    this.operations.push(fn);\n    return this;\n  }\n\n  add(n) {\n    return this.map((x) => x + n);\n  }\n\n  multiply(n) {\n    return this.map((x) => x * n);\n  }\n\n  value() {\n    return this.operations.reduce((acc, fn) => fn(acc), this.initial);\n  }\n}\n\nfunction lazy(initial) {\n  return new LazyValue(initial);\n}",
+        "complexity": {
+          "time": "O(k) for k chained operations at evaluation",
+          "space": "O(k)"
+        }
+      }
+    },
+    {
+      "title": "Deep Clone Object",
+      "url": "https://namastedev.com/practice/deep-clone-object",
+      "page": 3,
+      "rowIndex": 1,
+      "columns": {
+        "Title": "Deep Clone Object",
+        "Description": "Create a function that performs a deep clone of a given JavaScript object.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Airbnb, Meesho"
+      },
+      "description": "Create a function that performs a deep clone of a given JavaScript object.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Implement deep clone for nested JavaScript values (objects, arrays, Date, RegExp, Map, Set) while handling circular references.",
+        "examples": [
+          {
+            "input": "obj = { a: 1, b: { c: 2 } }",
+            "output": "cloned object with independent nested references",
+            "explanation": "Changing clone.b.c should not mutate original.b.c."
+          },
+          {
+            "input": "obj.self = obj",
+            "output": "clone.self points to clone itself",
+            "explanation": "WeakMap avoids infinite recursion for cycles."
+          }
+        ],
+        "code": "function deepClone(value, seen = new WeakMap()) {\n  if (value === null || typeof value !== 'object') return value;\n\n  if (seen.has(value)) {\n    return seen.get(value);\n  }\n\n  if (value instanceof Date) {\n    return new Date(value.getTime());\n  }\n\n  if (value instanceof RegExp) {\n    return new RegExp(value.source, value.flags);\n  }\n\n  if (value instanceof Map) {\n    const out = new Map();\n    seen.set(value, out);\n    for (const [k, v] of value.entries()) {\n      out.set(deepClone(k, seen), deepClone(v, seen));\n    }\n    return out;\n  }\n\n  if (value instanceof Set) {\n    const out = new Set();\n    seen.set(value, out);\n    for (const v of value.values()) {\n      out.add(deepClone(v, seen));\n    }\n    return out;\n  }\n\n  const out = Array.isArray(value)\n    ? []\n    : Object.create(Object.getPrototypeOf(value));\n\n  seen.set(value, out);\n\n  for (const key of Reflect.ownKeys(value)) {\n    const descriptor = Object.getOwnPropertyDescriptor(value, key);\n    if (!descriptor) continue;\n\n    if ('value' in descriptor) {\n      descriptor.value = deepClone(descriptor.value, seen);\n    }\n\n    Object.defineProperty(out, key, descriptor);\n  }\n\n  return out;\n}",
+        "complexity": {
+          "time": "O(N)",
+          "space": "O(N) including cloned structure and seen map"
+        }
+      }
+    },
+    {
+      "title": "Detect Cycle in an Undirected Connected Graph (DFS)",
+      "url": "https://namastedev.com/practice/detect-cycle-in-an-undirected-connected-graph-dfs",
+      "page": 3,
+      "rowIndex": 2,
+      "columns": {
+        "Title": "Detect Cycle in an Undirected Connected Graph (DFS)",
+        "Description": "Determine whether the component that includes node 0 in an undirected graph contains a cycle using a straightforward depth-first search with parent tracking",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Microsoft, Uber, Adobe"
+      },
+      "description": "Determine whether the component that includes node 0 in an undirected graph contains a cycle using a straightforward depth-first search with parent tracking",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given an undirected graph and node count n, detect whether the connected component containing node 0 has a cycle using DFS and parent tracking.",
+        "examples": [
+          {
+            "input": "n = 5, edges = [[0,1],[1,2],[2,0],[3,4]]",
+            "output": "true",
+            "explanation": "Component containing 0 has cycle 0-1-2-0."
+          },
+          {
+            "input": "n = 4, edges = [[0,1],[1,2],[2,3]]",
+            "output": "false",
+            "explanation": "Component containing 0 is a simple chain without back-edge."
+          }
+        ],
+        "code": "function hasCycleFromZero(n, edges) {\n  if (n <= 0) return false;\n\n  const graph = Array.from({ length: n }, () => []);\n  for (const [u, v] of edges) {\n    graph[u].push(v);\n    graph[v].push(u);\n  }\n\n  const visited = new Array(n).fill(false);\n\n  function dfs(node, parent) {\n    visited[node] = true;\n\n    for (const next of graph[node]) {\n      if (!visited[next]) {\n        if (dfs(next, node)) return true;\n      } else if (next !== parent) {\n        return true;\n      }\n    }\n\n    return false;\n  }\n\n  return dfs(0, -1);\n}",
+        "complexity": {
+          "time": "O(V + E) for reachable component from 0",
+          "space": "O(V)"
+        }
+      }
+    },
+    {
+      "title": "Rate Limiter",
+      "url": "https://namastedev.com/practice/rate-limiter",
+      "page": 3,
+      "rowIndex": 3,
+      "columns": {
+        "Title": "Rate Limiter",
+        "Description": "Implement a sliding window rate limiter that processes API requests and determines which ones should be allowed.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Tcs, Swiggy, Flipkart, Paytm"
+      },
+      "description": "Implement a sliding window rate limiter that processes API requests and determines which ones should be allowed.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Implement a sliding-window rate limiter that allows at most limit requests in the last windowMs milliseconds per key (for example user/IP).",
+        "examples": [
+          {
+            "input": "limit=3, windowMs=1000, requests at t=[0,100,200,300] for same key",
+            "output": "true, true, true, false",
+            "explanation": "4th request in same window is blocked."
+          },
+          {
+            "input": "After enough time passes beyond window",
+            "output": "Requests become allowed again",
+            "explanation": "Expired timestamps are removed from window."
+          }
+        ],
+        "code": "class SlidingWindowRateLimiter {\n  constructor(limit, windowMs) {\n    if (!Number.isInteger(limit) || limit <= 0) {\n      throw new RangeError('limit must be a positive integer');\n    }\n    if (!Number.isInteger(windowMs) || windowMs <= 0) {\n      throw new RangeError('windowMs must be a positive integer');\n    }\n\n    this.limit = limit;\n    this.windowMs = windowMs;\n    this.store = new Map();\n  }\n\n  isAllowed(key, now = Date.now()) {\n    if (!this.store.has(key)) {\n      this.store.set(key, []);\n    }\n\n    const queue = this.store.get(key);\n    const cutoff = now - this.windowMs;\n\n    while (queue.length > 0 && queue[0] <= cutoff) {\n      queue.shift();\n    }\n\n    if (queue.length >= this.limit) {\n      return false;\n    }\n\n    queue.push(now);\n    return true;\n  }\n}",
+        "complexity": {
+          "time": "Amortized O(1) per request",
+          "space": "O(k) recent requests per key"
+        }
+      }
+    },
+    {
+      "title": "Detect data type in JS",
+      "url": "https://namastedev.com/practice/detect-data-type-in-js",
+      "page": 3,
+      "rowIndex": 4,
+      "columns": {
+        "Title": "Detect data type in JS",
+        "Description": "Create a function `detectType()` that returns the data type of the given input.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": ""
+      },
+      "description": "Create a function `detectType()` that returns the data type of the given input.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Create detectType(value) that returns a precise type string for common JavaScript values (null, array, date, map, set, etc.).",
+        "examples": [
+          {
+            "input": "detectType([1,2,3])",
+            "output": "\"array\"",
+            "explanation": "Array must be identified separately from object."
+          },
+          {
+            "input": "detectType(NaN)",
+            "output": "\"nan\"",
+            "explanation": "NaN is a special numeric value."
+          }
+        ],
+        "code": "function detectType(value) {\n  if (value === null) return 'null';\n  if (Number.isNaN(value)) return 'nan';\n\n  const basic = typeof value;\n  if (basic !== 'object') return basic;\n\n  if (Array.isArray(value)) return 'array';\n  if (value instanceof Date) return 'date';\n  if (value instanceof RegExp) return 'regexp';\n  if (value instanceof Map) return 'map';\n  if (value instanceof Set) return 'set';\n  if (value instanceof WeakMap) return 'weakmap';\n  if (value instanceof WeakSet) return 'weakset';\n  if (value instanceof Promise) return 'promise';\n  if (value instanceof ArrayBuffer) return 'arraybuffer';\n  if (ArrayBuffer.isView(value)) return value.constructor.name.toLowerCase();\n\n  return 'object';\n}",
+        "complexity": {
+          "time": "O(1)",
+          "space": "O(1)"
+        }
+      }
+    },
+    {
+      "title": "Sum of Subarray Minimum",
+      "url": "https://namastedev.com/practice/sum-of-subarray-minimum",
+      "page": 3,
+      "rowIndex": 5,
+      "columns": {
+        "Title": "Sum of Subarray Minimum",
+        "Description": "Given an array of integers arr, find the sum of min(b)",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Apple, Google, Microsoft"
+      },
+      "description": "Given an array of integers arr, find the sum of min(b)",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given an array arr, compute the sum of the minimum value of every contiguous subarray. Return result modulo 1e9+7.",
+        "examples": [
+          {
+            "input": "arr = [3,1,2,4]",
+            "output": "17",
+            "explanation": "Subarray minimum sum is 17."
+          },
+          {
+            "input": "arr = [11,81,94,43,3]",
+            "output": "444",
+            "explanation": "Monotonic stack computes each element contribution efficiently."
+          }
+        ],
+        "code": "function sumSubarrayMinimums(arr) {\n  const MOD = 1_000_000_007;\n  const n = arr.length;\n  const left = new Array(n);\n  const right = new Array(n);\n  const stack = [];\n\n  // Distance to previous strictly smaller element.\n  for (let i = 0; i < n; i += 1) {\n    while (stack.length && arr[stack[stack.length - 1]] > arr[i]) {\n      stack.pop();\n    }\n    left[i] = stack.length ? i - stack[stack.length - 1] : i + 1;\n    stack.push(i);\n  }\n\n  stack.length = 0;\n\n  // Distance to next smaller-or-equal element.\n  for (let i = n - 1; i >= 0; i -= 1) {\n    while (stack.length && arr[stack[stack.length - 1]] >= arr[i]) {\n      stack.pop();\n    }\n    right[i] = stack.length ? stack[stack.length - 1] - i : n - i;\n    stack.push(i);\n  }\n\n  let sum = 0;\n  for (let i = 0; i < n; i += 1) {\n    sum = (sum + arr[i] * left[i] * right[i]) % MOD;\n  }\n\n  return sum;\n}",
+        "complexity": {
+          "time": "O(n)",
+          "space": "O(n)"
+        }
+      }
+    },
+    {
+      "title": "Topological Sort (BFS)",
+      "url": "https://namastedev.com/practice/topological-sort-bfs",
+      "page": 3,
+      "rowIndex": 6,
+      "columns": {
+        "Title": "Topological Sort (BFS)",
+        "Description": "Find a topological ordering of vertices in a directed acyclic graph using in-degree counting and BFS.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Atlassian, Adobe, Amazon, Google, Linkedin, Microsoft, Phonepe"
+      },
+      "description": "Find a topological ordering of vertices in a directed acyclic graph using in-degree counting and BFS.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given a directed graph, return a topological ordering using Kahn’s algorithm (BFS with in-degree). Return [] if cycle exists.",
+        "examples": [
+          {
+            "input": "V = 4, edges = [[0,1],[0,2],[1,3],[2,3]]",
+            "output": "One valid order: [0,1,2,3]",
+            "explanation": "Any order respecting all directed edges is valid."
+          },
+          {
+            "input": "V = 2, edges = [[0,1],[1,0]]",
+            "output": "[]",
+            "explanation": "Cycle prevents full topological ordering."
+          }
+        ],
+        "code": "function topologicalSortBFS(vertices, edges) {\n  const graph = Array.from({ length: vertices }, () => []);\n  const indegree = new Array(vertices).fill(0);\n\n  for (const [u, v] of edges) {\n    graph[u].push(v);\n    indegree[v] += 1;\n  }\n\n  const queue = [];\n  for (let i = 0; i < vertices; i += 1) {\n    if (indegree[i] === 0) queue.push(i);\n  }\n\n  const order = [];\n  for (let head = 0; head < queue.length; head += 1) {\n    const node = queue[head];\n    order.push(node);\n\n    for (const next of graph[node]) {\n      indegree[next] -= 1;\n      if (indegree[next] === 0) queue.push(next);\n    }\n  }\n\n  return order.length === vertices ? order : [];\n}",
+        "complexity": {
+          "time": "O(V + E)",
+          "space": "O(V + E)"
+        }
+      }
+    },
+    {
+      "title": "Concurrency Limited Task Scheduler",
+      "url": "https://namastedev.com/practice/concurrency-limited-task-scheduler",
+      "page": 3,
+      "rowIndex": 7,
+      "columns": {
+        "Title": "Concurrency Limited Task Scheduler",
+        "Description": "You are given an array of asynchronous functions called tasks, where each function returns a Promise resolving to a value.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Swiggy, Adobe"
+      },
+      "description": "You are given an array of asynchronous functions called tasks, where each function returns a Promise resolving to a value.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given an array of async task functions and a concurrency limit, execute all tasks while running at most limit tasks simultaneously and return ordered results.",
+        "examples": [
+          {
+            "input": "tasks = [t1,t2,t3,t4], limit = 2",
+            "output": "[result1, result2, result3, result4]",
+            "explanation": "Tasks complete in any order internally but output aligns to input index."
+          },
+          {
+            "input": "Any task throws/rejects",
+            "output": "Scheduler rejects",
+            "explanation": "Error is propagated to caller."
+          }
+        ],
+        "code": "async function runTasksWithConcurrencyLimit(tasks, limit) {\n  if (!Array.isArray(tasks)) throw new TypeError('tasks must be an array');\n  if (!Number.isInteger(limit) || limit <= 0) {\n    throw new RangeError('limit must be a positive integer');\n  }\n\n  const results = new Array(tasks.length);\n  let next = 0;\n\n  async function worker() {\n    while (true) {\n      const index = next;\n      next += 1;\n      if (index >= tasks.length) break;\n\n      const task = tasks[index];\n      if (typeof task !== 'function') {\n        throw new TypeError('Each task must be a function returning a promise');\n      }\n\n      results[index] = await task();\n    }\n  }\n\n  const workerCount = Math.min(limit, tasks.length);\n  const workers = Array.from({ length: workerCount }, () => worker());\n  await Promise.all(workers);\n\n  return results;\n}",
+        "complexity": {
+          "time": "O(n) async tasks",
+          "space": "O(n)"
+        }
+      }
+    },
+    {
+      "title": "Spiral Matrix Pathfinder",
+      "url": "https://namastedev.com/practice/spiral-matrix-pathfinder",
+      "page": 3,
+      "rowIndex": 8,
+      "columns": {
+        "Title": "Spiral Matrix Pathfinder",
+        "Description": "Traverse a 2D matrix in a spiral pattern, collecting all non-blocked values while avoiding obstacles marked as -1.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Meta, Microsoft, Amazon, Uber, Adobe"
+      },
+      "description": "Traverse a 2D matrix in a spiral pattern, collecting all non-blocked values while avoiding obstacles marked as -1.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Traverse a matrix in spiral order and collect values while skipping blocked cells marked as -1.",
+        "examples": [
+          {
+            "input": "matrix = [[1,2,3],[4,-1,5],[6,7,8]]",
+            "output": "[1,2,3,5,8,7,6,4]",
+            "explanation": "Center blocked cell is skipped during traversal."
+          },
+          {
+            "input": "matrix = [[-1]]",
+            "output": "[]",
+            "explanation": "Only cell is blocked."
+          }
+        ],
+        "code": "function spiralMatrixPathfinder(matrix) {\n  if (!matrix.length || !matrix[0].length) return [];\n\n  const out = [];\n  let top = 0;\n  let bottom = matrix.length - 1;\n  let left = 0;\n  let right = matrix[0].length - 1;\n\n  while (top <= bottom && left <= right) {\n    for (let c = left; c <= right; c += 1) {\n      if (matrix[top][c] !== -1) out.push(matrix[top][c]);\n    }\n    top += 1;\n\n    for (let r = top; r <= bottom; r += 1) {\n      if (matrix[r][right] !== -1) out.push(matrix[r][right]);\n    }\n    right -= 1;\n\n    if (top <= bottom) {\n      for (let c = right; c >= left; c -= 1) {\n        if (matrix[bottom][c] !== -1) out.push(matrix[bottom][c]);\n      }\n      bottom -= 1;\n    }\n\n    if (left <= right) {\n      for (let r = bottom; r >= top; r -= 1) {\n        if (matrix[r][left] !== -1) out.push(matrix[r][left]);\n      }\n      left += 1;\n    }\n  }\n\n  return out;\n}",
+        "complexity": {
+          "time": "O(m*n)",
+          "space": "O(1) extra (excluding output)"
+        }
+      }
+    },
+    {
+      "title": "Event Emitter",
+      "url": "https://namastedev.com/practice/event-emitter",
+      "page": 3,
+      "rowIndex": 9,
+      "columns": {
+        "Title": "Event Emitter",
+        "Description": "Design and implement an `EventEmitter` class that mimics Node.js-style event handling.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Slack, Shopify, Flipkart"
+      },
+      "description": "Design and implement an `EventEmitter` class that mimics Node.js-style event handling.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Design an EventEmitter class supporting on, off, once, and emit similar to Node.js event handling.",
+        "examples": [
+          {
+            "input": "on(\"data\", cb); emit(\"data\", 10)",
+            "output": "cb called with 10",
+            "explanation": "Registered listeners receive emitted arguments."
+          },
+          {
+            "input": "once(\"ready\", cb); emit(\"ready\"); emit(\"ready\")",
+            "output": "cb executes only once",
+            "explanation": "once auto-unsubscribes after first call."
+          }
+        ],
+        "code": "class EventEmitter {\n  constructor() {\n    this.events = new Map();\n  }\n\n  on(event, handler) {\n    if (!this.events.has(event)) {\n      this.events.set(event, new Set());\n    }\n    this.events.get(event).add(handler);\n    return () => this.off(event, handler);\n  }\n\n  off(event, handler) {\n    const set = this.events.get(event);\n    if (!set) return;\n    set.delete(handler);\n    if (set.size === 0) this.events.delete(event);\n  }\n\n  once(event, handler) {\n    const off = this.on(event, (...args) => {\n      off();\n      handler(...args);\n    });\n    return off;\n  }\n\n  emit(event, ...args) {\n    const set = this.events.get(event);\n    if (!set) return false;\n\n    for (const handler of [...set]) {\n      handler(...args);\n    }\n    return true;\n  }\n\n  listenerCount(event) {\n    return this.events.get(event)?.size || 0;\n  }\n}",
+        "complexity": {
+          "time": "emit O(k) where k=listeners for event",
+          "space": "O(total listeners)"
+        }
+      }
+    },
+    {
+      "title": "Search in a 2D Sorted Matrix",
+      "url": "https://namastedev.com/practice/search-in-a-2d-sorted-matrix",
+      "page": 3,
+      "rowIndex": 10,
+      "columns": {
+        "Title": "Search in a 2D Sorted Matrix",
+        "Description": "You are given a 2D matrix of integers where each row is sorted in ascending order from left to right,",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Salesforce, Flipkart, Adobe"
+      },
+      "description": "You are given a 2D matrix of integers where each row is sorted in ascending order from left to right,",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given a matrix where each row is sorted and rows follow global sorted order (first element of row i is greater than last element of row i-1), determine if target exists.",
+        "examples": [
+          {
+            "input": "matrix = [[1,3,5],[7,9,11]], target = 9",
+            "output": "true",
+            "explanation": "Binary search over virtual flattened array finds target."
+          },
+          {
+            "input": "matrix = [[1,3,5],[7,9,11]], target = 6",
+            "output": "false",
+            "explanation": "6 is not present in matrix."
+          }
+        ],
+        "code": "function searchInSortedMatrix(matrix, target) {\n  if (!matrix.length || !matrix[0].length) return false;\n\n  const rows = matrix.length;\n  const cols = matrix[0].length;\n  let left = 0;\n  let right = rows * cols - 1;\n\n  while (left <= right) {\n    const mid = left + ((right - left) >> 1);\n    const r = Math.floor(mid / cols);\n    const c = mid % cols;\n    const value = matrix[r][c];\n\n    if (value === target) return true;\n    if (value < target) left = mid + 1;\n    else right = mid - 1;\n  }\n\n  return false;\n}",
+        "complexity": {
+          "time": "O(log(m*n))",
+          "space": "O(1)"
+        }
+      }
+    },
+    {
+      "title": "Merge Array",
+      "url": "https://namastedev.com/practice/merge-array",
+      "page": 4,
+      "rowIndex": 1,
+      "columns": {
+        "Title": "Merge Array",
+        "Description": "Merge the array of object data by `id`",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Reddit, Slack, Ola"
+      },
+      "description": "Merge the array of object data by `id`",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Merge multiple arrays of objects by id. If same id appears multiple times, merge properties with later arrays overriding earlier ones.",
+        "examples": [
+          {
+            "input": "arr1=[{id:1,name:\"A\"}], arr2=[{id:1,age:20},{id:2,name:\"B\"}]",
+            "output": "[{id:1,name:\"A\",age:20},{id:2,name:\"B\"}]",
+            "explanation": "id=1 objects are merged into one."
+          },
+          {
+            "input": "array item without id",
+            "output": "ignored",
+            "explanation": "Only records with valid id participate in merge."
+          }
+        ],
+        "code": "function mergeArrayById(...arrays) {\n  const map = new Map();\n\n  for (const arr of arrays) {\n    for (const item of arr) {\n      if (!item || item.id === undefined || item.id === null) continue;\n\n      const prev = map.get(item.id) || {};\n      map.set(item.id, { ...prev, ...item });\n    }\n  }\n\n  return Array.from(map.values());\n}",
+        "complexity": {
+          "time": "O(n)",
+          "space": "O(u) where u=unique ids"
+        }
+      }
+    },
+    {
+      "title": "Memoization",
+      "url": "https://namastedev.com/practice/memoization",
+      "page": 4,
+      "rowIndex": 2,
+      "columns": {
+        "Title": "Memoization",
+        "Description": "Implement a memoization function that takes a function as an argument and returns a memoized version of that function.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Microsoft, Zomato"
+      },
+      "description": "Implement a memoization function that takes a function as an argument and returns a memoized version of that function.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Implement a memoize utility that caches function results based on arguments so repeated calls avoid recomputation.",
+        "examples": [
+          {
+            "input": "memoFib(40) called twice",
+            "output": "Second call returns instantly from cache",
+            "explanation": "Stored result is reused for same arguments."
+          },
+          {
+            "input": "memoizedFn(2,3) and memoizedFn(3,2)",
+            "output": "Can be cached separately unless custom resolver normalizes key",
+            "explanation": "Cache key strategy is configurable."
+          }
+        ],
+        "code": "function memoize(fn, resolver) {\n  const cache = new Map();\n\n  return function memoized(...args) {\n    const key = resolver ? resolver.apply(this, args) : JSON.stringify(args);\n\n    if (cache.has(key)) {\n      return cache.get(key);\n    }\n\n    const value = fn.apply(this, args);\n    cache.set(key, value);\n    return value;\n  };\n}",
+        "complexity": {
+          "time": "O(1) average cache lookup + function cost on miss",
+          "space": "O(number of unique keys)"
+        }
+      }
+    },
+    {
+      "title": "Shortest Distance from Source (BFS)",
+      "url": "https://namastedev.com/practice/shortest-distance-from-source-bfs",
+      "page": 4,
+      "rowIndex": 3,
+      "columns": {
+        "Title": "Shortest Distance from Source (BFS)",
+        "Description": "Find the shortest distance from a source node to all other nodes in an unweighted graph using Breadth First Search (BFS).",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Flipkart, Zomato, Phonepe, Microsoft"
+      },
+      "description": "Find the shortest distance from a source node to all other nodes in an unweighted graph using Breadth First Search (BFS).",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Given an unweighted graph with n nodes and edges, compute shortest distance from source to all nodes using BFS. Unreachable nodes get -1.",
+        "examples": [
+          {
+            "input": "n=5, edges=[[0,1],[0,2],[1,3],[2,4]], source=0",
+            "output": "[0,1,1,2,2]",
+            "explanation": "BFS discovers nodes layer-by-layer."
+          },
+          {
+            "input": "n=4, edges=[[0,1]], source=0",
+            "output": "[0,1,-1,-1]",
+            "explanation": "Nodes 2 and 3 are disconnected from source."
+          }
+        ],
+        "code": "function shortestDistanceFromSource(n, edges, source) {\n  const graph = Array.from({ length: n }, () => []);\n\n  for (const [u, v] of edges) {\n    graph[u].push(v);\n    graph[v].push(u);\n  }\n\n  const dist = new Array(n).fill(-1);\n  const queue = [source];\n  dist[source] = 0;\n\n  for (let head = 0; head < queue.length; head += 1) {\n    const node = queue[head];\n\n    for (const next of graph[node]) {\n      if (dist[next] !== -1) continue;\n      dist[next] = dist[node] + 1;\n      queue.push(next);\n    }\n  }\n\n  return dist;\n}",
+        "complexity": {
+          "time": "O(V + E)",
+          "space": "O(V + E)"
+        }
+      }
+    },
+    {
+      "title": "Longest Substring No Repeats",
+      "url": "https://namastedev.com/practice/longest-substring-no-repeats",
+      "page": 4,
+      "rowIndex": 4,
+      "columns": {
+        "Title": "Longest Substring No Repeats",
+        "Description": "Find the length of the longest substring without repeating characters (e.g., `\"abcabcbb\"` → `3`)",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Microsoft, Ola"
+      },
+      "description": "Find the length of the longest substring without repeating characters (e.g., `\"abcabcbb\"` → `3`)",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Return the length of the longest substring without repeating characters using a sliding-window approach.",
+        "examples": [
+          {
+            "input": "s = \"abcabcbb\"",
+            "output": "3",
+            "explanation": "Longest substrings are \"abc\", length 3."
+          },
+          {
+            "input": "s = \"bbbbb\"",
+            "output": "1",
+            "explanation": "Only one unique char at a time."
+          }
+        ],
+        "code": "function lengthOfLongestSubstring(s) {\n  const lastSeen = new Map();\n  let left = 0;\n  let best = 0;\n\n  for (let right = 0; right < s.length; right += 1) {\n    const ch = s[right];\n\n    if (lastSeen.has(ch) && lastSeen.get(ch) >= left) {\n      left = lastSeen.get(ch) + 1;\n    }\n\n    lastSeen.set(ch, right);\n    best = Math.max(best, right - left + 1);\n  }\n\n  return best;\n}",
+        "complexity": {
+          "time": "O(n)",
+          "space": "O(min(n, charset))"
+        }
+      }
+    },
+    {
+      "title": "Object.assign()",
+      "url": "https://namastedev.com/practice/objectassign",
+      "page": 4,
+      "rowIndex": 5,
+      "columns": {
+        "Title": "Object.assign()",
+        "Description": "Recreate the functionality of `Object.assign()` in JavaScript.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": ""
+      },
+      "description": "Recreate the functionality of `Object.assign()` in JavaScript.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Recreate Object.assign(target, ...sources): copy enumerable own properties (including symbols) from sources to target and return target.",
+        "examples": [
+          {
+            "input": "assign({a:1}, {b:2}, {a:3})",
+            "output": "{a:3,b:2}",
+            "explanation": "Later sources override earlier values for same key."
+          },
+          {
+            "input": "assign(null, {a:1})",
+            "output": "TypeError",
+            "explanation": "Target cannot be null or undefined."
+          }
+        ],
+        "code": "function objectAssign(target, ...sources) {\n  if (target === null || target === undefined) {\n    throw new TypeError('Cannot convert undefined or null to object');\n  }\n\n  const to = Object(target);\n\n  for (const source of sources) {\n    if (source === null || source === undefined) continue;\n\n    const from = Object(source);\n    for (const key of Reflect.ownKeys(from)) {\n      if (Object.prototype.propertyIsEnumerable.call(from, key)) {\n        to[key] = from[key];\n      }\n    }\n  }\n\n  return to;\n}",
+        "complexity": {
+          "time": "O(total enumerable keys)",
+          "space": "O(1) extra"
+        }
+      }
+    },
+    {
+      "title": "Oranges Rotting",
+      "url": "https://namastedev.com/practice/oranges-rotting",
+      "page": 4,
+      "rowIndex": 6,
+      "columns": {
+        "Title": "Oranges Rotting",
+        "Description": "Write a function that determines the number of minutes for all fresh oranges to become rotten.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Microsoft, Linkedin"
+      },
+      "description": "Write a function that determines the number of minutes for all fresh oranges to become rotten.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "In a grid, 0=empty, 1=fresh orange, 2=rotten orange. Every minute, fresh oranges adjacent to rotten ones become rotten. Return minutes needed to rot all fresh oranges, or -1 if impossible.",
+        "examples": [
+          {
+            "input": "grid = [[2,1,1],[1,1,0],[0,1,1]]",
+            "output": "4",
+            "explanation": "BFS from all initially rotten oranges tracks minute levels."
+          },
+          {
+            "input": "grid = [[2,1,1],[0,1,1],[1,0,1]]",
+            "output": "-1",
+            "explanation": "Some fresh oranges remain isolated forever."
+          }
+        ],
+        "code": "function orangesRotting(grid) {\n  const rows = grid.length;\n  const cols = grid[0].length;\n  const queue = [];\n  let fresh = 0;\n\n  for (let r = 0; r < rows; r += 1) {\n    for (let c = 0; c < cols; c += 1) {\n      if (grid[r][c] === 2) {\n        queue.push([r, c, 0]);\n      } else if (grid[r][c] === 1) {\n        fresh += 1;\n      }\n    }\n  }\n\n  const dirs = [\n    [1, 0],\n    [-1, 0],\n    [0, 1],\n    [0, -1]\n  ];\n\n  let minutes = 0;\n\n  for (let head = 0; head < queue.length; head += 1) {\n    const [r, c, time] = queue[head];\n    minutes = Math.max(minutes, time);\n\n    for (const [dr, dc] of dirs) {\n      const nr = r + dr;\n      const nc = c + dc;\n\n      if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) continue;\n      if (grid[nr][nc] !== 1) continue;\n\n      grid[nr][nc] = 2;\n      fresh -= 1;\n      queue.push([nr, nc, time + 1]);\n    }\n  }\n\n  return fresh === 0 ? minutes : -1;\n}",
+        "complexity": {
+          "time": "O(m*n)",
+          "space": "O(m*n) queue in worst case"
+        }
+      }
+    },
+    {
+      "title": "Compress String with Limited Repetition",
+      "url": "https://namastedev.com/practice/compress-string-with-limited-repetition",
+      "page": 4,
+      "rowIndex": 7,
+      "columns": {
+        "Title": "Compress String with Limited Repetition",
+        "Description": "Compress the string by replacing consecutive repeated characters with the character followed by the count of its repetitions.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Microsoft"
+      },
+      "description": "Compress the string by replacing consecutive repeated characters with the character followed by the count of its repetitions.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": [],
+      "source": "curated",
+      "content": {
+        "statement": "Compress a string using run-length encoding by replacing repeated consecutive characters with char + count. Optionally split counts by maxRun.",
+        "examples": [
+          {
+            "input": "str = \"aaabbc\"",
+            "output": "\"a3b2c\"",
+            "explanation": "Single occurrence keeps only character; repeated ones append count."
+          },
+          {
+            "input": "str = \"aaaaaa\", maxRun = 4",
+            "output": "\"a4a2\"",
+            "explanation": "Runs are split so each encoded chunk count <= maxRun."
+          }
+        ],
+        "code": "function compressStringWithLimitedRepetition(str, maxRun = Infinity) {\n  if (typeof str !== 'string' || str.length === 0) return '';\n  if (maxRun <= 0) throw new RangeError('maxRun must be > 0');\n\n  let out = '';\n  let i = 0;\n\n  while (i < str.length) {\n    const ch = str[i];\n    let j = i;\n\n    while (j < str.length && str[j] === ch) {\n      j += 1;\n    }\n\n    let count = j - i;\n\n    while (count > maxRun) {\n      out += ch + String(maxRun);\n      count -= maxRun;\n    }\n\n    out += ch;\n    if (count > 1) out += String(count);\n\n    i = j;\n  }\n\n  return out;\n}",
+        "complexity": {
+          "time": "O(n)",
+          "space": "O(n) output"
+        }
+      }
+    }
+  ]
+}

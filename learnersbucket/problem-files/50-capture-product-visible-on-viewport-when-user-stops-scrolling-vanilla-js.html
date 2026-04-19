@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem 50 - Visible Products on Scroll Stop (Vanilla JS)</title>
+  <style>
+    :root {
+      --bg: #f7f7fb;
+      --card: #ffffff;
+      --text: #151515;
+      --muted: #666;
+      --accent: #0b7a55;
+      --border: #ddd;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: linear-gradient(180deg, #fff, var(--bg));
+      color: var(--text);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 16px;
+    }
+
+    .controls {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 8px;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    select {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      background: #fff;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 16px 64px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .product {
+      min-height: 220px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      display: grid;
+      align-content: center;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    .product.visible {
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(11, 122, 85, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .product h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .product p {
+      margin: 0;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="controls">
+      <h2 style="margin:0;">Capture Products Visible on Viewport (Scroll Stop)</h2>
+      <div class="row">
+        <label>
+          Approach:
+          <select id="approach">
+            <option value="debounce">1) Debounced getBoundingClientRect</option>
+            <option value="observer">2) IntersectionObserver + idle update</option>
+            <option value="raf">3) requestAnimationFrame sampling</option>
+          </select>
+        </label>
+        <button id="refresh" type="button">Refresh Visible List</button>
+      </div>
+      <div class="row">
+        <span class="badge" id="visibleCount">Visible Count: 0</span>
+        <span class="badge" id="visibleIds">Visible IDs: None</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="list"></main>
+
+  <script>
+    const list = document.getElementById('list');
+    const approach = document.getElementById('approach');
+    const refresh = document.getElementById('refresh');
+    const visibleCount = document.getElementById('visibleCount');
+    const visibleIds = document.getElementById('visibleIds');
+
+    const products = Array.from({ length: 18 }, (_, i) => ({
+      id: `p-${i + 1}`,
+      name: `Product ${i + 1}`,
+      desc: `This is product card ${i + 1}. Scroll and stop to capture visibility.`
+    }));
+
+    list.innerHTML = products
+      .map(
+        (p) => `
+          <article class="product" data-id="${p.id}">
+            <h3>${p.name}</h3>
+            <p>${p.desc}</p>
+          </article>
+        `
+      )
+      .join('');
+
+    const cards = Array.from(document.querySelectorAll('.product'));
+
+    function debounce(fn, wait) {
+      let timer = null;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), wait);
+      };
+    }
+
+    function rectVisibleIds() {
+      return cards
+        .filter((el) => {
+          const r = el.getBoundingClientRect();
+          return r.top < window.innerHeight && r.bottom > 0;
+        })
+        .map((el) => el.dataset.id);
+    }
+
+    function paintVisible(ids) {
+      const set = new Set(ids);
+      cards.forEach((el) => {
+        el.classList.toggle('visible', set.has(el.dataset.id));
+      });
+
+      visibleCount.textContent = `Visible Count: ${ids.length}`;
+      visibleIds.textContent = `Visible IDs: ${ids.length ? ids.join(', ') : 'None'}`;
+    }
+
+    let cleanup = null;
+
+    function setupDebounceApproach() {
+      const onStop = debounce(() => paintVisible(rectVisibleIds()), 180);
+      window.addEventListener('scroll', onStop, { passive: true });
+      onStop();
+
+      return () => {
+        window.removeEventListener('scroll', onStop);
+      };
+    }
+
+    function setupObserverApproach() {
+      const active = new Set();
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            const id = entry.target.dataset.id;
+            if (entry.isIntersecting) active.add(id);
+            else active.delete(id);
+          }
+        },
+        { threshold: 0.12 }
+      );
+
+      cards.forEach((el) => io.observe(el));
+
+      const onStop = debounce(() => paintVisible(Array.from(active)), 180);
+      window.addEventListener('scroll', onStop, { passive: true });
+      onStop();
+
+      return () => {
+        window.removeEventListener('scroll', onStop);
+        io.disconnect();
+      };
+    }
+
+    function setupRafApproach() {
+      let ticking = false;
+
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          paintVisible(rectVisibleIds());
+          ticking = false;
+        });
+      };
+
+      const onScrollEnd = () => paintVisible(rectVisibleIds());
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('scrollend', onScrollEnd);
+      onScrollEnd();
+
+      return () => {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('scrollend', onScrollEnd);
+      };
+    }
+
+    function mount(mode) {
+      cleanup?.();
+      if (mode === 'observer') cleanup = setupObserverApproach();
+      else if (mode === 'raf') cleanup = setupRafApproach();
+      else cleanup = setupDebounceApproach();
+    }
+
+    approach.addEventListener('change', (e) => mount(e.target.value));
+    refresh.addEventListener('click', () => paintVisible(rectVisibleIds()));
+
+    mount('debounce');
+  </script>
+</body>
+</html>

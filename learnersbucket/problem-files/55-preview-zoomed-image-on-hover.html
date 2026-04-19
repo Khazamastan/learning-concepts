@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem 55 - Preview Zoomed Image on Hover</title>
+  <style>
+    :root {
+      --bg: #f2f7f5;
+      --panel: #fff;
+      --text: #141414;
+      --border: #ddd;
+      --muted: #666;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at right top, #d6f7e8, var(--bg));
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+    }
+
+    .shell {
+      width: min(980px, 100%);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.08);
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    select, button {
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 8px;
+      padding: 6px 10px;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 840px) {
+      .stage { grid-template-columns: 1fr; }
+    }
+
+    .source-wrap {
+      position: relative;
+      border: 1px solid #d8d8d8;
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 280px;
+      background: #000;
+    }
+
+    .source-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lens {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+      border-radius: 50%;
+      pointer-events: none;
+      display: none;
+      transform: translate(-50%, -50%);
+    }
+
+    .zoom-pane {
+      border: 1px solid #d8d8d8;
+      border-radius: 12px;
+      min-height: 280px;
+      background: #f8f8f8;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hint { color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <section class="shell">
+    <h2 style="margin:0;">Preview Zoomed Image on Hover</h2>
+    <div class="row">
+      <label>
+        Approach:
+        <select id="approach">
+          <option value="bg">1) Background Position Preview</option>
+          <option value="transform">2) Transform Scale Preview</option>
+          <option value="canvas">3) Canvas Magnifier</option>
+        </select>
+      </label>
+      <span id="status" class="hint">Move cursor over image</span>
+    </div>
+
+    <div class="stage">
+      <div class="source-wrap" id="sourceWrap">
+        <img id="sourceImage" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80" alt="source" />
+        <div class="lens" id="lens"></div>
+      </div>
+      <div class="zoom-pane" id="zoomPane">Hover over the left image</div>
+    </div>
+  </section>
+
+  <script>
+    const sourceWrap = document.getElementById('sourceWrap');
+    const sourceImage = document.getElementById('sourceImage');
+    const zoomPane = document.getElementById('zoomPane');
+    const lens = document.getElementById('lens');
+    const approach = document.getElementById('approach');
+    const status = document.getElementById('status');
+
+    let cleanup = null;
+
+    function getPoint(e) {
+      const rect = sourceImage.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const px = Math.max(0, Math.min(x / rect.width, 1));
+      const py = Math.max(0, Math.min(y / rect.height, 1));
+      return { rect, px, py, x, y };
+    }
+
+    function baseEnter() {
+      lens.style.display = 'block';
+      status.textContent = 'Tracking cursor...';
+    }
+
+    function baseLeave() {
+      lens.style.display = 'none';
+      status.textContent = 'Move cursor over image';
+      zoomPane.textContent = 'Hover over the left image';
+      zoomPane.style.background = '#f8f8f8';
+      zoomPane.innerHTML = 'Hover over the left image';
+    }
+
+    function setupBackgroundApproach() {
+      const zoom = 2.4;
+      const onMove = (e) => {
+        const { px, py, x, y, rect } = getPoint(e);
+        lens.style.left = `${x}px`;
+        lens.style.top = `${y}px`;
+
+        zoomPane.innerHTML = '';
+        zoomPane.style.backgroundImage = `url(${sourceImage.src})`;
+        zoomPane.style.backgroundRepeat = 'no-repeat';
+        zoomPane.style.backgroundSize = `${rect.width * zoom}px ${rect.height * zoom}px`;
+        zoomPane.style.backgroundPosition = `${-px * rect.width * zoom + zoomPane.clientWidth / 2}px ${-py * rect.height * zoom + zoomPane.clientHeight / 2}px`;
+      };
+
+      sourceWrap.addEventListener('mouseenter', baseEnter);
+      sourceWrap.addEventListener('mouseleave', baseLeave);
+      sourceWrap.addEventListener('mousemove', onMove);
+
+      return () => {
+        sourceWrap.removeEventListener('mouseenter', baseEnter);
+        sourceWrap.removeEventListener('mouseleave', baseLeave);
+        sourceWrap.removeEventListener('mousemove', onMove);
+      };
+    }
+
+    function setupTransformApproach() {
+      const inner = document.createElement('img');
+      inner.src = sourceImage.src;
+      inner.alt = 'zoomed';
+      inner.style.position = 'absolute';
+      inner.style.left = '0';
+      inner.style.top = '0';
+      inner.style.width = '200%';
+      inner.style.height = '200%';
+      inner.style.transformOrigin = 'top left';
+
+      const onEnter = () => {
+        baseEnter();
+        zoomPane.innerHTML = '';
+        zoomPane.append(inner);
+      };
+
+      const onMove = (e) => {
+        const { px, py, x, y } = getPoint(e);
+        lens.style.left = `${x}px`;
+        lens.style.top = `${y}px`;
+        const tx = -px * sourceWrap.clientWidth;
+        const ty = -py * sourceWrap.clientHeight;
+        inner.style.transform = `translate(${tx}px, ${ty}px)`;
+      };
+
+      sourceWrap.addEventListener('mouseenter', onEnter);
+      sourceWrap.addEventListener('mouseleave', baseLeave);
+      sourceWrap.addEventListener('mousemove', onMove);
+
+      return () => {
+        sourceWrap.removeEventListener('mouseenter', onEnter);
+        sourceWrap.removeEventListener('mouseleave', baseLeave);
+        sourceWrap.removeEventListener('mousemove', onMove);
+      };
+    }
+
+    function setupCanvasApproach() {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = 600;
+      canvas.height = 420;
+      canvas.style.width = '100%';
+      canvas.style.height = '100%';
+
+      const onEnter = () => {
+        baseEnter();
+        zoomPane.innerHTML = '';
+        zoomPane.append(canvas);
+      };
+
+      const onMove = (e) => {
+        const { px, py, x, y } = getPoint(e);
+        lens.style.left = `${x}px`;
+        lens.style.top = `${y}px`;
+
+        const sx = px * sourceImage.naturalWidth;
+        const sy = py * sourceImage.naturalHeight;
+        const sample = 180;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(
+          sourceImage,
+          Math.max(0, sx - sample / 2),
+          Math.max(0, sy - sample / 2),
+          sample,
+          sample,
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+      };
+
+      sourceWrap.addEventListener('mouseenter', onEnter);
+      sourceWrap.addEventListener('mouseleave', baseLeave);
+      sourceWrap.addEventListener('mousemove', onMove);
+
+      return () => {
+        sourceWrap.removeEventListener('mouseenter', onEnter);
+        sourceWrap.removeEventListener('mouseleave', baseLeave);
+        sourceWrap.removeEventListener('mousemove', onMove);
+      };
+    }
+
+    function mount(mode) {
+      cleanup?.();
+      baseLeave();
+      if (mode === 'transform') cleanup = setupTransformApproach();
+      else if (mode === 'canvas') cleanup = setupCanvasApproach();
+      else cleanup = setupBackgroundApproach();
+    }
+
+    approach.addEventListener('change', (e) => mount(e.target.value));
+    mount('bg');
+  </script>
+</body>
+</html>

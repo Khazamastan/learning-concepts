@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem 51 - Image Comparison Slider</title>
+  <style>
+    :root {
+      --bg: #f3f5fa;
+      --panel: #ffffff;
+      --text: #111;
+      --muted: #666;
+      --border: #ddd;
+      --accent: #0057ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(circle at top right, #dbe4ff, var(--bg) 45%);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .shell {
+      width: min(980px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      display: grid;
+      gap: 14px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .cmp {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      user-select: none;
+    }
+
+    .cmp img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      width: 50%;
+      overflow: hidden;
+      border-right: 2px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 28px;
+      margin-left: -14px;
+      left: 50%;
+      display: grid;
+      place-items: center;
+      cursor: ew-resize;
+      background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,.05));
+      border-left: 1px solid rgba(255,255,255,.45);
+      border-right: 1px solid rgba(255,255,255,.45);
+    }
+
+    .handle::before {
+      content: '';
+      width: 6px;
+      height: 34px;
+      border-radius: 99px;
+      background: #fff;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
+    }
+
+    input[type='range'] {
+      width: 100%;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <section class="shell">
+    <h2 style="margin:0;">Image Comparison Slider</h2>
+    <div class="row">
+      <label>
+        Approach:
+        <select id="approach">
+          <option value="range">1) Range Input Controlled</option>
+          <option value="drag">2) Drag Handle (Pointer Events)</option>
+          <option value="hover">3) Hover to Compare</option>
+        </select>
+      </label>
+      <button id="reset" type="button">Reset 50/50</button>
+      <span class="hint" id="status">Current split: 50%</span>
+    </div>
+
+    <div class="cmp" id="cmp">
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1500&q=80" alt="Before" />
+      <div class="overlay" id="overlay">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1500&q=80" alt="After" />
+      </div>
+      <div class="handle" id="handle" aria-label="drag handle"></div>
+    </div>
+
+    <input type="range" id="slider" min="0" max="100" step="1" value="50" />
+    <p class="hint">Tip: switch approaches and compare UX patterns for the same problem.</p>
+  </section>
+
+  <script>
+    const cmp = document.getElementById('cmp');
+    const overlay = document.getElementById('overlay');
+    const handle = document.getElementById('handle');
+    const slider = document.getElementById('slider');
+    const approach = document.getElementById('approach');
+    const status = document.getElementById('status');
+    const reset = document.getElementById('reset');
+
+    let ratio = 50;
+    let cleanup = null;
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function setRatio(value) {
+      ratio = clamp(Math.round(value), 0, 100);
+      overlay.style.width = `${ratio}%`;
+      handle.style.left = `${ratio}%`;
+      slider.value = String(ratio);
+      status.textContent = `Current split: ${ratio}%`;
+    }
+
+    function ratioFromX(clientX) {
+      const rect = cmp.getBoundingClientRect();
+      const raw = ((clientX - rect.left) / rect.width) * 100;
+      return clamp(raw, 0, 100);
+    }
+
+    function setupRangeApproach() {
+      slider.hidden = false;
+      handle.style.cursor = 'ew-resize';
+
+      const onInput = (e) => setRatio(Number(e.target.value));
+      slider.addEventListener('input', onInput);
+
+      return () => slider.removeEventListener('input', onInput);
+    }
+
+    function setupDragApproach() {
+      slider.hidden = true;
+
+      const onPointerDown = (e) => {
+        e.preventDefault();
+        handle.setPointerCapture(e.pointerId);
+        setRatio(ratioFromX(e.clientX));
+      };
+
+      const onPointerMove = (e) => {
+        if (e.buttons === 0) return;
+        setRatio(ratioFromX(e.clientX));
+      };
+
+      const onPointerUp = (e) => {
+        try {
+          handle.releasePointerCapture(e.pointerId);
+        } catch {}
+      };
+
+      handle.addEventListener('pointerdown', onPointerDown);
+      handle.addEventListener('pointermove', onPointerMove);
+      handle.addEventListener('pointerup', onPointerUp);
+      cmp.addEventListener('pointermove', onPointerMove);
+
+      return () => {
+        handle.removeEventListener('pointerdown', onPointerDown);
+        handle.removeEventListener('pointermove', onPointerMove);
+        handle.removeEventListener('pointerup', onPointerUp);
+        cmp.removeEventListener('pointermove', onPointerMove);
+      };
+    }
+
+    function setupHoverApproach() {
+      slider.hidden = true;
+
+      const onMove = (e) => setRatio(ratioFromX(e.clientX));
+      const onLeave = () => setRatio(50);
+      cmp.addEventListener('mousemove', onMove);
+      cmp.addEventListener('mouseleave', onLeave);
+
+      return () => {
+        cmp.removeEventListener('mousemove', onMove);
+        cmp.removeEventListener('mouseleave', onLeave);
+      };
+    }
+
+    function mount(mode) {
+      cleanup?.();
+      if (mode === 'drag') cleanup = setupDragApproach();
+      else if (mode === 'hover') cleanup = setupHoverApproach();
+      else cleanup = setupRangeApproach();
+      setRatio(ratio);
+    }
+
+    approach.addEventListener('change', (e) => mount(e.target.value));
+    reset.addEventListener('click', () => setRatio(50));
+
+    setRatio(50);
+    mount('range');
+  </script>
+</body>
+</html>

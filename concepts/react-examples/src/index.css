@@ -5,3 +5,12 @@
 body {
   font-family: 'Inter', system-ui, -apple-system;
 }
+
+@keyframes toast-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

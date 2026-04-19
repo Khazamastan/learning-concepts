@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem 54 - Animate Elements in Sequence</title>
+  <style>
+    :root {
+      --bg: #f4f6fd;
+      --panel: #fff;
+      --text: #111;
+      --border: #ddd;
+      --accent: #7f3dff;
+      --accent2: #00a6ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: linear-gradient(140deg, #eadcff, var(--bg));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    .shell {
+      width: min(920px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      gap: 14px;
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.08);
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    button {
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 12px;
+    }
+
+    .box {
+      min-height: 100px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(18px) scale(0.95);
+      transition: transform 350ms ease, opacity 350ms ease;
+    }
+
+    .box.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    #status { color: #666; }
+  </style>
+</head>
+<body>
+  <section class="shell">
+    <h2 style="margin:0;">Animate Elements in Sequence</h2>
+
+    <div class="controls">
+      <button id="run1" type="button">Approach 1: setTimeout Chain</button>
+      <button id="run2" type="button">Approach 2: async/await</button>
+      <button id="run3" type="button">Approach 3: Web Animations API</button>
+      <button id="reset" type="button">Reset</button>
+      <span id="status">Ready</span>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const status = document.getElementById('status');
+
+    grid.innerHTML = Array.from({ length: 14 }, (_, i) => `<div class="box">${i + 1}</div>`).join('');
+
+    const boxes = Array.from(document.querySelectorAll('.box'));
+
+    function resetBoxes() {
+      boxes.forEach((b) => {
+        b.classList.remove('show');
+        b.style.opacity = '';
+        b.style.transform = '';
+      });
+      status.textContent = 'Reset complete';
+    }
+
+    function animateWithTimeout(delay = 120) {
+      resetBoxes();
+      status.textContent = 'Approach 1 running...';
+      boxes.forEach((box, idx) => {
+        setTimeout(() => {
+          box.classList.add('show');
+          if (idx === boxes.length - 1) status.textContent = 'Approach 1 complete';
+        }, idx * delay);
+      });
+    }
+
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async function animateWithAsyncAwait(delay = 110) {
+      resetBoxes();
+      status.textContent = 'Approach 2 running...';
+      for (const box of boxes) {
+        box.classList.add('show');
+        await sleep(delay);
+      }
+      status.textContent = 'Approach 2 complete';
+    }
+
+    async function animateWithWAAPI(delay = 90) {
+      resetBoxes();
+      status.textContent = 'Approach 3 running...';
+
+      for (const box of boxes) {
+        box.style.opacity = '1';
+        const animation = box.animate(
+          [
+            { transform: 'translateY(24px) scale(.86)', opacity: 0 },
+            { transform: 'translateY(0) scale(1)', opacity: 1 }
+          ],
+          { duration: 360, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' }
+        );
+        await Promise.all([animation.finished, sleep(delay)]);
+      }
+
+      status.textContent = 'Approach 3 complete';
+    }
+
+    document.getElementById('run1').addEventListener('click', () => animateWithTimeout());
+    document.getElementById('run2').addEventListener('click', () => animateWithAsyncAwait());
+    document.getElementById('run3').addEventListener('click', () => animateWithWAAPI());
+    document.getElementById('reset').addEventListener('click', resetBoxes);
+  </script>
+</body>
+</html>

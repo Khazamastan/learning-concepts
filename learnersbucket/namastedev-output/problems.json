@@ -1,0 +1,677 @@
+{
+  "generatedAt": "2026-04-19T04:45:19.742Z",
+  "totalProblems": 37,
+  "sourceStats": {
+    "localModule": 0,
+    "aiGenerated": 0,
+    "template": 37
+  },
+  "problems": [
+    {
+      "title": "pyramid pattern",
+      "url": "https://namastedev.com/practice/pyramid-pattern",
+      "page": 1,
+      "rowIndex": 1,
+      "columns": {
+        "Title": "pyramid pattern",
+        "Description": "Build a centered pyramid of * characters using loops.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Tcs"
+      },
+      "description": "Build a centered pyramid of * characters using loops.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Deep Omit",
+      "url": "https://namastedev.com/practice/deep-omit",
+      "page": 1,
+      "rowIndex": 2,
+      "columns": {
+        "Title": "Deep Omit",
+        "Description": "Remove specified keys from a deeply nested object or array.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Airbnb, Salesforce, Swiggy"
+      },
+      "description": "Remove specified keys from a deeply nested object or array.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Debounce",
+      "url": "https://namastedev.com/practice/debounce",
+      "page": 1,
+      "rowIndex": 3,
+      "columns": {
+        "Title": "Debounce",
+        "Description": "Implement a `debounce` function that limits how often a given function can be called.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Twitter, Stripe, Uber, Ola"
+      },
+      "description": "Implement a `debounce` function that limits how often a given function can be called.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Word Search",
+      "url": "https://namastedev.com/practice/word-search",
+      "page": 1,
+      "rowIndex": 4,
+      "columns": {
+        "Title": "Word Search",
+        "Description": "Your task is to find all the words from the list that can be constructed from letters of sequentially adjacent cells in the board.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Meta, Google"
+      },
+      "description": "Your task is to find all the words from the list that can be constructed from letters of sequentially adjacent cells in the board.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Combination Sum",
+      "url": "https://namastedev.com/practice/combination-sum",
+      "page": 1,
+      "rowIndex": 5,
+      "columns": {
+        "Title": "Combination Sum",
+        "Description": "Write a function that returns all unique combinations of candidates where the chosen numbers sum to the target.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Meesho, Airbnb"
+      },
+      "description": "Write a function that returns all unique combinations of candidates where the chosen numbers sum to the target.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Map Async Limit",
+      "url": "https://namastedev.com/practice/map-async-limit",
+      "page": 1,
+      "rowIndex": 6,
+      "columns": {
+        "Title": "Map Async Limit",
+        "Description": "Run an asynchronous function over an array with limited concurrency.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Netflix, Uber, Tcs"
+      },
+      "description": "Run an asynchronous function over an array with limited concurrency.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Search Rotated Array",
+      "url": "https://namastedev.com/practice/search-rotated-array",
+      "page": 1,
+      "rowIndex": 7,
+      "columns": {
+        "Title": "Search Rotated Array",
+        "Description": "Search for a target in a rotated sorted array",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Cisco, Yahoo, Intel, Oyo"
+      },
+      "description": "Search for a target in a rotated sorted array",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Sum of Consecutive Integers",
+      "url": "https://namastedev.com/practice/sum-of-consecutive-integers",
+      "page": 1,
+      "rowIndex": 8,
+      "columns": {
+        "Title": "Sum of Consecutive Integers",
+        "Description": "Determine if a given number can be expressed as the sum of two or more consecutive positive integers.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Amazon, Microsoft, Meta"
+      },
+      "description": "Determine if a given number can be expressed as the sum of two or more consecutive positive integers.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "PromiseAll With Concurrency Limit",
+      "url": "https://namastedev.com/practice/promiseall-with-concurrency-limit",
+      "page": 1,
+      "rowIndex": 9,
+      "columns": {
+        "Title": "PromiseAll With Concurrency Limit",
+        "Description": "Implement a function that works like `Promise.all()` but with a concurrency limit.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Netflix, Uber, Paytm"
+      },
+      "description": "Implement a function that works like `Promise.all()` but with a concurrency limit.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "JSON.stringify",
+      "url": "https://namastedev.com/practice/jsonstringify",
+      "page": 1,
+      "rowIndex": 10,
+      "columns": {
+        "Title": "JSON.stringify",
+        "Description": "Implement a custom version of `JSON.stringify`.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Adobe, Stripe, Paytm"
+      },
+      "description": "Implement a custom version of `JSON.stringify`.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "List Format",
+      "url": "https://namastedev.com/practice/list-format",
+      "page": 2,
+      "rowIndex": 1,
+      "columns": {
+        "Title": "List Format",
+        "Description": "Write a function that takes an array of strings and returns a human-readable list",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Twitter, Linkedin, Oyo"
+      },
+      "description": "Write a function that takes an array of strings and returns a human-readable list",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Reverse Words in a String",
+      "url": "https://namastedev.com/practice/reverse-words-in-a-string",
+      "page": 2,
+      "rowIndex": 2,
+      "columns": {
+        "Title": "Reverse Words in a String",
+        "Description": "Given an input string s, reverse the order of the words.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Salesforce, Microsoft, Amazon, Meta, Linkedin"
+      },
+      "description": "Given an input string s, reverse the order of the words.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Throttle",
+      "url": "https://namastedev.com/practice/throttle",
+      "page": 2,
+      "rowIndex": 3,
+      "columns": {
+        "Title": "Throttle",
+        "Description": "Implement a Throttle Function",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Twitter, Linkedin, Airbnb"
+      },
+      "description": "Implement a Throttle Function",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Flatten Nested Objects",
+      "url": "https://namastedev.com/practice/flatten-nested-objects",
+      "page": 2,
+      "rowIndex": 4,
+      "columns": {
+        "Title": "Flatten Nested Objects",
+        "Description": "Write a function that flattens a nested JavaScript object into a single-level object, where keys represent the path to each value using dot notation.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "DP World"
+      },
+      "description": "Write a function that flattens a nested JavaScript object into a single-level object, where keys represent the path to each value using dot notation.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Priority Queue",
+      "url": "https://namastedev.com/practice/priority-queue",
+      "page": 2,
+      "rowIndex": 5,
+      "columns": {
+        "Title": "Priority Queue",
+        "Description": "Implement a Priority Queue data structure in JavaScript from scratch.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Paypal, Swiggy"
+      },
+      "description": "Implement a Priority Queue data structure in JavaScript from scratch.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Find the Single Element in a Sorted Array",
+      "url": "https://namastedev.com/practice/find-the-single-element-in-a-sorted-array",
+      "page": 2,
+      "rowIndex": 6,
+      "columns": {
+        "Title": "Find the Single Element in a Sorted Array",
+        "Description": "Your task is to find and return the element that appears only once.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Apple, Netflix"
+      },
+      "description": "Your task is to find and return the element that appears only once.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Flatten Deep Object",
+      "url": "https://namastedev.com/practice/flatten-deep-object",
+      "page": 2,
+      "rowIndex": 7,
+      "columns": {
+        "Title": "Flatten Deep Object",
+        "Description": "Flatten a nested object using dot notation (e.g., `{a: {b: 1}}` → `{'a.b': 1}`).",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Airbnb, Cisco, Flipkart"
+      },
+      "description": "Flatten a nested object using dot notation (e.g., `{a: {b: 1}}` → `{'a.b': 1}`).",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Topological Sort (DFS)",
+      "url": "https://namastedev.com/practice/topological-sort-dfs",
+      "page": 2,
+      "rowIndex": 8,
+      "columns": {
+        "Title": "Topological Sort (DFS)",
+        "Description": "Find a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Meta, Amazon, Atlassian, Uber"
+      },
+      "description": "Find a linear ordering of vertices in a directed acyclic graph (DAG) such that for every directed edge (u, v), vertex u comes before vertex v.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Implement Promise Race",
+      "url": "https://namastedev.com/practice/implement-promise-race",
+      "page": 2,
+      "rowIndex": 9,
+      "columns": {
+        "Title": "Implement Promise Race",
+        "Description": "Polyfill `Promise.race()` that resolves or rejects as soon as the first promise in the iterable settles.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Netflix, Reddit, Tcs"
+      },
+      "description": "Polyfill `Promise.race()` that resolves or rejects as soon as the first promise in the iterable settles.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Lazy Evaluation",
+      "url": "https://namastedev.com/practice/lazy-evaluation",
+      "page": 2,
+      "rowIndex": 10,
+      "columns": {
+        "Title": "Lazy Evaluation",
+        "Description": "Create a lazy function evaluator that allows chaining of functions",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Apple, Paytm"
+      },
+      "description": "Create a lazy function evaluator that allows chaining of functions",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Deep Clone Object",
+      "url": "https://namastedev.com/practice/deep-clone-object",
+      "page": 3,
+      "rowIndex": 1,
+      "columns": {
+        "Title": "Deep Clone Object",
+        "Description": "Create a function that performs a deep clone of a given JavaScript object.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Airbnb, Meesho"
+      },
+      "description": "Create a function that performs a deep clone of a given JavaScript object.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Detect Cycle in an Undirected Connected Graph (DFS)",
+      "url": "https://namastedev.com/practice/detect-cycle-in-an-undirected-connected-graph-dfs",
+      "page": 3,
+      "rowIndex": 2,
+      "columns": {
+        "Title": "Detect Cycle in an Undirected Connected Graph (DFS)",
+        "Description": "Determine whether the component that includes node 0 in an undirected graph contains a cycle using a straightforward depth-first search with parent tracking",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Microsoft, Uber, Adobe"
+      },
+      "description": "Determine whether the component that includes node 0 in an undirected graph contains a cycle using a straightforward depth-first search with parent tracking",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Rate Limiter",
+      "url": "https://namastedev.com/practice/rate-limiter",
+      "page": 3,
+      "rowIndex": 3,
+      "columns": {
+        "Title": "Rate Limiter",
+        "Description": "Implement a sliding window rate limiter that processes API requests and determines which ones should be allowed.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Tcs, Swiggy, Flipkart, Paytm"
+      },
+      "description": "Implement a sliding window rate limiter that processes API requests and determines which ones should be allowed.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Detect data type in JS",
+      "url": "https://namastedev.com/practice/detect-data-type-in-js",
+      "page": 3,
+      "rowIndex": 4,
+      "columns": {
+        "Title": "Detect data type in JS",
+        "Description": "Create a function `detectType()` that returns the data type of the given input.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": ""
+      },
+      "description": "Create a function `detectType()` that returns the data type of the given input.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Sum of Subarray Minimum",
+      "url": "https://namastedev.com/practice/sum-of-subarray-minimum",
+      "page": 3,
+      "rowIndex": 5,
+      "columns": {
+        "Title": "Sum of Subarray Minimum",
+        "Description": "Given an array of integers arr, find the sum of min(b)",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Apple, Google, Microsoft"
+      },
+      "description": "Given an array of integers arr, find the sum of min(b)",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Topological Sort (BFS)",
+      "url": "https://namastedev.com/practice/topological-sort-bfs",
+      "page": 3,
+      "rowIndex": 6,
+      "columns": {
+        "Title": "Topological Sort (BFS)",
+        "Description": "Find a topological ordering of vertices in a directed acyclic graph using in-degree counting and BFS.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Atlassian, Adobe, Amazon, Google, Linkedin, Microsoft, Phonepe"
+      },
+      "description": "Find a topological ordering of vertices in a directed acyclic graph using in-degree counting and BFS.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Concurrency Limited Task Scheduler",
+      "url": "https://namastedev.com/practice/concurrency-limited-task-scheduler",
+      "page": 3,
+      "rowIndex": 7,
+      "columns": {
+        "Title": "Concurrency Limited Task Scheduler",
+        "Description": "You are given an array of asynchronous functions called tasks, where each function returns a Promise resolving to a value.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Swiggy, Adobe"
+      },
+      "description": "You are given an array of asynchronous functions called tasks, where each function returns a Promise resolving to a value.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Spiral Matrix Pathfinder",
+      "url": "https://namastedev.com/practice/spiral-matrix-pathfinder",
+      "page": 3,
+      "rowIndex": 8,
+      "columns": {
+        "Title": "Spiral Matrix Pathfinder",
+        "Description": "Traverse a 2D matrix in a spiral pattern, collecting all non-blocked values while avoiding obstacles marked as -1.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Google, Meta, Microsoft, Amazon, Uber, Adobe"
+      },
+      "description": "Traverse a 2D matrix in a spiral pattern, collecting all non-blocked values while avoiding obstacles marked as -1.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Event Emitter",
+      "url": "https://namastedev.com/practice/event-emitter",
+      "page": 3,
+      "rowIndex": 9,
+      "columns": {
+        "Title": "Event Emitter",
+        "Description": "Design and implement an `EventEmitter` class that mimics Node.js-style event handling.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Slack, Shopify, Flipkart"
+      },
+      "description": "Design and implement an `EventEmitter` class that mimics Node.js-style event handling.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Search in a 2D Sorted Matrix",
+      "url": "https://namastedev.com/practice/search-in-a-2d-sorted-matrix",
+      "page": 3,
+      "rowIndex": 10,
+      "columns": {
+        "Title": "Search in a 2D Sorted Matrix",
+        "Description": "You are given a 2D matrix of integers where each row is sorted in ascending order from left to right,",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Salesforce, Flipkart, Adobe"
+      },
+      "description": "You are given a 2D matrix of integers where each row is sorted in ascending order from left to right,",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Merge Array",
+      "url": "https://namastedev.com/practice/merge-array",
+      "page": 4,
+      "rowIndex": 1,
+      "columns": {
+        "Title": "Merge Array",
+        "Description": "Merge the array of object data by `id`",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Reddit, Slack, Ola"
+      },
+      "description": "Merge the array of object data by `id`",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Memoization",
+      "url": "https://namastedev.com/practice/memoization",
+      "page": 4,
+      "rowIndex": 2,
+      "columns": {
+        "Title": "Memoization",
+        "Description": "Implement a memoization function that takes a function as an argument and returns a memoized version of that function.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Microsoft, Zomato"
+      },
+      "description": "Implement a memoization function that takes a function as an argument and returns a memoized version of that function.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Shortest Distance from Source (BFS)",
+      "url": "https://namastedev.com/practice/shortest-distance-from-source-bfs",
+      "page": 4,
+      "rowIndex": 3,
+      "columns": {
+        "Title": "Shortest Distance from Source (BFS)",
+        "Description": "Find the shortest distance from a source node to all other nodes in an unweighted graph using Breadth First Search (BFS).",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Flipkart, Zomato, Phonepe, Microsoft"
+      },
+      "description": "Find the shortest distance from a source node to all other nodes in an unweighted graph using Breadth First Search (BFS).",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Longest Substring No Repeats",
+      "url": "https://namastedev.com/practice/longest-substring-no-repeats",
+      "page": 4,
+      "rowIndex": 4,
+      "columns": {
+        "Title": "Longest Substring No Repeats",
+        "Description": "Find the length of the longest substring without repeating characters (e.g., `\"abcabcbb\"` → `3`)",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Microsoft, Ola"
+      },
+      "description": "Find the length of the longest substring without repeating characters (e.g., `\"abcabcbb\"` → `3`)",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Object.assign()",
+      "url": "https://namastedev.com/practice/objectassign",
+      "page": 4,
+      "rowIndex": 5,
+      "columns": {
+        "Title": "Object.assign()",
+        "Description": "Recreate the functionality of `Object.assign()` in JavaScript.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": ""
+      },
+      "description": "Recreate the functionality of `Object.assign()` in JavaScript.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Oranges Rotting",
+      "url": "https://namastedev.com/practice/oranges-rotting",
+      "page": 4,
+      "rowIndex": 6,
+      "columns": {
+        "Title": "Oranges Rotting",
+        "Description": "Write a function that determines the number of minutes for all fresh oranges to become rotten.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Microsoft, Linkedin"
+      },
+      "description": "Write a function that determines the number of minutes for all fresh oranges to become rotten.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    },
+    {
+      "title": "Compress String with Limited Repetition",
+      "url": "https://namastedev.com/practice/compress-string-with-limited-repetition",
+      "page": 4,
+      "rowIndex": 7,
+      "columns": {
+        "Title": "Compress String with Limited Repetition",
+        "Description": "Compress the string by replacing consecutive repeated characters with the character followed by the count of its repetitions.",
+        "Language": "JavaScript",
+        "Difficulty": "Medium",
+        "Companies": "Amazon, Microsoft"
+      },
+      "description": "Compress the string by replacing consecutive repeated characters with the character followed by the count of its repetitions.",
+      "difficulty": "Medium",
+      "status": null,
+      "tags": [],
+      "companies": []
+    }
+  ]
+}

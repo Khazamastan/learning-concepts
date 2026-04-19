@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem 56 - Preview Selected Color from Swatches</title>
+  <style>
+    :root {
+      --bg: #f7f6f3;
+      --panel: #fff;
+      --text: #151515;
+      --muted: #666;
+      --border: #ddd;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: linear-gradient(140deg, #fff8e7, var(--bg));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+    }
+
+    .shell {
+      width: min(940px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    select, button, input[type='color'] {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 6px 10px;
+      background: #fff;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+      gap: 10px;
+    }
+
+    .swatch {
+      border: 1px solid #cfcfcf;
+      border-radius: 10px;
+      height: 56px;
+      cursor: pointer;
+      position: relative;
+      outline: none;
+    }
+
+    .swatch.active::after {
+      content: '✓';
+      position: absolute;
+      right: 6px;
+      bottom: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.8);
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .preview {
+      border: 1px solid #d7d7d7;
+      border-radius: 12px;
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      transition: background 180ms ease;
+      text-align: center;
+      padding: 16px;
+    }
+
+    #meta { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <section class="shell">
+    <h2 style="margin:0;">Preview Selected Color from Swatches</h2>
+
+    <div class="row">
+      <label>
+        Approach:
+        <select id="approach">
+          <option value="direct">1) Direct listener per swatch</option>
+          <option value="delegate">2) Event delegation on container</option>
+          <option value="dynamic">3) Dynamic palette + keyboard control</option>
+        </select>
+      </label>
+      <input id="picker" type="color" value="#ff5a5f" />
+      <button id="add" type="button">Add Color</button>
+      <span id="meta">Pick a swatch to preview.</span>
+    </div>
+
+    <div class="swatches" id="swatches"></div>
+
+    <article class="preview" id="preview">
+      <div>
+        <h3 id="hex">#FFFFFF</h3>
+        <p id="rgb">rgb(255, 255, 255)</p>
+      </div>
+    </article>
+  </section>
+
+  <script>
+    const approach = document.getElementById('approach');
+    const swatchesEl = document.getElementById('swatches');
+    const picker = document.getElementById('picker');
+    const addBtn = document.getElementById('add');
+    const meta = document.getElementById('meta');
+    const preview = document.getElementById('preview');
+    const hexNode = document.getElementById('hex');
+    const rgbNode = document.getElementById('rgb');
+
+    const palette = ['#FF5A5F', '#FDCB6E', '#00B894', '#0984E3', '#6C5CE7', '#2D3436', '#E17055', '#00CEC9', '#F78FB3'];
+
+    let cleanup = null;
+    let selectedIndex = -1;
+
+    function hexToRgb(hex) {
+      const h = hex.replace('#', '');
+      const v = Number.parseInt(h.length === 3 ? h.split('').map((x) => x + x).join('') : h, 16);
+      return {
+        r: (v >> 16) & 255,
+        g: (v >> 8) & 255,
+        b: v & 255
+      };
+    }
+
+    function luminance({ r, g, b }) {
+      return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+    }
+
+    function renderSwatches() {
+      swatchesEl.innerHTML = palette
+        .map(
+          (color, idx) =>
+            `<button class="swatch ${idx === selectedIndex ? 'active' : ''}" data-index="${idx}" data-color="${color}" style="background:${color}" aria-label="${color}"></button>`
+        )
+        .join('');
+    }
+
+    function applyColor(color, idx = -1) {
+      selectedIndex = idx;
+      const rgb = hexToRgb(color);
+      const textColor = luminance(rgb) > 0.55 ? '#111' : '#fff';
+
+      preview.style.background = color;
+      preview.style.color = textColor;
+      hexNode.textContent = color.toUpperCase();
+      rgbNode.textContent = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+      meta.textContent = `Selected ${color.toUpperCase()}`;
+
+      renderSwatches();
+    }
+
+    function setupDirect() {
+      const nodes = Array.from(document.querySelectorAll('.swatch'));
+      const offs = nodes.map((node) => {
+        const onClick = () => applyColor(node.dataset.color, Number(node.dataset.index));
+        node.addEventListener('click', onClick);
+        return () => node.removeEventListener('click', onClick);
+      });
+
+      meta.textContent = 'Approach 1 active';
+      return () => offs.forEach((off) => off());
+    }
+
+    function setupDelegate() {
+      const onClick = (e) => {
+        const btn = e.target.closest('.swatch');
+        if (!btn) return;
+        applyColor(btn.dataset.color, Number(btn.dataset.index));
+      };
+
+      swatchesEl.addEventListener('click', onClick);
+      meta.textContent = 'Approach 2 active';
+      return () => swatchesEl.removeEventListener('click', onClick);
+    }
+
+    function setupDynamic() {
+      const onClick = (e) => {
+        const btn = e.target.closest('.swatch');
+        if (!btn) return;
+        applyColor(btn.dataset.color, Number(btn.dataset.index));
+      };
+
+      const onKey = (e) => {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        if (!palette.length) return;
+
+        if (selectedIndex < 0) selectedIndex = 0;
+        else if (e.key === 'ArrowRight') selectedIndex = (selectedIndex + 1) % palette.length;
+        else selectedIndex = (selectedIndex - 1 + palette.length) % palette.length;
+
+        applyColor(palette[selectedIndex], selectedIndex);
+      };
+
+      const onAdd = () => {
+        const color = picker.value.toUpperCase();
+        palette.push(color);
+        renderSwatches();
+        applyColor(color, palette.length - 1);
+      };
+
+      swatchesEl.addEventListener('click', onClick);
+      window.addEventListener('keydown', onKey);
+      addBtn.addEventListener('click', onAdd);
+
+      meta.textContent = 'Approach 3 active (supports add + keyboard arrows)';
+
+      return () => {
+        swatchesEl.removeEventListener('click', onClick);
+        window.removeEventListener('keydown', onKey);
+        addBtn.removeEventListener('click', onAdd);
+      };
+    }
+
+    function mount(mode) {
+      cleanup?.();
+      renderSwatches();
+      if (mode === 'delegate') cleanup = setupDelegate();
+      else if (mode === 'dynamic') cleanup = setupDynamic();
+      else cleanup = setupDirect();
+    }
+
+    approach.addEventListener('change', (e) => mount(e.target.value));
+
+    renderSwatches();
+    applyColor('#FFFFFF', -1);
+    mount('direct');
+  </script>
+</body>
+</html>

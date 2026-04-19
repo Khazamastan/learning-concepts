@@ -1,0 +1,12 @@
+{
+  "name": "learnersbucket-practice-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "namaste:scrape": "node scripts/namastedev-practice-scraper.mjs",
+    "namaste:full-solutions": "node scripts/generate-rich-namastedev-solutions.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.54.1"
+  }
+}
