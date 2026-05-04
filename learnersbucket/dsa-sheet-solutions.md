@@ -1,20 +1,25 @@
 # DSA Sheet Solutions (JavaScript)
 
-Generated at: 2026-04-19T04:59:40.389Z
+Generated at: 2026-04-24T14:24:16.437Z
 Total problems: 170
+
+> **Notation Note:** `linkedList([..])`, `tree([..])`, and `graph([..])` are compact input notations used only for readability in examples.
 
 ## Common Helpers
 
 ### 1. List Node (`ListNode`)
 
 **Problem Statement**
-Design and implement the **List Node** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **List Node** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new ListNode(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use ListNode with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new ListNode(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use ListNode with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -26,16 +31,39 @@ class ListNode {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Define a minimal data container that stores value and structural links used by higher-level algorithms.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(1) constructor; operations vary by method
+- **Space Complexity:** O(1) per node plus stored structure
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Create node] --> B[Store value fields]
+  B --> C[Link pointers or neighbors]
+  C --> D[Used by higher level algorithms]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Constructor stores node value and the `next` pointer.
+2. Each node instance becomes one element in a singly linked list chain.
+3. Algorithms connect nodes by rewriting `next` references.
+
 ### 2. Tree Node (`TreeNode`)
 
 **Problem Statement**
-Design and implement the **Tree Node** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **Tree Node** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new TreeNode(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use TreeNode with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new TreeNode(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use TreeNode with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -48,16 +76,39 @@ class TreeNode {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Define a minimal data container that stores value and structural links used by higher-level algorithms.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(1) constructor; operations vary by method
+- **Space Complexity:** O(1) per node plus stored structure
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Create node] --> B[Store value fields]
+  B --> C[Link pointers or neighbors]
+  C --> D[Used by higher level algorithms]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Constructor stores `val`, `left`, and `right` references.
+2. `left`/`right` can be `null` for missing children.
+3. Tree algorithms traverse by following these child references.
+
 ### 3. Graph Node (`GraphNode`)
 
 **Problem Statement**
-Design and implement the **Graph Node** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **Graph Node** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new GraphNode(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use GraphNode with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new GraphNode(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use GraphNode with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -69,16 +120,39 @@ class GraphNode {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Define a minimal data container that stores value and structural links used by higher-level algorithms.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(1) constructor; operations vary by method
+- **Space Complexity:** O(1) per node plus stored structure
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Create node] --> B[Store value fields]
+  B --> C[Link pointers or neighbors]
+  C --> D[Used by higher level algorithms]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Constructor stores node value and initializes `neighbors` list.
+2. Edges are represented by neighbor references in this array.
+3. Graph traversals use `neighbors` to move between nodes.
+
 ### 4. Binary Heap (`BinaryHeap`)
 
 **Problem Statement**
-Design and implement the **Binary Heap** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **Binary Heap** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new BinaryHeap(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use BinaryHeap with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new BinaryHeap(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use BinaryHeap with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -140,16 +214,40 @@ class BinaryHeap {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Maintain heap order after every insert/remove using bubble-up and bubble-down operations.
+- **Correctness Invariant:** Heap property is restored after every push/pop by bubble operations.
+- **Code Lens:** Key variables in this code: `l`, `r`, `best`.
+- **Time Complexity:** O(log n) per heap update
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[push x] --> B[Place at end]
+  B --> C[Bubble up while heap rule breaks]
+  D[pop] --> E[Swap root with last]
+  E --> F[Bubble down to restore order]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. `push` appends element, then `bubbleUp` restores heap order toward root.
+2. `pop` removes root, moves last element to root, then `bubbleDown` restores order.
+3. `peek` reads root, and comparator controls min-heap/max-heap behavior.
+
 ### 5. DSU (`DSU`)
 
 **Problem Statement**
-Design and implement the **DSU** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **DSU** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new DSU(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use DSU with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new DSU(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use DSU with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -179,18 +277,43 @@ class DSU {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Group elements by representative roots, with path compression and union-by-rank to keep trees shallow.
+- **Correctness Invariant:** Each node points to a representative root; path compression only shortens valid root paths.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** find/union are near O(1) amortized
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[find x] --> B{parent x equals x}
+  B -- No --> C[Compress path to root]
+  B -- Yes --> D[Return root]
+  E[union a b] --> F[Attach lower rank root]
+  F --> G[Decrease components]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. `find` returns representative root and compresses paths for faster future queries.
+2. `union` merges two component roots using rank balancing.
+3. `components` decreases only when two previously separate sets are merged.
+
 ## 1) Foundation
 
 ### 6. Sum (`sum`)
 
 **Problem Statement**
-Implement **sum(a, b)** to solve the **Sum** problem efficiently in JavaScript.
+Solve **Sum** by implementing **sum(a, b)**.
+- **Input:** `a`: integer/number; `b`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `sum("abc", "abc")`
-   Output: `number`
-2. Input: `sum(..., ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `sum(2, 2)`
+   Output: `4`
+2. Input: `sum(0, 0)`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -199,16 +322,38 @@ function sum(a, b) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compute the answer directly from input values using a fixed number of operations.
+- **Correctness Invariant:** No iterative state is required; each expression is evaluated exactly once.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Read input values] --> B[Apply direct formula check or transform]
+  B --> C[Return result immediately]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Read the required input values.
+2. Apply a direct expression/check with constant operations.
+3. Return the computed value immediately.
+
 ### 7. Second Largest (`secondLargest`)
 
 **Problem Statement**
-Implement **secondLargest(nums)** to solve the **Second Largest** problem efficiently in JavaScript.
+Solve **Second Largest** by implementing **secondLargest(nums)**.
+- **Input:** `nums` is an array of integers.
+- **Output:** Return the second largest **distinct** value in `nums`.
+- **Edge Cases:** If `nums` has fewer than two distinct values, return `-1`.
 
 **Example Cases**
-1. Input: `secondLargest([1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `secondLargest([1,2,3])`
+   Output: `2`
 2. Input: `secondLargest([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `-1`
 
 **JavaScript Solution**
 ```javascript
@@ -227,16 +372,43 @@ function secondLargest(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Iterate through input once while keeping a minimal running state that directly builds the answer.
+- **Correctness Invariant:** After each step, running state still summarizes all processed input correctly.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Initialize answer or state] --> B[Scan input once]
+  B --> C[Update running best]
+  C --> D[Return final state]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize sentinel variable `first` as `-Infinity` for comparisons.
+2. Initialize sentinel variable `second` as `-Infinity` for comparisons.
+3. Iterate through `nums`, processing each element as `x`.
+4. Branch logic based on condition `x > first`.
+5. Recompute `second` as `first`.
+6. Recompute `first` as `x`.
+7. Return final answer as `second === -Infinity ? -1 : second`.
+
 ### 8. Is Palindrome Number (`isPalindromeNumber`)
 
 **Problem Statement**
-Implement **isPalindromeNumber(x)** to solve the **Is Palindrome Number** problem efficiently in JavaScript.
+Solve **Is Palindrome Number** by implementing **isPalindromeNumber(x)**.
+- **Input:** `x`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `isPalindromeNumber("abc")`
-   Output: `true or false`
-2. Input: `isPalindromeNumber(...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `isPalindromeNumber(null)`
+   Output: `false`
+2. Input: `isPalindromeNumber(0)`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -252,16 +424,43 @@ function isPalindromeNumber(x) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Iterate through input once while keeping a minimal running state that directly builds the answer.
+- **Correctness Invariant:** After each step, running state still summarizes all processed input correctly.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Initialize answer or state] --> B[Scan input once]
+  B --> C[Update running best]
+  C --> D[Return final state]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `x < 0`, return `false` immediately.
+2. Initialize `orig` with `x`.
+3. Initialize `rev` with `0`.
+4. Repeat loop while condition `x > 0` remains true.
+5. Recompute `rev` as `rev * 10 + (x % 10)`.
+6. Recompute `x` as `Math.floor(x / 10)`.
+7. Return final answer as `rev === orig`.
+
 ### 9. Reverse Integer (`reverseInteger`)
 
 **Problem Statement**
-Implement **reverseInteger(x)** to solve the **Reverse Integer** problem efficiently in JavaScript.
+Solve **Reverse Integer** by implementing **reverseInteger(x)**.
+- **Input:** `x`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `reverseInteger("abc")`
-   Output: `result according to problem definition`
-2. Input: `reverseInteger(...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `reverseInteger(null)`
+   Output: `0`
+2. Input: `reverseInteger(0)`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -282,16 +481,43 @@ function reverseInteger(x) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Iterate through input once while keeping a minimal running state that directly builds the answer.
+- **Correctness Invariant:** After each step, running state still summarizes all processed input correctly.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Initialize answer or state] --> B[Scan input once]
+  B --> C[Update running best]
+  C --> D[Return final state]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `sign` with `x < 0 ? -1 : 1`.
+2. Recompute `x` as `Math.abs(x)`.
+3. Initialize `rev` with `0`.
+4. Repeat loop while condition `x > 0` remains true.
+5. Recompute `rev` as `rev * 10 + (x % 10)`.
+6. Recompute `x` as `Math.floor(x / 10)`.
+7. Return final answer as `rev < INT_MIN || rev > INT_MAX ? 0 : rev`.
+
 ### 10. Count Negative Numbers (`countNegativeNumbers`)
 
 **Problem Statement**
-Implement **countNegativeNumbers(grid)** to solve the **Count Negative Numbers** problem efficiently in JavaScript.
+Solve **Count Negative Numbers** by implementing **countNegativeNumbers(grid)**.
+- **Input:** `grid`: 2D grid/matrix
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty/single-cell grids correctly.
 
 **Example Cases**
-1. Input: `countNegativeNumbers([[1, 2], [3, 4]])`
-   Output: `number`
+1. Input: `countNegativeNumbers([[1,2],[3,4]])`
+   Output: `0`
 2. Input: `countNegativeNumbers([[]])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -316,16 +542,47 @@ function countNegativeNumbers(grid) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep a shrinking valid search interval and decide direction using mid comparisons.
+- **Correctness Invariant:** `[l, r]` always contains all possible valid answers not discarded yet.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r boundaries] --> B[mid equals floor l plus r by two]
+  B --> C{nums mid compared to target}
+  C -- smaller --> D[l equals mid plus one]
+  C -- larger --> E[r equals mid minus one]
+  C -- equal --> F[return answer]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `count` with `0`.
+2. Iterate through `grid`, processing each element as `row`.
+3. Initialize `l` with `0`.
+4. Initialize `r` with `row.length - 1`.
+5. Initialize `firstNeg` with `row.length`.
+6. Repeat loop while condition `l <= r` remains true.
+7. Return final answer as `count`.
+
 ### 11. Find Smallest Number (`findSmallestNumber`)
 
 **Problem Statement**
-Implement **findSmallestNumber(nums)** to solve the **Find Smallest Number** problem efficiently in JavaScript.
+Solve **Find Smallest Number** by implementing **findSmallestNumber(nums)**.
+- **Input:** `nums`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findSmallestNumber([1, 2, 3])`
-   Output: `number`
+1. Input: `findSmallestNumber([1,2,3])`
+   Output: `1`
 2. Input: `findSmallestNumber([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `Infinity`
 
 **JavaScript Solution**
 ```javascript
@@ -336,16 +593,39 @@ function findSmallestNumber(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Iterate through input once while keeping a minimal running state that directly builds the answer.
+- **Correctness Invariant:** After each step, running state still summarizes all processed input correctly.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Initialize answer or state] --> B[Scan input once]
+  B --> C[Update running best]
+  C --> D[Return final state]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize sentinel variable `minVal` as `Infinity` for comparisons.
+2. Iterate through `nums`, processing each element as `x`.
+3. Return final answer as `minVal`.
+
 ### 12. Find Largest Number (`findLargestNumber`)
 
 **Problem Statement**
-Implement **findLargestNumber(nums)** to solve the **Find Largest Number** problem efficiently in JavaScript.
+Solve **Find Largest Number** by implementing **findLargestNumber(nums)**.
+- **Input:** `nums`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findLargestNumber([1, 2, 3])`
-   Output: `number`
+1. Input: `findLargestNumber([1,2,3])`
+   Output: `3`
 2. Input: `findLargestNumber([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `-Infinity`
 
 **JavaScript Solution**
 ```javascript
@@ -356,16 +636,39 @@ function findLargestNumber(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Iterate through input once while keeping a minimal running state that directly builds the answer.
+- **Correctness Invariant:** After each step, running state still summarizes all processed input correctly.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Initialize answer or state] --> B[Scan input once]
+  B --> C[Update running best]
+  C --> D[Return final state]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize sentinel variable `maxVal` as `-Infinity` for comparisons.
+2. Iterate through `nums`, processing each element as `x`.
+3. Return final answer as `maxVal`.
+
 ### 13. Binary Search (`binarySearch`)
 
 **Problem Statement**
-Implement **binarySearch(nums, target)** to solve the **Binary Search** problem efficiently in JavaScript.
+Solve **Binary Search** by implementing **binarySearch(nums, target)**.
+- **Input:** `nums`: array of numbers; `target`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `binarySearch([1, 2, 3], "abc")`
-   Output: `result according to problem definition`
+1. Input: `binarySearch([1,3,5,7], 5)`
+   Output: `2`
 2. Input: `binarySearch([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `-1`
 
 **JavaScript Solution**
 ```javascript
@@ -382,16 +685,47 @@ function binarySearch(nums, target) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep a shrinking valid search interval and decide direction using mid comparisons.
+- **Correctness Invariant:** `[l, r]` always contains all possible valid answers not discarded yet.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r boundaries] --> B[mid equals floor l plus r by two]
+  B --> C{nums mid compared to target}
+  C -- smaller --> D[l equals mid plus one]
+  C -- larger --> E[r equals mid minus one]
+  C -- equal --> F[return answer]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `nums.length - 1`.
+3. Repeat loop while condition `l <= r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Handle edge/base case early: if `nums[m] === target`, return `m` immediately.
+6. Branch logic based on condition `nums[m] < target`.
+7. Return final answer as `-1`.
+
 ### 14. Merge Sort (`mergeSort`)
 
 **Problem Statement**
-Implement **mergeSort(nums)** to solve the **Merge Sort** problem efficiently in JavaScript.
+Solve **Merge Sort** by implementing **mergeSort(nums)**.
+- **Input:** `nums`: array of numbers
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `mergeSort([1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `mergeSort([5,2,3,1])`
+   Output: `[1,2,3,5]`
 2. Input: `mergeSort([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -423,16 +757,44 @@ function mergeSort(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Split into smaller independent parts, solve recursively, then merge results.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`, `mid`.
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Split input in halves] --> B[Solve left recursively]
+  A --> C[Solve right recursively]
+  B --> D[Merge two sorted results]
+  C --> D
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `nums.length <= 1`, return `nums.slice()` immediately.
+2. Initialize `out` as a working array/DP structure.
+3. Initialize `i` with `0`.
+4. Initialize `j` with `0`.
+5. Repeat loop while condition `i < left.length && j < right.length` remains true.
+6. Branch logic based on condition `left[i] <= right[j]) out.push(left[i++]`.
+7. Return final answer as `solve(nums)`.
+
 ### 15. Is Power Of Two (`isPowerOfTwo`)
 
 **Problem Statement**
-Implement **isPowerOfTwo(n)** to solve the **Is Power Of Two** problem efficiently in JavaScript.
+Solve **Is Power Of Two** by implementing **isPowerOfTwo(n)**.
+- **Input:** `n`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
 1. Input: `isPowerOfTwo(2)`
-   Output: `true or false`
+   Output: `true`
 2. Input: `isPowerOfTwo(0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `false`
 
 **JavaScript Solution**
 ```javascript
@@ -441,18 +803,40 @@ function isPowerOfTwo(n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compute the answer directly from input values using a fixed number of operations.
+- **Correctness Invariant:** No iterative state is required; each expression is evaluated exactly once.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Read input values] --> B[Apply direct formula check or transform]
+  B --> C[Return result immediately]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Read the required input values.
+2. Apply a direct expression/check with constant operations.
+3. Return the computed value immediately.
+
 ## 2) Arrays
 
 ### 16. Remove Duplicates (`removeDuplicates`)
 
 **Problem Statement**
-Implement **removeDuplicates(nums)** to solve the **Remove Duplicates** problem efficiently in JavaScript.
+Solve **Remove Duplicates** by implementing **removeDuplicates(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `removeDuplicates([1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `removeDuplicates([1,1,2,2,3])`
+   Output: `length=3, prefix=[1,2,3]`
 2. Input: `removeDuplicates([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `length=0, prefix=[]`
 
 **JavaScript Solution**
 ```javascript
@@ -469,16 +853,42 @@ function removeDuplicates(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Scan once while maintaining running state (best/min/max/counter) needed for the final answer.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `write`, `read`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Left to right traversal] --> B[Maintain running counters]
+  B --> C[Update answer each step]
+  C --> D[Finish scan]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `nums.length === 0`, return `0` immediately.
+2. Initialize `write` with `1`.
+3. Run indexed loop controlled by `read` according to the loop bounds.
+4. Branch logic based on condition `nums[read] !== nums[read - 1]`.
+5. Increment/update `write` by `1` based on current state.
+6. Return final answer as `write`.
+
 ### 17. Remove Element (`removeElement`)
 
 **Problem Statement**
-Implement **removeElement(nums, val)** to solve the **Remove Element** problem efficiently in JavaScript.
+Solve **Remove Element** by implementing **removeElement(nums, val)**.
+- **Input:** `nums`: integer/number; `val`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `removeElement([1, 2, 3], "abc")`
-   Output: `result according to problem definition`
+1. Input: `removeElement([3,2,2,3], 3)`
+   Output: `length=2, prefix=[2,2]`
 2. Input: `removeElement([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `length=0, prefix=[]`
 
 **JavaScript Solution**
 ```javascript
@@ -491,16 +901,40 @@ function removeElement(nums, val) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Scan once while maintaining running state (best/min/max/counter) needed for the final answer.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `write`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Left to right traversal] --> B[Maintain running counters]
+  B --> C[Update answer each step]
+  C --> D[Finish scan]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `write` with `0`.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Branch logic based on condition `nums[i] !== val`.
+4. Return final answer as `write`.
+
 ### 18. Reverse String (`reverseString`)
 
 **Problem Statement**
-Implement **reverseString(chars)** to solve the **Reverse String** problem efficiently in JavaScript.
+Solve **Reverse String** by implementing **reverseString(chars)**.
+- **Input:** `chars`: value required by the problem
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary inputs according to the function contract without runtime errors.
 
 **Example Cases**
-1. Input: `reverseString("abc")`
-   Output: `string`
-2. Input: `reverseString("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `reverseString(["h","e","l","l","o"])`
+   Output: `["o","l","l","e","h"]`
+2. Input: `reverseString(0)`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -516,16 +950,45 @@ function reverseString(chars) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two moving indices to avoid nested loops and enforce constraints in linear time.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[l at start r at end] --> B[Evaluate pair]
+  B --> C{Need larger or smaller state}
+  C -- Move l --> D[l plus one]
+  C -- Move r --> E[r minus one]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `chars.length - 1`.
+3. Repeat loop while condition `l < r` remains true.
+4. Update multiple variables together using destructuring assignment: `[chars[l], chars[r]] = [chars[r], chars[l]];`.
+5. Increment/update `l` by `1` based on current state.
+6. Return final answer as `chars`.
+
 ### 19. Max Profit (`maxProfit`)
 
 **Problem Statement**
-Implement **maxProfit(prices)** to solve the **Max Profit** problem efficiently in JavaScript.
+Solve **Max Profit** by implementing **maxProfit(prices)**.
+- **Input:** `prices`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `maxProfit([1, 2, 3])`
-   Output: `number`
+1. Input: `maxProfit([7,1,5,3,6,4])`
+   Output: `5`
 2. Input: `maxProfit([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -540,16 +1003,42 @@ function maxProfit(prices) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Scan once while maintaining running state (best/min/max/counter) needed for the final answer.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `ans`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Left to right traversal] --> B[Maintain running counters]
+  B --> C[Update answer each step]
+  C --> D[Finish scan]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize sentinel variable `bestBuy` as `Infinity` for comparisons.
+2. Initialize `ans` with `0`.
+3. Iterate through `prices`, processing each element as `p`.
+4. Update `bestBuy` using optimal-choice comparison: `Math.min(bestBuy, p)`.
+5. Update `ans` using optimal-choice comparison: `Math.max(ans, p - bestBuy)`.
+6. Return final answer as `ans`.
+
 ### 20. Merge Sorted Arrays (`mergeSortedArrays`)
 
 **Problem Statement**
-Implement **mergeSortedArrays(nums1, m, nums2, n)** to solve the **Merge Sorted Arrays** problem efficiently in JavaScript.
+Solve **Merge Sorted Arrays** by implementing **mergeSortedArrays(nums1, m, nums2, n)**.
+- **Input:** `nums1`: array of numbers; `m`: integer/number; `nums2`: integer/number; `n`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `mergeSortedArrays([1, 2, 3], 2, [1, 2, 3], 2)`
-   Output: `array / list structure`
+1. Input: `mergeSortedArrays([1,2,3,0,0,0], 3, [2,5,6], 3)`
+   Output: `[1,2,2,3,5,6]`
 2. Input: `mergeSortedArrays([], 0, [], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -567,16 +1056,42 @@ function mergeSortedArrays(nums1, m, nums2, n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Scan once while maintaining running state (best/min/max/counter) needed for the final answer.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `m`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Left to right traversal] --> B[Maintain running counters]
+  B --> C[Update answer each step]
+  C --> D[Finish scan]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `i` with `m - 1`.
+2. Initialize `j` with `n - 1`.
+3. Initialize `k` with `m + n - 1`.
+4. Repeat loop while condition `j >= 0` remains true.
+5. Branch logic based on condition `i >= 0 && nums1[i] > nums2[j]`.
+6. Return final answer as `nums1`.
+
 ### 21. Move Zeroes (`moveZeroes`)
 
 **Problem Statement**
-Implement **moveZeroes(nums)** to solve the **Move Zeroes** problem efficiently in JavaScript.
+Solve **Move Zeroes** by implementing **moveZeroes(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `moveZeroes([1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `moveZeroes([0,1,0,3,12])`
+   Output: `[1,3,12,0,0]`
 2. Input: `moveZeroes([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -592,16 +1107,42 @@ function moveZeroes(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Scan once while maintaining running state (best/min/max/counter) needed for the final answer.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `write`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Left to right traversal] --> B[Maintain running counters]
+  B --> C[Update answer each step]
+  C --> D[Finish scan]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `write` with `0`.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Branch logic based on condition `nums[i] !== 0`.
+4. Update multiple variables together using destructuring assignment: `[nums[write], nums[i]] = [nums[i], nums[write]];`.
+5. Increment/update `write` by `1` based on current state.
+6. Return final answer as `nums`.
+
 ### 22. Find Max Consecutive Ones (`findMaxConsecutiveOnes`)
 
 **Problem Statement**
-Implement **findMaxConsecutiveOnes(nums)** to solve the **Find Max Consecutive Ones** problem efficiently in JavaScript.
+Solve **Find Max Consecutive Ones** by implementing **findMaxConsecutiveOnes(nums)**.
+- **Input:** `nums`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findMaxConsecutiveOnes([1, 2, 3])`
-   Output: `number`
+1. Input: `findMaxConsecutiveOnes([1,1,0,1,1,1])`
+   Output: `3`
 2. Input: `findMaxConsecutiveOnes([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -617,16 +1158,42 @@ function findMaxConsecutiveOnes(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Scan once while maintaining running state (best/min/max/counter) needed for the final answer.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `best`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Left to right traversal] --> B[Maintain running counters]
+  B --> C[Update answer each step]
+  C --> D[Finish scan]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `best` with `0`.
+2. Initialize `cur` with `0`.
+3. Iterate through `nums`, processing each element as `x`.
+4. Branch logic based on condition `x === 1`.
+5. Update `best` using optimal-choice comparison: `Math.max(best, cur)`.
+6. Return final answer as `best`.
+
 ### 23. Missing Number (`missingNumber`)
 
 **Problem Statement**
-Implement **missingNumber(nums)** to solve the **Missing Number** problem efficiently in JavaScript.
+Solve **Missing Number** by implementing **missingNumber(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `missingNumber([1, 2, 3])`
-   Output: `number`
+1. Input: `missingNumber([3,0,1])`
+   Output: `2`
 2. Input: `missingNumber([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -639,16 +1206,39 @@ function missingNumber(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Leverage bit identities (xor/power-of-two checks) to remove unnecessary state and comparisons.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Use bit identity] --> B[Eliminate matched pairs or test bit]
+  B --> C[Only meaningful bits remain]
+  C --> D[Return computed value]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `xor` with `nums.length`.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Return final answer as `xor`.
+
 ### 24. Single Number (`singleNumber`)
 
 **Problem Statement**
-Implement **singleNumber(nums)** to solve the **Single Number** problem efficiently in JavaScript.
+Solve **Single Number** by implementing **singleNumber(nums)**.
+- **Input:** `nums`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `singleNumber([1, 2, 3])`
-   Output: `number`
+1. Input: `singleNumber([4,1,2,1,2])`
+   Output: `4`
 2. Input: `singleNumber([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -659,18 +1249,41 @@ function singleNumber(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Leverage bit identities (xor/power-of-two checks) to remove unnecessary state and comparisons.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Use bit identity] --> B[Eliminate matched pairs or test bit]
+  B --> C[Only meaningful bits remain]
+  C --> D[Return computed value]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `x` with `0`.
+2. Iterate through `nums`, processing each element as `n`.
+3. Return final answer as `x`.
+
 ## 3) Linked List
 
 ### 25. My Linked List (`MyLinkedList`)
 
 **Problem Statement**
-Design and implement the **My Linked List** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **My Linked List** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new MyLinkedList(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use MyLinkedList with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new MyLinkedList(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use MyLinkedList with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -718,16 +1331,39 @@ class MyLinkedList {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use a sentinel head node and explicit size tracking so index operations are consistent and edge-safe.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(1) constructor; operations vary by method
+- **Space Complexity:** O(1) per node plus stored structure
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Sentinel head] --> B[Traverse to index]
+  B --> C[Insert delete get]
+  C --> D[Update size]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Uses a sentinel head node so index-based insert/delete always has a predecessor node.
+2. `addAtIndex` walks to predecessor and rewires `next` pointers for insertion.
+3. `deleteAtIndex` bypasses target node and updates `size` consistently.
+
 ### 26. Middle Node (`middleNode`)
 
 **Problem Statement**
-Implement **middleNode(head)** to solve the **Middle Node** problem efficiently in JavaScript.
+Solve **Middle Node** by implementing **middleNode(head)**.
+- **Input:** `head`: linked-list head/node
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `middleNode(linkedListHead)`
-   Output: `result according to problem definition`
+1. Input: `middleNode(linkedList([..]))`
+   Output: `[2,3]`
 2. Input: `middleNode(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -742,16 +1378,44 @@ function middleNode(head) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Move one pointer by 1 and another by 2 to detect midpoint/cycle relationships.
+- **Correctness Invariant:** `fast` moves twice as quickly as `slow`, so their relationship encodes structure.
+- **Code Lens:** Key variables in this code: `slow`, `fast`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[slow head fast head] --> B[slow one step]
+  B --> C[fast two steps]
+  C --> D{meeting or fast ends}
+  D -- meeting --> E[cycle midpoint logic]
+  D -- ends --> F[no cycle or midpoint found]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `slow` with `head`.
+2. Initialize `fast` with `head`.
+3. Repeat loop while condition `fast && fast.next` remains true.
+4. Recompute `slow` as `slow.next`.
+5. Recompute `fast` as `fast.next.next`.
+6. Return final answer as `slow`.
+
 ### 27. Reverse List (`reverseList`)
 
 **Problem Statement**
-Implement **reverseList(head)** to solve the **Reverse List** problem efficiently in JavaScript.
+Solve **Reverse List** by implementing **reverseList(head)**.
+- **Input:** `head`: linked-list head/node
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `reverseList(linkedListHead)`
-   Output: `array / list structure`
+1. Input: `reverseList(linkedList([..]))`
+   Output: `[3,2,1]`
 2. Input: `reverseList(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -768,16 +1432,44 @@ function reverseList(head) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Re-link next pointers in-place to insert, delete, reverse, or reorder nodes safely.
+- **Correctness Invariant:** All rewired pointers still form a valid chain from dummy/head to remaining nodes.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dummy before head] --> B[Locate prev node]
+  B --> C[Rewrite next pointers]
+  C --> D[Advance pointers]
+  D --> E[Return dummy next]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `prev` with `null`.
+2. Initialize `cur` with `head`.
+3. Repeat loop while condition `cur` remains true.
+4. Initialize `nxt` with `cur.next`.
+5. Recompute `prev` as `cur`.
+6. Recompute `cur` as `nxt`.
+7. Return final answer as `prev`.
+
 ### 28. Has Cycle (`hasCycle`)
 
 **Problem Statement**
-Implement **hasCycle(head)** to solve the **Has Cycle** problem efficiently in JavaScript.
+Solve **Has Cycle** by implementing **hasCycle(head)**.
+- **Input:** `head`: linked-list head/node
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `hasCycle(linkedListHead)`
-   Output: `true or false`
+1. Input: `hasCycle(linkedList([..]))`
+   Output: `false`
 2. Input: `hasCycle(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `false`
 
 **JavaScript Solution**
 ```javascript
@@ -793,16 +1485,45 @@ function hasCycle(head) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Move one pointer by 1 and another by 2 to detect midpoint/cycle relationships.
+- **Correctness Invariant:** `fast` moves twice as quickly as `slow`, so their relationship encodes structure.
+- **Code Lens:** Key variables in this code: `slow`, `fast`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[slow head fast head] --> B[slow one step]
+  B --> C[fast two steps]
+  C --> D{meeting or fast ends}
+  D -- meeting --> E[cycle midpoint logic]
+  D -- ends --> F[no cycle or midpoint found]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `slow` with `head`.
+2. Initialize `fast` with `head`.
+3. Repeat loop while condition `fast && fast.next` remains true.
+4. Recompute `slow` as `slow.next`.
+5. Recompute `fast` as `fast.next.next`.
+6. Handle edge/base case early: if `slow === fast`, return `true` immediately.
+7. Return final answer as `false`.
+
 ### 29. Is Palindrome Linked List (`isPalindromeLinkedList`)
 
 **Problem Statement**
-Implement **isPalindromeLinkedList(head)** to solve the **Is Palindrome Linked List** problem efficiently in JavaScript.
+Solve **Is Palindrome Linked List** by implementing **isPalindromeLinkedList(head)**.
+- **Input:** `head`: node reference
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `isPalindromeLinkedList(linkedListHead)`
-   Output: `true or false`
+1. Input: `isPalindromeLinkedList(linkedList([..]))`
+   Output: `false`
 2. Input: `isPalindromeLinkedList(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -827,16 +1548,45 @@ function isPalindromeLinkedList(head) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Move one pointer by 1 and another by 2 to detect midpoint/cycle relationships.
+- **Correctness Invariant:** `fast` moves twice as quickly as `slow`, so their relationship encodes structure.
+- **Code Lens:** Key variables in this code: `slow`, `fast`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[slow head fast head] --> B[slow one step]
+  B --> C[fast two steps]
+  C --> D{meeting or fast ends}
+  D -- meeting --> E[cycle midpoint logic]
+  D -- ends --> F[no cycle or midpoint found]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!head || !head.next`, return `true` immediately.
+2. Initialize `slow` with `head`.
+3. Initialize `fast` with `head`.
+4. Repeat loop while condition `fast && fast.next` remains true.
+5. Recompute `slow` as `slow.next`.
+6. Recompute `fast` as `fast.next.next`.
+7. Return final answer as `true`.
+
 ### 30. Get Intersection Node (`getIntersectionNode`)
 
 **Problem Statement**
-Implement **getIntersectionNode(headA, headB)** to solve the **Get Intersection Node** problem efficiently in JavaScript.
+Solve **Get Intersection Node** by implementing **getIntersectionNode(headA, headB)**.
+- **Input:** `headA`: linked-list head/node; `headB`: linked-list head/node
+- **Output:** Return the node where both lists intersect; return `null` if no intersection exists.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `getIntersectionNode(linkedListHead, linkedListHead)`
-   Output: `result according to problem definition`
+1. Input: `getIntersectionNode(linkedList([..]), linkedList([..]))`
+   Output: `null`
 2. Input: `getIntersectionNode(null, null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -851,16 +1601,44 @@ function getIntersectionNode(headA, headB) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Traverse both lists with pointer switching so path lengths align without extra memory.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[pointer a on list A] --> B[pointer b on list B]
+  B --> C[a reaches end switch to B]
+  C --> D[b reaches end switch to A]
+  D --> E[second pass aligns lengths]
+  E --> F[a equals b is intersection or null]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `a` with `headA`.
+2. Initialize `b` with `headB`.
+3. Repeat loop while condition `a !== b` remains true.
+4. Recompute `a` as `a ? a.next : headB`.
+5. Recompute `b` as `b ? b.next : headA`.
+6. Return final answer as `a`.
+
 ### 31. Remove Elements (`removeElements`)
 
 **Problem Statement**
-Implement **removeElements(head, val)** to solve the **Remove Elements** problem efficiently in JavaScript.
+Solve **Remove Elements** by implementing **removeElements(head, val)**.
+- **Input:** `head`: linked-list head/node; `val`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `removeElements(linkedListHead, "abc")`
-   Output: `array / list structure`
+1. Input: `removeElements(linkedList([..]), 2)`
+   Output: `[1,3]`
 2. Input: `removeElements(null, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -875,16 +1653,42 @@ function removeElements(head, val) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Re-link next pointers in-place to insert, delete, reverse, or reorder nodes safely.
+- **Correctness Invariant:** All rewired pointers still form a valid chain from dummy/head to remaining nodes.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dummy before head] --> B[Locate prev node]
+  B --> C[Rewrite next pointers]
+  C --> D[Advance pointers]
+  D --> E[Return dummy next]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `dummy` with `new ListNode(0, head)`.
+2. Initialize `cur` with `dummy`.
+3. Repeat loop while condition `cur.next` remains true.
+4. Branch logic based on condition `cur.next.val === val`.
+5. Return final answer as `dummy.next`.
+
 ### 32. Remove Nth From End (`removeNthFromEnd`)
 
 **Problem Statement**
-Implement **removeNthFromEnd(head, n)** to solve the **Remove Nth From End** problem efficiently in JavaScript.
+Solve **Remove Nth From End** by implementing **removeNthFromEnd(head, n)**.
+- **Input:** `head`: linked-list head/node; `n`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `removeNthFromEnd(linkedListHead, 2)`
-   Output: `result according to problem definition`
+1. Input: `removeNthFromEnd(linkedList([..]), 2)`
+   Output: `[1,3]`
 2. Input: `removeNthFromEnd(null, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -905,16 +1709,45 @@ function removeNthFromEnd(head, n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Move one pointer by 1 and another by 2 to detect midpoint/cycle relationships.
+- **Correctness Invariant:** `fast` moves twice as quickly as `slow`, so their relationship encodes structure.
+- **Code Lens:** Key variables in this code: `slow`, `fast`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[slow head fast head] --> B[slow one step]
+  B --> C[fast two steps]
+  C --> D{meeting or fast ends}
+  D -- meeting --> E[cycle midpoint logic]
+  D -- ends --> F[no cycle or midpoint found]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `dummy` with `new ListNode(0, head)`.
+2. Initialize `fast` with `dummy`.
+3. Initialize `slow` with `dummy`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Repeat loop while condition `fast.next` remains true.
+6. Recompute `fast` as `fast.next`.
+7. Return final answer as `dummy.next`.
+
 ### 33. Delete Duplicates (`deleteDuplicates`)
 
 **Problem Statement**
-Implement **deleteDuplicates(head)** to solve the **Delete Duplicates** problem efficiently in JavaScript.
+Solve **Delete Duplicates** by implementing **deleteDuplicates(head)**.
+- **Input:** `head`: linked-list head/node
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `deleteDuplicates(linkedListHead)`
-   Output: `result according to problem definition`
+1. Input: `deleteDuplicates(linkedList([..]))`
+   Output: `[1,2,3]`
 2. Input: `deleteDuplicates(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -928,16 +1761,41 @@ function deleteDuplicates(head) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Re-link next pointers in-place to insert, delete, reverse, or reorder nodes safely.
+- **Correctness Invariant:** All rewired pointers still form a valid chain from dummy/head to remaining nodes.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dummy before head] --> B[Locate prev node]
+  B --> C[Rewrite next pointers]
+  C --> D[Advance pointers]
+  D --> E[Return dummy next]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `cur` with `head`.
+2. Repeat loop while condition `cur && cur.next` remains true.
+3. Branch logic based on condition `cur.val === cur.next.val`.
+4. Return final answer as `head`.
+
 ### 34. Odd Even List (`oddEvenList`)
 
 **Problem Statement**
-Implement **oddEvenList(head)** to solve the **Odd Even List** problem efficiently in JavaScript.
+Solve **Odd Even List** by implementing **oddEvenList(head)**.
+- **Input:** `head`: node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `oddEvenList(linkedListHead)`
-   Output: `array / list structure`
+1. Input: `oddEvenList(linkedList([..]))`
+   Output: `[1,3,2]`
 2. Input: `oddEvenList(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -960,16 +1818,44 @@ function oddEvenList(head) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Re-link next pointers in-place to insert, delete, reverse, or reorder nodes safely.
+- **Correctness Invariant:** All rewired pointers still form a valid chain from dummy/head to remaining nodes.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dummy before head] --> B[Locate prev node]
+  B --> C[Rewrite next pointers]
+  C --> D[Advance pointers]
+  D --> E[Return dummy next]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!head || !head.next`, return `head` immediately.
+2. Initialize `odd` with `head`.
+3. Initialize `even` with `head.next`.
+4. Initialize `evenHead` with `even`.
+5. Repeat loop while condition `even && even.next` remains true.
+6. Recompute `odd` as `odd.next`.
+7. Return final answer as `head`.
+
 ### 35. Add Two Numbers (`addTwoNumbers`)
 
 **Problem Statement**
-Implement **addTwoNumbers(l1, l2)** to solve the **Add Two Numbers** problem efficiently in JavaScript.
+Solve **Add Two Numbers** by implementing **addTwoNumbers(l1, l2)**.
+- **Input:** `l1`: node reference; `l2`: node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `addTwoNumbers(linkedListHead, linkedListHead)`
-   Output: `number`
+1. Input: `addTwoNumbers(linkedList([..]), linkedList([..]))`
+   Output: `[2,4,6]`
 2. Input: `addTwoNumbers(null, null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -995,16 +1881,44 @@ function addTwoNumbers(l1, l2) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Re-link next pointers in-place to insert, delete, reverse, or reorder nodes safely.
+- **Correctness Invariant:** All rewired pointers still form a valid chain from dummy/head to remaining nodes.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dummy before head] --> B[Locate prev node]
+  B --> C[Rewrite next pointers]
+  C --> D[Advance pointers]
+  D --> E[Return dummy next]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `dummy` with `new ListNode(0)`.
+2. Initialize `cur` with `dummy`.
+3. Initialize `carry` with `0`.
+4. Repeat loop while condition `l1 || l2 || carry` remains true.
+5. Initialize `a` with `l1 ? l1.val : 0`.
+6. Initialize `b` with `l2 ? l2.val : 0`.
+7. Return final answer as `dummy.next`.
+
 ### 36. Merge Two Lists (`mergeTwoLists`)
 
 **Problem Statement**
-Implement **mergeTwoLists(list1, list2)** to solve the **Merge Two Lists** problem efficiently in JavaScript.
+Solve **Merge Two Lists** by implementing **mergeTwoLists(list1, list2)**.
+- **Input:** `list1`: node reference; `list2`: node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `mergeTwoLists(linkedListHead, linkedListHead)`
-   Output: `array / list structure`
-2. Input: `mergeTwoLists("", "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `mergeTwoLists(linkedList([..]), linkedList([..]))`
+   Output: `[1,1,2,2,3,3]`
+2. Input: `mergeTwoLists(null, null)`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -1028,16 +1942,44 @@ function mergeTwoLists(list1, list2) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Re-link next pointers in-place to insert, delete, reverse, or reorder nodes safely.
+- **Correctness Invariant:** All rewired pointers still form a valid chain from dummy/head to remaining nodes.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dummy before head] --> B[Locate prev node]
+  B --> C[Rewrite next pointers]
+  C --> D[Advance pointers]
+  D --> E[Return dummy next]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `dummy` with `new ListNode(0)`.
+2. Initialize `cur` with `dummy`.
+3. Repeat loop while condition `list1 && list2` remains true.
+4. Branch logic based on condition `list1.val <= list2.val`.
+5. Recompute `list1` as `list1.next`.
+6. Recompute `list2` as `list2.next`.
+7. Return final answer as `dummy.next`.
+
 ### 37. Rotate Right (`rotateRight`)
 
 **Problem Statement**
-Implement **rotateRight(head, k)** to solve the **Rotate Right** problem efficiently in JavaScript.
+Solve **Rotate Right** by implementing **rotateRight(head, k)**.
+- **Input:** `head`: node reference; `k`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `rotateRight(linkedListHead, 2)`
-   Output: `result according to problem definition`
+1. Input: `rotateRight(linkedList([..]), 2)`
+   Output: `[2,3,1]`
 2. Input: `rotateRight(null, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -1068,16 +2010,44 @@ function rotateRight(head, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Re-link next pointers in-place to insert, delete, reverse, or reorder nodes safely.
+- **Correctness Invariant:** All rewired pointers still form a valid chain from dummy/head to remaining nodes.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dummy before head] --> B[Locate prev node]
+  B --> C[Rewrite next pointers]
+  C --> D[Advance pointers]
+  D --> E[Return dummy next]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!head || !head.next || k === 0`, return `head` immediately.
+2. Initialize `len` with `1`.
+3. Initialize `tail` with `head`.
+4. Repeat loop while condition `tail.next` remains true.
+5. Recompute `tail` as `tail.next`.
+6. Increment/update `len` by `1` based on current state.
+7. Return final answer as `newHead`.
+
 ### 38. Swap Pairs (`swapPairs`)
 
 **Problem Statement**
-Implement **swapPairs(head)** to solve the **Swap Pairs** problem efficiently in JavaScript.
+Solve **Swap Pairs** by implementing **swapPairs(head)**.
+- **Input:** `head`: linked-list head/node
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `swapPairs(linkedListHead)`
-   Output: `result according to problem definition`
+1. Input: `swapPairs(linkedList([..]))`
+   Output: `[2,1,3]`
 2. Input: `swapPairs(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -1100,18 +2070,46 @@ function swapPairs(head) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Re-link next pointers in-place to insert, delete, reverse, or reorder nodes safely.
+- **Correctness Invariant:** All rewired pointers still form a valid chain from dummy/head to remaining nodes.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dummy before head] --> B[Locate prev node]
+  B --> C[Rewrite next pointers]
+  C --> D[Advance pointers]
+  D --> E[Return dummy next]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `dummy` with `new ListNode(0, head)`.
+2. Initialize `prev` with `dummy`.
+3. Repeat loop while condition `prev.next && prev.next.next` remains true.
+4. Initialize `a` with `prev.next`.
+5. Initialize `b` with `a.next`.
+6. Recompute `prev` as `a`.
+7. Return final answer as `dummy.next`.
+
 ## 4) Strings
 
 ### 39. Length Of Last Word (`lengthOfLastWord`)
 
 **Problem Statement**
-Implement **lengthOfLastWord(s)** to solve the **Length Of Last Word** problem efficiently in JavaScript.
+Solve **Length Of Last Word** by implementing **lengthOfLastWord(s)**.
+- **Input:** `s`: string
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `lengthOfLastWord("abc")`
-   Output: `number`
+1. Input: `lengthOfLastWord("Hello World")`
+   Output: `5`
 2. Input: `lengthOfLastWord("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -1127,16 +2125,42 @@ function lengthOfLastWord(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process characters in order and update the required string/count state incrementally.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Iterate characters] --> B[Apply rule on each char]
+  B --> C[Update count string or state]
+  C --> D[Return final text or number]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `i` with `s.length - 1`.
+2. Repeat loop while condition `i >= 0 && s[i] === " "` remains true.
+3. Initialize `len` with `0`.
+4. Repeat loop while condition `i >= 0 && s[i] !== " "` remains true.
+5. Increment/update `len` by `1` based on current state.
+6. Return final answer as `len`.
+
 ### 40. Find Words Containing (`findWordsContaining`)
 
 **Problem Statement**
-Implement **findWordsContaining(words, x)** to solve the **Find Words Containing** problem efficiently in JavaScript.
+Solve **Find Words Containing** by implementing **findWordsContaining(words, x)**.
+- **Input:** `words`: integer/number; `x`: value required by the problem
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findWordsContaining("abc", "abc")`
-   Output: `string`
-2. Input: `findWordsContaining("", ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `findWordsContaining(["leet","code"], "e")`
+   Output: `[0,1]`
+2. Input: `findWordsContaining("", 0)`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -1149,16 +2173,40 @@ function findWordsContaining(words, x) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process characters in order and update the required string/count state incrementally.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Iterate characters] --> B[Apply rule on each char]
+  B --> C[Update count string or state]
+  C --> D[Return final text or number]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Branch logic based on condition `words[i].includes(x)) out.push(i`.
+4. Return final answer as `out`.
+
 ### 41. Num Jewels In Stones (`numJewelsInStones`)
 
 **Problem Statement**
-Implement **numJewelsInStones(jewels, stones)** to solve the **Num Jewels In Stones** problem efficiently in JavaScript.
+Solve **Num Jewels In Stones** by implementing **numJewelsInStones(jewels, stones)**.
+- **Input:** `jewels`: string; `stones`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, empty strings, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `numJewelsInStones("abc", [1, 2, 3])`
-   Output: `number`
-2. Input: `numJewelsInStones("", "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `numJewelsInStones("aA", "aAAbbbb")`
+   Output: `3`
+2. Input: `numJewelsInStones("", [])`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -1172,16 +2220,41 @@ function numJewelsInStones(jewels, stones) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use map/set frequency accounting to convert repeated lookups into O(1) average operations.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Build frequency map set] --> B[Traverse second source]
+  B --> C[Lookup update in O1 average]
+  C --> D[Derive final answer from map]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `set` as a `Set` for fast membership checks.
+2. Initialize `count` with `0`.
+3. Iterate through `stones`, processing each element as `ch`.
+4. Branch logic based on condition `set.has(ch)`.
+5. Return final answer as `count`.
+
 ### 42. Max Freq Sum (`maxFreqSum`)
 
 **Problem Statement**
-Implement **maxFreqSum(s)** to solve the **Max Freq Sum** problem efficiently in JavaScript.
+Solve **Max Freq Sum** by implementing **maxFreqSum(s)**.
+- **Input:** `s`: string
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `maxFreqSum("abc")`
-   Output: `number`
+1. Input: `maxFreqSum("successes")`
+   Output: `6`
 2. Input: `maxFreqSum("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -1204,16 +2277,43 @@ function maxFreqSum(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use map/set frequency accounting to convert repeated lookups into O(1) average operations.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Build frequency map set] --> B[Traverse second source]
+  B --> C[Lookup update in O1 average]
+  C --> D[Derive final answer from map]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `vowels` as a `Set` for fast membership checks.
+2. Initialize `v` as a `Map` for keyed frequency/state lookups.
+3. Initialize `c` as a `Map` for keyed frequency/state lookups.
+4. Iterate through `s.toLowerCase(`, processing each element as `ch`.
+5. Branch logic based on condition `ch < "a" || ch > "z"`.
+6. Branch logic based on condition `vowels.has(ch)) v.set(ch, (v.get(ch) || 0) + 1`.
+7. Return final answer as `mv + mc`.
+
 ### 43. Balanced String Split (`balancedStringSplit`)
 
 **Problem Statement**
-Implement **balancedStringSplit(s)** to solve the **Balanced String Split** problem efficiently in JavaScript.
+Solve **Balanced String Split** by implementing **balancedStringSplit(s)**.
+- **Input:** `s`: string
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `balancedStringSplit("abc")`
-   Output: `string`
+1. Input: `balancedStringSplit("RLRRLLRLRL")`
+   Output: `4`
 2. Input: `balancedStringSplit("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -1228,16 +2328,42 @@ function balancedStringSplit(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process characters in order and update the required string/count state incrementally.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `ans`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Iterate characters] --> B[Apply rule on each char]
+  B --> C[Update count string or state]
+  C --> D[Return final text or number]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `bal` with `0`.
+2. Initialize `ans` with `0`.
+3. Iterate through `s`, processing each element as `ch`.
+4. Increment/update `bal` by `ch === "L" ? 1 : -1` based on current state.
+5. Branch logic based on condition `bal === 0`.
+6. Return final answer as `ans`.
+
 ### 44. Reverse Str (`reverseStr`)
 
 **Problem Statement**
-Implement **reverseStr(s, k)** to solve the **Reverse Str** problem efficiently in JavaScript.
+Solve **Reverse Str** by implementing **reverseStr(s, k)**.
+- **Input:** `s`: string; `k`: integer/number
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle empty strings, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `reverseStr("abc", 2)`
-   Output: `result according to problem definition`
+1. Input: `reverseStr("abcdefg", 2)`
+   Output: `"bacdfeg"`
 2. Input: `reverseStr("", 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `""`
 
 **JavaScript Solution**
 ```javascript
@@ -1256,16 +2382,44 @@ function reverseStr(s, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compare or mutate from both ends while skipping irrelevant characters when required.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[left right over string] --> B[skip invalid chars if needed]
+  B --> C[compare normalize or swap]
+  C --> D[move inward]
+  D --> E[finish when pointers cross]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `arr` with `s.split("")`.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Initialize `l` with `i`.
+4. Initialize `r` with `Math.min(i + k - 1, arr.length - 1)`.
+5. Repeat loop while condition `l < r` remains true.
+6. Update multiple variables together using destructuring assignment: `[arr[l], arr[r]] = [arr[r], arr[l]];`.
+7. Return final answer as `arr.join("")`.
+
 ### 45. Is Palindrome String (`isPalindromeString`)
 
 **Problem Statement**
-Implement **isPalindromeString(s)** to solve the **Is Palindrome String** problem efficiently in JavaScript.
+Solve **Is Palindrome String** by implementing **isPalindromeString(s)**.
+- **Input:** `s`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `isPalindromeString("abc")`
-   Output: `true or false`
+1. Input: `isPalindromeString("A man, a plan, a canal: Panama")`
+   Output: `true`
 2. Input: `isPalindromeString("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -1288,16 +2442,44 @@ function isPalindromeString(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compare or mutate from both ends while skipping irrelevant characters when required.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[left right over string] --> B[skip invalid chars if needed]
+  B --> C[compare normalize or swap]
+  C --> D[move inward]
+  D --> E[finish when pointers cross]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `s.length - 1`.
+3. Initialize `isAlphaNum` with `(ch) => /[a-z0-9]/i.test(ch)`.
+4. Repeat loop while condition `l < r` remains true.
+5. Repeat loop while condition `l < r && !isAlphaNum(s[l])` remains true.
+6. Repeat loop while condition `l < r && !isAlphaNum(s[r])` remains true.
+7. Return final answer as `true`.
+
 ### 46. Largest Odd Number (`largestOddNumber`)
 
 **Problem Statement**
-Implement **largestOddNumber(num)** to solve the **Largest Odd Number** problem efficiently in JavaScript.
+Solve **Largest Odd Number** by implementing **largestOddNumber(num)**.
+- **Input:** `num`: string
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `largestOddNumber(2)`
-   Output: `number`
+1. Input: `largestOddNumber("35427")`
+   Output: `"35427"`
 2. Input: `largestOddNumber(0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `""`
 
 **JavaScript Solution**
 ```javascript
@@ -1309,16 +2491,39 @@ function largestOddNumber(num) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use map/set frequency accounting to convert repeated lookups into O(1) average operations.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Build frequency map set] --> B[Traverse second source]
+  B --> C[Lookup update in O1 average]
+  C --> D[Derive final answer from map]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Run indexed loop controlled by `i` according to the loop bounds.
+2. Handle edge/base case early: if `(num.charCodeAt(i) - 48) % 2 === 1`, return `num.slice(0, i + 1)` immediately.
+3. Return final answer as `""`.
+
 ### 47. Longest Common Prefix (`longestCommonPrefix`)
 
 **Problem Statement**
-Implement **longestCommonPrefix(strs)** to solve the **Longest Common Prefix** problem efficiently in JavaScript.
+Solve **Longest Common Prefix** by implementing **longestCommonPrefix(strs)**.
+- **Input:** `strs`: integer/number
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `longestCommonPrefix("abc")`
-   Output: `string`
+1. Input: `longestCommonPrefix(["flower","flow","flight"])`
+   Output: `"fl"`
 2. Input: `longestCommonPrefix("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `""`
 
 **JavaScript Solution**
 ```javascript
@@ -1337,16 +2542,43 @@ function longestCommonPrefix(strs) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process characters in order and update the required string/count state incrementally.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Iterate characters] --> B[Apply rule on each char]
+  B --> C[Update count string or state]
+  C --> D[Return final text or number]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `strs.length === 0`, return `""` immediately.
+2. Initialize `prefix` with `strs[0]`.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Repeat loop while condition `!strs[i].startsWith(prefix)` remains true.
+5. Update `prefix` with container operation result: `prefix.slice(0, -1)`.
+6. Handle edge/base case early: if `prefix === ""`, return `""` immediately.
+7. Return final answer as `prefix`.
+
 ### 48. Is Anagram (`isAnagram`)
 
 **Problem Statement**
-Implement **isAnagram(s, t)** to solve the **Is Anagram** problem efficiently in JavaScript.
+Solve **Is Anagram** by implementing **isAnagram(s, t)**.
+- **Input:** `s`: string; `t`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle empty strings, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `isAnagram("abc", ...)`
-   Output: `true or false`
-2. Input: `isAnagram("", ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `isAnagram("anagram", "nagaram")`
+   Output: `true`
+2. Input: `isAnagram("", "")`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -1361,16 +2593,41 @@ function isAnagram(s, t) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use map/set frequency accounting to convert repeated lookups into O(1) average operations.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Build frequency map set] --> B[Traverse second source]
+  B --> C[Lookup update in O1 average]
+  C --> D[Derive final answer from map]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `s.length !== t.length`, return `false` immediately.
+2. Initialize `cnt` with `Array(26).fill(0)`.
+3. Iterate through `s`, processing each element as `ch`.
+4. Iterate through `t`, processing each element as `ch`.
+5. Return final answer as `cnt.every((x) => x === 0)`.
+
 ### 49. Is Isomorphic (`isIsomorphic`)
 
 **Problem Statement**
-Implement **isIsomorphic(s, t)** to solve the **Is Isomorphic** problem efficiently in JavaScript.
+Solve **Is Isomorphic** by implementing **isIsomorphic(s, t)**.
+- **Input:** `s`: integer/number; `t`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `isIsomorphic("abc", ...)`
-   Output: `true or false`
-2. Input: `isIsomorphic("", ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `isIsomorphic("egg", "add")`
+   Output: `true`
+2. Input: `isIsomorphic("", "")`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -1395,16 +2652,43 @@ function isIsomorphic(s, t) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use map/set frequency accounting to convert repeated lookups into O(1) average operations.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Build frequency map set] --> B[Traverse second source]
+  B --> C[Lookup update in O1 average]
+  C --> D[Derive final answer from map]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `s.length !== t.length`, return `false` immediately.
+2. Initialize `m1` as a `Map` for keyed frequency/state lookups.
+3. Initialize `m2` as a `Map` for keyed frequency/state lookups.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Initialize `a` with `s[i]`.
+6. Initialize `b` with `t[i]`.
+7. Return final answer as `true`.
+
 ### 50. Group Anagrams (`groupAnagrams`)
 
 **Problem Statement**
-Implement **groupAnagrams(strs)** to solve the **Group Anagrams** problem efficiently in JavaScript.
+Solve **Group Anagrams** by implementing **groupAnagrams(strs)**.
+- **Input:** `strs`: string
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `groupAnagrams("abc")`
-   Output: `array / list structure`
+1. Input: `groupAnagrams(["eat","tea","tan","ate","nat","bat"])`
+   Output: `[["eat","tea","ate"],["tan","nat"],["bat"]]`
 2. Input: `groupAnagrams("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -1421,16 +2705,42 @@ function groupAnagrams(strs) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compare or mutate from both ends while skipping irrelevant characters when required.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[left right over string] --> B[skip invalid chars if needed]
+  B --> C[compare normalize or swap]
+  C --> D[move inward]
+  D --> E[finish when pointers cross]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `map` as a `Map` for keyed frequency/state lookups.
+2. Iterate through `strs`, processing each element as `s`.
+3. Initialize `key` with `s.split("").sort().join("")`.
+4. Branch logic based on condition `!map.has(key)) map.set(key, []`.
+5. Return final answer as `Array.from(map.values())`.
+
 ### 51. Min Add To Make Valid (`minAddToMakeValid`)
 
 **Problem Statement**
-Implement **minAddToMakeValid(s)** to solve the **Min Add To Make Valid** problem efficiently in JavaScript.
+Solve **Min Add To Make Valid** by implementing **minAddToMakeValid(s)**.
+- **Input:** `s`: string
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `minAddToMakeValid("abc")`
-   Output: `number`
+1. Input: `minAddToMakeValid("()))((")`
+   Output: `4`
 2. Input: `minAddToMakeValid("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -1448,16 +2758,42 @@ function minAddToMakeValid(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process characters in order and update the required string/count state incrementally.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Iterate characters] --> B[Apply rule on each char]
+  B --> C[Update count string or state]
+  C --> D[Return final text or number]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `open` with `0`.
+2. Initialize `add` with `0`.
+3. Iterate through `s`, processing each element as `ch`.
+4. Branch logic based on condition `ch === "("`.
+5. Handle alternate condition branch `open > 0`.
+6. Return final answer as `add + open`.
+
 ### 52. Reverse Words (`reverseWords`)
 
 **Problem Statement**
-Implement **reverseWords(s)** to solve the **Reverse Words** problem efficiently in JavaScript.
+Solve **Reverse Words** by implementing **reverseWords(s)**.
+- **Input:** `s`: integer/number
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `reverseWords("abc")`
-   Output: `string`
+1. Input: `reverseWords("  the sky is blue  ")`
+   Output: `"blue is sky the"`
 2. Input: `reverseWords("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `""`
 
 **JavaScript Solution**
 ```javascript
@@ -1470,16 +2806,39 @@ function reverseWords(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process characters in order and update the required string/count state incrementally.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Iterate characters] --> B[Apply rule on each char]
+  B --> C[Update count string or state]
+  C --> D[Return final text or number]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Read characters in order and apply local rule.
+2. Maintain running state (count/string/index) per character.
+3. Return final constructed or counted result.
+
 ### 53. Beauty Sum (`beautySum`)
 
 **Problem Statement**
-Implement **beautySum(s)** to solve the **Beauty Sum** problem efficiently in JavaScript.
+Solve **Beauty Sum** by implementing **beautySum(s)**.
+- **Input:** `s`: string
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `beautySum("abc")`
-   Output: `number`
+1. Input: `beautySum("aabcb")`
+   Output: `5`
 2. Input: `beautySum("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -1504,16 +2863,43 @@ function beautySum(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use map/set frequency accounting to convert repeated lookups into O(1) average operations.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `ans`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Build frequency map set] --> B[Traverse second source]
+  B --> C[Lookup update in O1 average]
+  C --> D[Derive final answer from map]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `ans` with `0`.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Initialize `freq` with `Array(26).fill(0)`.
+4. Run indexed loop controlled by `j` according to the loop bounds.
+5. Initialize `maxF` with `0`.
+6. Initialize sentinel variable `minF` as `Infinity` for comparisons.
+7. Return final answer as `ans`.
+
 ### 54. Decode String (`decodeString`)
 
 **Problem Statement**
-Implement **decodeString(s)** to solve the **Decode String** problem efficiently in JavaScript.
+Solve **Decode String** by implementing **decodeString(s)**.
+- **Input:** `s`: string
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `decodeString("abc")`
-   Output: `string`
+1. Input: `decodeString("3[a2[c]]")`
+   Output: `"accaccacc"`
 2. Input: `decodeString("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `""`
 
 **JavaScript Solution**
 ```javascript
@@ -1543,16 +2929,45 @@ function decodeString(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Track nested context with stacks so nested decoding/validation resolves in correct order.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Depends on problem constraints and transitions
+- **Space Complexity:** Depends on auxiliary structures
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Read token char] --> B{digit bracket letter}
+  B -- digit --> C[build repeat count]
+  B -- open bracket --> D[push current state]
+  B -- close bracket --> E[pop and expand]
+  B -- letter --> F[append current string]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `countStack` as a working array/DP structure.
+2. Initialize `strStack` as a working array/DP structure.
+3. Initialize `num` with `0`.
+4. Initialize `cur` with `""`.
+5. Iterate through `s`, processing each element as `ch`.
+6. Branch logic based on condition `ch >= "0" && ch <= "9"`.
+7. Return final answer as `cur`.
+
 ### 55. Count And Say (`countAndSay`)
 
 **Problem Statement**
-Implement **countAndSay(n)** to solve the **Count And Say** problem efficiently in JavaScript.
+Solve **Count And Say** by implementing **countAndSay(n)**.
+- **Input:** `n`: integer/number
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `countAndSay(2)`
-   Output: `number`
+1. Input: `countAndSay(5)`
+   Output: `"111221"`
 2. Input: `countAndSay(0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `"1"`
 
 **JavaScript Solution**
 ```javascript
@@ -1575,16 +2990,43 @@ function countAndSay(n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process characters in order and update the required string/count state incrementally.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Iterate characters] --> B[Apply rule on each char]
+  B --> C[Update count string or state]
+  C --> D[Return final text or number]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `s` with `"1"`.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Initialize `next` with `""`.
+4. Initialize `j` with `0`.
+5. Repeat loop while condition `j < s.length` remains true.
+6. Initialize `k` with `j`.
+7. Return final answer as `s`.
+
 ### 56. Reorganize String (`reorganizeString`)
 
 **Problem Statement**
-Implement **reorganizeString(s)** to solve the **Reorganize String** problem efficiently in JavaScript.
+Solve **Reorganize String** by implementing **reorganizeString(s)**.
+- **Input:** `s`: string
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `reorganizeString("abc")`
-   Output: `string`
+1. Input: `reorganizeString("aab")`
+   Output: `"aba"`
 2. Input: `reorganizeString("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `""`
 
 **JavaScript Solution**
 ```javascript
@@ -1616,16 +3058,43 @@ function reorganizeString(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use map/set frequency accounting to convert repeated lookups into O(1) average operations.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `heap`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Build frequency map set] --> B[Traverse second source]
+  B --> C[Lookup update in O1 average]
+  C --> D[Derive final answer from map]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `freq` as a `Map` for keyed frequency/state lookups.
+2. Iterate through `s`, processing each element as `ch`.
+3. Initialize `heap` with `new BinaryHeap((a, b) => b[1] - a[1])`.
+4. Initialize `prev` with `null`.
+5. Initialize `out` with `""`.
+6. Repeat loop while condition `heap.size() > 0 || prev` remains true.
+7. Return final answer as `out`.
+
 ### 57. Repeated String Match (`repeatedStringMatch`)
 
 **Problem Statement**
-Implement **repeatedStringMatch(a, b)** to solve the **Repeated String Match** problem efficiently in JavaScript.
+Solve **Repeated String Match** by implementing **repeatedStringMatch(a, b)**.
+- **Input:** `a`: integer/number; `b`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `repeatedStringMatch("abc", "abc")`
-   Output: `string`
-2. Input: `repeatedStringMatch(..., ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `repeatedStringMatch("abcd", "cdabcdab")`
+   Output: `3`
+2. Input: `repeatedStringMatch(0, 0)`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -1644,18 +3113,45 @@ function repeatedStringMatch(a, b) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process characters in order and update the required string/count state incrementally.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n) depending on helpers
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Iterate characters] --> B[Apply rule on each char]
+  B --> C[Update count string or state]
+  C --> D[Return final text or number]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `repeated` with `a`.
+2. Initialize `count` with `1`.
+3. Repeat loop while condition `repeated.length < b.length` remains true.
+4. Increment/update `repeated` by `a` based on current state.
+5. Increment/update `count` by `1` based on current state.
+6. Handle edge/base case early: if `repeated.includes(b)`, return `count` immediately.
+7. Return final answer as `-1`.
+
 ## 5) Stack and Queues
 
 ### 58. Stack (`Stack`)
 
 **Problem Statement**
-Design and implement the **Stack** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **Stack** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new Stack(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use Stack with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new Stack(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use Stack with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -1686,16 +3182,39 @@ class Stack {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Represent stack operations with array tail as top so push/pop/top stay constant time.
+- **Correctness Invariant:** Top of stack always maps to the latest inserted active element.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[push] --> B[top at end of array]
+  B --> C[pop removes last]
+  C --> D[top and size in O1]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. `push` appends to array end (top of stack).
+2. `pop` removes last element to preserve LIFO order.
+3. `top`/`size`/`isEmpty` read current stack state in O(1).
+
 ### 59. My Queue (`MyQueue`)
 
 **Problem Statement**
-Design and implement the **My Queue** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **My Queue** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new MyQueue(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use MyQueue with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new MyQueue(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use MyQueue with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -1731,16 +3250,41 @@ class MyQueue {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two internal stacks to provide amortized O(1) queue operations.
+- **Correctness Invariant:** Elements in `outStack` are always in dequeue order; transfer happens only when needed.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[push to inStack] --> B{outStack empty}
+  B -- Yes --> C[Move inStack to outStack]
+  B -- No --> D[Use outStack directly]
+  C --> E[pop peek from outStack]
+  D --> E
+```
+
+**Implementation Walkthrough (Code Order)**
+1. `push` inserts into `inStack`.
+2. Before dequeue/peek, values are transferred to `outStack` only when needed.
+3. This yields queue FIFO behavior with amortized O(1) operations.
+
 ### 60. Is Valid Parentheses (`isValidParentheses`)
 
 **Problem Statement**
-Implement **isValidParentheses(s)** to solve the **Is Valid Parentheses** problem efficiently in JavaScript.
+Solve **Is Valid Parentheses** by implementing **isValidParentheses(s)**.
+- **Input:** `s`: string
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `isValidParentheses("abc")`
-   Output: `true or false`
+1. Input: `isValidParentheses("()[]{}")`
+   Output: `true`
 2. Input: `isValidParentheses("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -1763,16 +3307,45 @@ function isValidParentheses(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Push openings and validate closings immediately to detect mismatch at first failure point.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Read bracket] --> B{opening or closing}
+  B -- opening --> C[push expected match]
+  B -- closing --> D[compare with stack top]
+  D --> E{mismatch}
+  E -- yes --> F[invalid]
+  E -- no --> G[continue]
+  G --> H[valid if stack empty at end]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `st` as a working array/DP structure.
+2. Iterate through `s`, processing each element as `ch`.
+3. Branch logic based on condition `!map.has(ch)) st.push(ch`.
+4. Handle edge/base case early: if `st.pop() !== map.get(ch)`, return `false` immediately.
+5. Return final answer as `st.length === 0`.
+
 ### 61. Min Stack (`MinStack`)
 
 **Problem Statement**
-Design and implement the **Min Stack** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **Min Stack** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new MinStack(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use MinStack with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new MinStack(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use MinStack with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -1804,16 +3377,41 @@ class MinStack {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two internal stacks to provide amortized O(1) queue operations.
+- **Correctness Invariant:** Elements in `outStack` are always in dequeue order; transfer happens only when needed.
+- **Code Lens:** Key variables in this code: `stack`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[push to inStack] --> B{outStack empty}
+  B -- Yes --> C[Move inStack to outStack]
+  B -- No --> D[Use outStack directly]
+  C --> E[pop peek from outStack]
+  D --> E
+```
+
+**Implementation Walkthrough (Code Order)**
+1. `stack` stores all values; `minStack` stores only running minimum candidates.
+2. On `push`, value is added to `minStack` if it becomes new minimum.
+3. `getMin` reads top of `minStack` in O(1).
+
 ### 62. Remove Outer Parentheses (`removeOuterParentheses`)
 
 **Problem Statement**
-Implement **removeOuterParentheses(s)** to solve the **Remove Outer Parentheses** problem efficiently in JavaScript.
+Solve **Remove Outer Parentheses** by implementing **removeOuterParentheses(s)**.
+- **Input:** `s`: string
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle empty strings correctly.
 
 **Example Cases**
-1. Input: `removeOuterParentheses("abc")`
-   Output: `result according to problem definition`
+1. Input: `removeOuterParentheses("(()())(())")`
+   Output: `"()()()"`
 2. Input: `removeOuterParentheses("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `""`
 
 **JavaScript Solution**
 ```javascript
@@ -1835,16 +3433,43 @@ function removeOuterParentheses(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use LIFO/FIFO structure to preserve the exact processing order required by the rule.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Traverse input] --> B[push pop based on rule]
+  B --> C[stack or queue stores active state]
+  C --> D[remaining state yields answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `depth` with `0`.
+2. Initialize `out` with `""`.
+3. Iterate through `s`, processing each element as `ch`.
+4. Branch logic based on condition `ch === "("`.
+5. Branch logic based on condition `depth > 0`.
+6. Increment/update `depth` by `1` based on current state.
+7. Return final answer as `out`.
+
 ### 63. Eval RPN (`evalRPN`)
 
 **Problem Statement**
-Implement **evalRPN(tokens)** to solve the **Eval RPN** problem efficiently in JavaScript.
+Solve **Eval RPN** by implementing **evalRPN(tokens)**.
+- **Input:** `tokens`: integer
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `evalRPN("abc")`
-   Output: `result according to problem definition`
-2. Input: `evalRPN("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `evalRPN(["2","1","+","3","*"])`
+   Output: `9`
+2. Input: `evalRPN(0)`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -1866,16 +3491,43 @@ function evalRPN(tokens) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use LIFO/FIFO structure to preserve the exact processing order required by the rule.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Traverse input] --> B[push pop based on rule]
+  B --> C[stack or queue stores active state]
+  C --> D[remaining state yields answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `st` as a working array/DP structure.
+2. Iterate through `tokens`, processing each element as `t`.
+3. Branch logic based on condition `["+", "-", "*", "/"].includes(t)`.
+4. Initialize `b` with `st.pop()`.
+5. Initialize `a` with `st.pop()`.
+6. Branch logic based on condition `t === "+") st.push(a + b`.
+7. Return final answer as `st[0]`.
+
 ### 64. Next Greater Element (`nextGreaterElement`)
 
 **Problem Statement**
-Implement **nextGreaterElement(nums1, nums2)** to solve the **Next Greater Element** problem efficiently in JavaScript.
+Solve **Next Greater Element** by implementing **nextGreaterElement(nums1, nums2)**.
+- **Input:** `nums1`: array; `nums2`: array of numbers
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `nextGreaterElement([1, 2, 3], [1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `nextGreaterElement([4,1,2], [1,3,4,2])`
+   Output: `[-1,3,-1]`
 2. Input: `nextGreaterElement([], [])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -1894,16 +3546,41 @@ function nextGreaterElement(nums1, nums2) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use LIFO/FIFO structure to preserve the exact processing order required by the rule.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Traverse input] --> B[push pop based on rule]
+  B --> C[stack or queue stores active state]
+  C --> D[remaining state yields answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `next` as a `Map` for keyed frequency/state lookups.
+2. Initialize `st` as a working array/DP structure.
+3. Iterate through `nums2`, processing each element as `x`.
+4. Repeat loop while condition `st.length && st[st.length - 1] < x` remains true.
+5. Return final answer as `nums1.map((x) => (next.has(x) ? next.get(x) : -1))`.
+
 ### 65. Daily Temperatures (`dailyTemperatures`)
 
 **Problem Statement**
-Implement **dailyTemperatures(temps)** to solve the **Daily Temperatures** problem efficiently in JavaScript.
+Solve **Daily Temperatures** by implementing **dailyTemperatures(temps)**.
+- **Input:** `temps`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `dailyTemperatures([1, 2, 3])`
-   Output: `array / list structure`
-2. Input: `dailyTemperatures("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `dailyTemperatures([73,74,75,71,69,72,76,73])`
+   Output: `[1,1,4,2,1,1,0,0]`
+2. Input: `dailyTemperatures(0)`
+   Output: `[0]`
 
 **JavaScript Solution**
 ```javascript
@@ -1924,16 +3601,43 @@ function dailyTemperatures(temps) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use LIFO/FIFO structure to preserve the exact processing order required by the rule.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Traverse input] --> B[push pop based on rule]
+  B --> C[stack or queue stores active state]
+  C --> D[remaining state yields answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `n` with `temps.length`.
+2. Initialize `out` with `Array(n).fill(0)`.
+3. Initialize `st` as a working array/DP structure.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Repeat loop while condition `st.length && temps[i] > temps[st[st.length - 1]]` remains true.
+6. Initialize `idx` with `st.pop()`.
+7. Return final answer as `out`.
+
 ### 66. Next Greater Elements (`nextGreaterElements`)
 
 **Problem Statement**
-Implement **nextGreaterElements(nums)** to solve the **Next Greater Elements** problem efficiently in JavaScript.
+Solve **Next Greater Elements** by implementing **nextGreaterElements(nums)**.
+- **Input:** `nums`: array of numbers
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `nextGreaterElements([1, 2, 3])`
-   Output: `array / list structure`
+1. Input: `nextGreaterElements([1,2,1])`
+   Output: `[2,-1,2]`
 2. Input: `nextGreaterElements([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -1954,16 +3658,43 @@ function nextGreaterElements(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use LIFO/FIFO structure to preserve the exact processing order required by the rule.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Traverse input] --> B[push pop based on rule]
+  B --> C[stack or queue stores active state]
+  C --> D[remaining state yields answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `n` with `nums.length`.
+2. Initialize `out` with `Array(n).fill(-1)`.
+3. Initialize `st` as a working array/DP structure.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Initialize `num` with `nums[i % n]`.
+6. Repeat loop while condition `st.length && nums[st[st.length - 1]] < num` remains true.
+7. Return final answer as `out`.
+
 ### 67. Oranges Rotting (`orangesRotting`)
 
 **Problem Statement**
-Implement **orangesRotting(grid)** to solve the **Oranges Rotting** problem efficiently in JavaScript.
+Solve **Oranges Rotting** by implementing **orangesRotting(grid)**.
+- **Input:** `grid`: 2D grid/matrix
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty/single-cell grids correctly.
 
 **Example Cases**
-1. Input: `orangesRotting([[1, 2], [3, 4]])`
-   Output: `array / list structure`
+1. Input: `orangesRotting([[2,1,1],[1,1,0],[0,1,1]])`
+   Output: `4`
 2. Input: `orangesRotting([[]])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2016,18 +3747,46 @@ function orangesRotting(grid) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Run level-order BFS from all sources simultaneously to model minute-by-minute spread.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `r`, `q`.
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Seed queue with starting cells] --> B[process level by level]
+  B --> C[expand four directions]
+  C --> D[mark visited and decrement remaining]
+  D --> E[minutes increase per layer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `rows` with `grid.length`.
+2. Initialize `cols` with `grid[0].length`.
+3. Initialize `q` as a working array/DP structure.
+4. Initialize `fresh` with `0`.
+5. Run indexed loop controlled by `r` according to the loop bounds.
+6. Run indexed loop controlled by `c` according to the loop bounds.
+7. Return final answer as `fresh === 0 ? minutes : -1`.
+
 ## 6) Binary Search Algorithm
 
 ### 68. My Sqrt (`mySqrt`)
 
 **Problem Statement**
-Implement **mySqrt(x)** to solve the **My Sqrt** problem efficiently in JavaScript.
+Solve **My Sqrt** by implementing **mySqrt(x)**.
+- **Input:** `x`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `mySqrt("abc")`
-   Output: `number`
-2. Input: `mySqrt(...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `mySqrt(8)`
+   Output: `2`
+2. Input: `mySqrt(0)`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2051,16 +3810,47 @@ function mySqrt(x) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep a shrinking valid search interval and decide direction using mid comparisons.
+- **Correctness Invariant:** `[l, r]` always contains all possible valid answers not discarded yet.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`, `ans`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r boundaries] --> B[mid equals floor l plus r by two]
+  B --> C{nums mid compared to target}
+  C -- smaller --> D[l equals mid plus one]
+  C -- larger --> E[r equals mid minus one]
+  C -- equal --> F[return answer]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `x < 2`, return `x` immediately.
+2. Initialize `l` with `1`.
+3. Initialize `r` with `Math.floor(x / 2)`.
+4. Initialize `ans` with `1`.
+5. Repeat loop while condition `l <= r` remains true.
+6. Initialize `m` with `Math.floor((l + r) / 2)`.
+7. Return final answer as `ans`.
+
 ### 69. Guess Number (`guessNumber`)
 
 **Problem Statement**
-Implement **guessNumber(n, guess)** to solve the **Guess Number** problem efficiently in JavaScript.
+Solve **Guess Number** by implementing **guessNumber(n, guess)**.
+- **Input:** `n`: integer; `guess`: callback function
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `guessNumber(2, fn)`
-   Output: `number`
-2. Input: `guessNumber(0, "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `guessNumber(10, callbackFn)`
+   Output: `6`
+2. Input: `guessNumber(0, callbackFn)`
+   Output: `-1`
 
 **JavaScript Solution**
 ```javascript
@@ -2080,16 +3870,47 @@ function guessNumber(n, guess) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep a shrinking valid search interval and decide direction using mid comparisons.
+- **Correctness Invariant:** `[l, r]` always contains all possible valid answers not discarded yet.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r boundaries] --> B[mid equals floor l plus r by two]
+  B --> C{nums mid compared to target}
+  C -- smaller --> D[l equals mid plus one]
+  C -- larger --> E[r equals mid minus one]
+  C -- equal --> F[return answer]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `1`.
+2. Initialize `r` with `n`.
+3. Repeat loop while condition `l <= r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Initialize `g` with `guess(m)`.
+6. Handle edge/base case early: if `g === 0`, return `m` immediately.
+7. Return final answer as `-1`.
+
 ### 70. Search In Rotated Array (`searchInRotatedArray`)
 
 **Problem Statement**
-Implement **searchInRotatedArray(nums, target)** to solve the **Search In Rotated Array** problem efficiently in JavaScript.
+Solve **Search In Rotated Array** by implementing **searchInRotatedArray(nums, target)**.
+- **Input:** `nums`: integer/number; `target`: integer/number
+- **Output:** Return the index of `target` in `nums`; return `-1` when not found.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `searchInRotatedArray([1, 2, 3], "abc")`
-   Output: `array / list structure`
+1. Input: `searchInRotatedArray([4,5,6,7,0,1,2], 0)`
+   Output: `4`
 2. Input: `searchInRotatedArray([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `-1`
 
 **JavaScript Solution**
 ```javascript
@@ -2114,16 +3935,49 @@ function searchInRotatedArray(nums, target) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** At each mid, detect which half is sorted, then keep only the half that can contain target.
+- **Correctness Invariant:** At least one side around `mid` remains sorted, letting us discard one side safely.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r mid] --> B{left half sorted}
+  B -- yes --> C{target in left range}
+  B -- no --> D{target in right range}
+  C -- yes --> E[r mid minus one]
+  C -- no --> F[l mid plus one]
+  D -- yes --> F
+  D -- no --> E
+  E --> A
+  F --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `nums.length - 1`.
+3. Repeat loop while condition `l <= r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Handle edge/base case early: if `nums[m] === target`, return `m` immediately.
+6. Branch logic based on condition `nums[l] <= nums[m]`.
+7. Return final answer as `-1`.
+
 ### 71. First Bad Version (`firstBadVersion`)
 
 **Problem Statement**
-Implement **firstBadVersion(n, isBadVersion)** to solve the **First Bad Version** problem efficiently in JavaScript.
+Solve **First Bad Version** by implementing **firstBadVersion(n, isBadVersion)**.
+- **Input:** `n`: integer; `isBadVersion`: callback function
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `firstBadVersion(2, fn)`
-   Output: `result according to problem definition`
-2. Input: `firstBadVersion(0, "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `firstBadVersion(10, callbackFn)`
+   Output: `4`
+2. Input: `firstBadVersion(0, callbackFn)`
+   Output: `1`
 
 **JavaScript Solution**
 ```javascript
@@ -2141,16 +3995,46 @@ function firstBadVersion(n, isBadVersion) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep a shrinking valid search interval and decide direction using mid comparisons.
+- **Correctness Invariant:** `[l, r]` always contains all possible valid answers not discarded yet.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r boundaries] --> B[mid equals floor l plus r by two]
+  B --> C{nums mid compared to target}
+  C -- smaller --> D[l equals mid plus one]
+  C -- larger --> E[r equals mid minus one]
+  C -- equal --> F[return answer]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `1`.
+2. Initialize `r` with `n`.
+3. Repeat loop while condition `l < r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Branch logic based on condition `isBadVersion(m)`.
+6. Return final answer as `l`.
+
 ### 72. Find Peak Element (`findPeakElement`)
 
 **Problem Statement**
-Implement **findPeakElement(nums)** to solve the **Find Peak Element** problem efficiently in JavaScript.
+Solve **Find Peak Element** by implementing **findPeakElement(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findPeakElement([1, 2, 3])`
-   Output: `number`
+1. Input: `findPeakElement([1,2,1,3,5,6,4])`
+   Output: `5`
 2. Input: `findPeakElement([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2168,16 +4052,45 @@ function findPeakElement(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Binary-search on a structured array where half-ordering reveals the valid side each step.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Pick mid] --> B[Identify sorted half]
+  B --> C{target inside sorted half}
+  C -- yes --> D[keep that half]
+  C -- no --> E[search other half]
+  D --> A
+  E --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `nums.length - 1`.
+3. Repeat loop while condition `l < r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Branch logic based on condition `nums[m] > nums[m + 1]`.
+6. Return final answer as `l`.
+
 ### 73. Find Min In Rotated Array (`findMinInRotatedArray`)
 
 **Problem Statement**
-Implement **findMinInRotatedArray(nums)** to solve the **Find Min In Rotated Array** problem efficiently in JavaScript.
+Solve **Find Min In Rotated Array** by implementing **findMinInRotatedArray(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findMinInRotatedArray([1, 2, 3])`
-   Output: `number`
+1. Input: `findMinInRotatedArray([3,4,5,1,2])`
+   Output: `1`
 2. Input: `findMinInRotatedArray([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `undefined`
 
 **JavaScript Solution**
 ```javascript
@@ -2195,16 +4108,45 @@ function findMinInRotatedArray(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Binary-search on a structured array where half-ordering reveals the valid side each step.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Pick mid] --> B[Identify sorted half]
+  B --> C{target inside sorted half}
+  C -- yes --> D[keep that half]
+  C -- no --> E[search other half]
+  D --> A
+  E --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `nums.length - 1`.
+3. Repeat loop while condition `l < r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Branch logic based on condition `nums[m] > nums[r]`.
+6. Return final answer as `nums[l]`.
+
 ### 74. Search Range (`searchRange`)
 
 **Problem Statement**
-Implement **searchRange(nums, target)** to solve the **Search Range** problem efficiently in JavaScript.
+Solve **Search Range** by implementing **searchRange(nums, target)**.
+- **Input:** `nums`: integer/number; `target`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `searchRange([1, 2, 3], "abc")`
-   Output: `array / list structure`
+1. Input: `searchRange([5,7,7,8,8,10], 8)`
+   Output: `[3,4]`
 2. Input: `searchRange([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[-1,-1]`
 
 **JavaScript Solution**
 ```javascript
@@ -2238,16 +4180,47 @@ function searchRange(nums, target) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep a shrinking valid search interval and decide direction using mid comparisons.
+- **Correctness Invariant:** `[l, r]` always contains all possible valid answers not discarded yet.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`, `left`, `right`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r boundaries] --> B[mid equals floor l plus r by two]
+  B --> C{nums mid compared to target}
+  C -- smaller --> D[l equals mid plus one]
+  C -- larger --> E[r equals mid minus one]
+  C -- equal --> F[return answer]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `nums.length`.
+3. Repeat loop while condition `l < r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Branch logic based on condition `nums[m] < target`.
+6. Return final answer as `l`.
+7. Return final answer as `[left, right]`.
+
 ### 75. Peak Index In Mountain Array (`peakIndexInMountainArray`)
 
 **Problem Statement**
-Implement **peakIndexInMountainArray(arr)** to solve the **Peak Index In Mountain Array** problem efficiently in JavaScript.
+Solve **Peak Index In Mountain Array** by implementing **peakIndexInMountainArray(arr)**.
+- **Input:** `arr`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `peakIndexInMountainArray([1, 2, 3])`
-   Output: `number`
+1. Input: `peakIndexInMountainArray([0,2,3,1])`
+   Output: `2`
 2. Input: `peakIndexInMountainArray([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2263,16 +4236,45 @@ function peakIndexInMountainArray(arr) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Binary-search on a structured array where half-ordering reveals the valid side each step.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Pick mid] --> B[Identify sorted half]
+  B --> C{target inside sorted half}
+  C -- yes --> D[keep that half]
+  C -- no --> E[search other half]
+  D --> A
+  E --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `arr.length - 1`.
+3. Repeat loop while condition `l < r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Branch logic based on condition `arr[m] < arr[m + 1]`.
+6. Return final answer as `l`.
+
 ### 76. Single Non Duplicate (`singleNonDuplicate`)
 
 **Problem Statement**
-Implement **singleNonDuplicate(nums)** to solve the **Single Non Duplicate** problem efficiently in JavaScript.
+Solve **Single Non Duplicate** by implementing **singleNonDuplicate(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `singleNonDuplicate([1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `singleNonDuplicate([1,1,2,3,3,4,4,8,8])`
+   Output: `2`
 2. Input: `singleNonDuplicate([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `undefined`
 
 **JavaScript Solution**
 ```javascript
@@ -2292,16 +4294,47 @@ function singleNonDuplicate(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep a shrinking valid search interval and decide direction using mid comparisons.
+- **Correctness Invariant:** `[l, r]` always contains all possible valid answers not discarded yet.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r boundaries] --> B[mid equals floor l plus r by two]
+  B --> C{nums mid compared to target}
+  C -- smaller --> D[l equals mid plus one]
+  C -- larger --> E[r equals mid minus one]
+  C -- equal --> F[return answer]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `nums.length - 1`.
+3. Repeat loop while condition `l < r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Branch logic based on condition `m % 2 === 1`.
+6. Branch logic based on condition `nums[m] === nums[m + 1]`.
+7. Return final answer as `nums[l]`.
+
 ### 77. Find Closest Elements (`findClosestElements`)
 
 **Problem Statement**
-Implement **findClosestElements(arr, k, x)** to solve the **Find Closest Elements** problem efficiently in JavaScript.
+Solve **Find Closest Elements** by implementing **findClosestElements(arr, k, x)**.
+- **Input:** `arr`: integer/number; `k`: integer/number; `x`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findClosestElements([1, 2, 3], 2, "abc")`
-   Output: `array / list structure`
-2. Input: `findClosestElements([], 0, ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `findClosestElements([1,2,3,4,5], 4, 3)`
+   Output: `[1,2,3,4]`
+2. Input: `findClosestElements([], 0, 0)`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2319,18 +4352,48 @@ function findClosestElements(arr, k, x) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep a shrinking valid search interval and decide direction using mid comparisons.
+- **Correctness Invariant:** `[l, r]` always contains all possible valid answers not discarded yet.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(log n)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[l r boundaries] --> B[mid equals floor l plus r by two]
+  B --> C{nums mid compared to target}
+  C -- smaller --> D[l equals mid plus one]
+  C -- larger --> E[r equals mid minus one]
+  C -- equal --> F[return answer]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `arr.length - k`.
+3. Repeat loop while condition `l < r` remains true.
+4. Initialize `m` with `Math.floor((l + r) / 2)`.
+5. Branch logic based on condition `x - arr[m] > arr[m + k] - x`.
+6. Return final answer as `arr.slice(l, l + k)`.
+
 ## 7) Two Pointers & Sliding Window
 
 ### 78. Two Sum (`twoSum`)
 
 **Problem Statement**
-Implement **twoSum(nums, target)** to solve the **Two Sum** problem efficiently in JavaScript.
+Solve **Two Sum** by implementing **twoSum(nums, target)**.
+- **Input:** `nums`: integer/number; `target`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `twoSum([1, 2, 3], "abc")`
-   Output: `number`
+1. Input: `twoSum([2,7,11,15], 9)`
+   Output: `[0,1]`
 2. Input: `twoSum([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2345,16 +4408,44 @@ function twoSum(nums, target) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two moving indices to avoid nested loops and enforce constraints in linear time.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[l at start r at end] --> B[Evaluate pair]
+  B --> C{Need larger or smaller state}
+  C -- Move l --> D[l plus one]
+  C -- Move r --> E[r minus one]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `map` as a `Map` for keyed frequency/state lookups.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Initialize `need` with `target - nums[i]`.
+4. Handle edge/base case early: if `map.has(need)`, return `[map.get(need), i]` immediately.
+5. Return final answer as `[]`.
+
 ### 79. Two Sum II (`twoSumII`)
 
 **Problem Statement**
-Implement **twoSumII(numbers, target)** to solve the **Two Sum II** problem efficiently in JavaScript.
+Solve **Two Sum II** by implementing **twoSumII(numbers, target)**.
+- **Input:** `numbers`: integer/number; `target`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `twoSumII("abc", "abc")`
-   Output: `number`
-2. Input: `twoSumII("", 0)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `twoSumII([2,7,11,15], 9)`
+   Output: `[1,2]`
+2. Input: `twoSumII(0, 0)`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2373,16 +4464,46 @@ function twoSumII(numbers, target) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two moving indices to avoid nested loops and enforce constraints in linear time.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[l at start r at end] --> B[Evaluate pair]
+  B --> C{Need larger or smaller state}
+  C -- Move l --> D[l plus one]
+  C -- Move r --> E[r minus one]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `numbers.length - 1`.
+3. Repeat loop while condition `l < r` remains true.
+4. Initialize `sumVal` with `numbers[l] + numbers[r]`.
+5. Handle edge/base case early: if `sumVal === target`, return `[l + 1, r + 1]` immediately.
+6. Branch logic based on condition `sumVal < target`.
+7. Return final answer as `[]`.
+
 ### 80. Is Subsequence (`isSubsequence`)
 
 **Problem Statement**
-Implement **isSubsequence(s, t)** to solve the **Is Subsequence** problem efficiently in JavaScript.
+Solve **Is Subsequence** by implementing **isSubsequence(s, t)**.
+- **Input:** `s`: integer/number; `t`: string
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle empty strings, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `isSubsequence("abc", ...)`
-   Output: `true or false`
-2. Input: `isSubsequence("", ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `isSubsequence("abc", "ahbgdc")`
+   Output: `true`
+2. Input: `isSubsequence("", "")`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -2395,16 +4516,43 @@ function isSubsequence(s, t) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two moving indices to avoid nested loops and enforce constraints in linear time.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[l at start r at end] --> B[Evaluate pair]
+  B --> C{Need larger or smaller state}
+  C -- Move l --> D[l plus one]
+  C -- Move r --> E[r minus one]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `i` with `0`.
+2. Iterate through `t`, processing each element as `ch`.
+3. Branch logic based on condition `i < s.length && s[i] === ch`.
+4. Return final answer as `i === s.length`.
+
 ### 81. Str Str (`strStr`)
 
 **Problem Statement**
-Implement **strStr(haystack, needle)** to solve the **Str Str** problem efficiently in JavaScript.
+Solve **Str Str** by implementing **strStr(haystack, needle)**.
+- **Input:** `haystack`: string; `needle`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty strings, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `strStr("abc", "abc")`
-   Output: `result according to problem definition`
+1. Input: `strStr("sadbutsad", "sad")`
+   Output: `0`
 2. Input: `strStr("", "")`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2414,16 +4562,38 @@ function strStr(haystack, needle) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compute the answer directly from input values using a fixed number of operations.
+- **Correctness Invariant:** No iterative state is required; each expression is evaluated exactly once.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Read input values] --> B[Apply direct formula check or transform]
+  B --> C[Return result immediately]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Read the required input values.
+2. Apply a direct expression/check with constant operations.
+3. Return the computed value immediately.
+
 ### 82. Get Intersection Node Two Pointers (`getIntersectionNodeTwoPointers`)
 
 **Problem Statement**
-Implement **getIntersectionNodeTwoPointers(headA, headB)** to solve the **Get Intersection Node Two Pointers** problem efficiently in JavaScript.
+Solve **Get Intersection Node Two Pointers** by implementing **getIntersectionNodeTwoPointers(headA, headB)**.
+- **Input:** `headA`: linked-list head/node; `headB`: linked-list head/node
+- **Output:** Return the expected node/object reference, or `null` when no valid result exists.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `getIntersectionNodeTwoPointers(linkedListHead, linkedListHead)`
-   Output: `result according to problem definition`
+1. Input: `getIntersectionNodeTwoPointers(linkedList([..]), linkedList([..]))`
+   Output: `null`
 2. Input: `getIntersectionNodeTwoPointers(null, null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -2432,16 +4602,38 @@ function getIntersectionNodeTwoPointers(headA, headB) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compute the answer directly from input values using a fixed number of operations.
+- **Correctness Invariant:** No iterative state is required; each expression is evaluated exactly once.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Read input values] --> B[Apply direct formula check or transform]
+  B --> C[Return result immediately]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Read the required input values.
+2. Apply a direct expression/check with constant operations.
+3. Return the computed value immediately.
+
 ### 83. Max Area (`maxArea`)
 
 **Problem Statement**
-Implement **maxArea(height)** to solve the **Max Area** problem efficiently in JavaScript.
+Solve **Max Area** by implementing **maxArea(height)**.
+- **Input:** `height`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `maxArea(...)`
-   Output: `number`
-2. Input: `maxArea(...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `maxArea([1,8,6,2,5,4,8,3,7])`
+   Output: `49`
+2. Input: `maxArea(0)`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2460,16 +4652,46 @@ function maxArea(height) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two moving indices to avoid nested loops and enforce constraints in linear time.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`, `best`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[l at start r at end] --> B[Evaluate pair]
+  B --> C{Need larger or smaller state}
+  C -- Move l --> D[l plus one]
+  C -- Move r --> E[r minus one]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `height.length - 1`.
+3. Initialize `best` with `0`.
+4. Repeat loop while condition `l < r` remains true.
+5. Update `best` using optimal-choice comparison: `Math.max(best, Math.min(height[l], height[r]) * (r - l))`.
+6. Branch logic based on condition `height[l] < height[r]`.
+7. Return final answer as `best`.
+
 ### 84. Three Sum (`threeSum`)
 
 **Problem Statement**
-Implement **threeSum(nums)** to solve the **Three Sum** problem efficiently in JavaScript.
+Solve **Three Sum** by implementing **threeSum(nums)**.
+- **Input:** `nums`: array (often sorted in-place)
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays correctly.
 
 **Example Cases**
-1. Input: `threeSum([1, 2, 3])`
-   Output: `number`
+1. Input: `threeSum([-1,0,1,2,-1,-4])`
+   Output: `[[-1,-1,2],[-1,0,1]]`
 2. Input: `threeSum([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2502,16 +4724,46 @@ function threeSum(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two moving indices to avoid nested loops and enforce constraints in linear time.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[l at start r at end] --> B[Evaluate pair]
+  B --> C{Need larger or smaller state}
+  C -- Move l --> D[l plus one]
+  C -- Move r --> E[r minus one]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Branch logic based on condition `i > 0 && nums[i] === nums[i - 1]`.
+4. Initialize `l` with `i + 1`.
+5. Initialize `r` with `nums.length - 1`.
+6. Repeat loop while condition `l < r` remains true.
+7. Return final answer as `out`.
+
 ### 85. Trap (`trap`)
 
 **Problem Statement**
-Implement **trap(height)** to solve the **Trap** problem efficiently in JavaScript.
+Solve **Trap** by implementing **trap(height)**.
+- **Input:** `height`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `trap(...)`
-   Output: `result according to problem definition`
-2. Input: `trap(...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `trap([0,1,0,2,1,0,1,3,2,1,2,1])`
+   Output: `6`
+2. Input: `trap(0)`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2538,16 +4790,46 @@ function trap(height) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use two moving indices to avoid nested loops and enforce constraints in linear time.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[l at start r at end] --> B[Evaluate pair]
+  B --> C{Need larger or smaller state}
+  C -- Move l --> D[l plus one]
+  C -- Move r --> E[r minus one]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `l` with `0`.
+2. Initialize `r` with `height.length - 1`.
+3. Initialize `lMax` with `0`.
+4. Initialize `rMax` with `0`.
+5. Initialize `water` with `0`.
+6. Repeat loop while condition `l < r` remains true.
+7. Return final answer as `water`.
+
 ### 86. Length Of Longest Substring (`lengthOfLongestSubstring`)
 
 **Problem Statement**
-Implement **lengthOfLongestSubstring(s)** to solve the **Length Of Longest Substring** problem efficiently in JavaScript.
+Solve **Length Of Longest Substring** by implementing **lengthOfLongestSubstring(s)**.
+- **Input:** `s`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `lengthOfLongestSubstring("abc")`
-   Output: `number`
+1. Input: `lengthOfLongestSubstring("abcabcbb")`
+   Output: `3`
 2. Input: `lengthOfLongestSubstring("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2569,16 +4851,46 @@ function lengthOfLongestSubstring(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Expand the right boundary, and contract left boundary only when window constraints break.
+- **Correctness Invariant:** Window always represents current valid or near-valid segment after each shrink/expand.
+- **Code Lens:** Key variables in this code: `left`, `right`, `best`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Expand right pointer] --> B[update counts in window]
+  B --> C{window violates condition}
+  C -- yes --> D[shrink from left]
+  C -- no --> E[record best answer]
+  D --> C
+  E --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `seen` as a `Map` for keyed frequency/state lookups.
+2. Initialize `left` with `0`.
+3. Initialize `best` with `0`.
+4. Run indexed loop controlled by `right` according to the loop bounds.
+5. Initialize `ch` with `s[right]`.
+6. Branch logic based on condition `seen.has(ch) && seen.get(ch) >= left`.
+7. Return final answer as `best`.
+
 ### 87. Character Replacement (`characterReplacement`)
 
 **Problem Statement**
-Implement **characterReplacement(s, k)** to solve the **Character Replacement** problem efficiently in JavaScript.
+Solve **Character Replacement** by implementing **characterReplacement(s, k)**.
+- **Input:** `s`: string; `k`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty strings, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `characterReplacement("abc", 2)`
-   Output: `result according to problem definition`
+1. Input: `characterReplacement("AABABBA", 1)`
+   Output: `4`
 2. Input: `characterReplacement("", 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2605,16 +4917,46 @@ function characterReplacement(s, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Expand the right boundary, and contract left boundary only when window constraints break.
+- **Correctness Invariant:** Window always represents current valid or near-valid segment after each shrink/expand.
+- **Code Lens:** Key variables in this code: `left`, `right`, `best`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Expand right pointer] --> B[update counts in window]
+  B --> C{window violates condition}
+  C -- yes --> D[shrink from left]
+  C -- no --> E[record best answer]
+  D --> C
+  E --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `cnt` with `Array(26).fill(0)`.
+2. Initialize `left` with `0`.
+3. Initialize `maxFreq` with `0`.
+4. Initialize `best` with `0`.
+5. Run indexed loop controlled by `right` according to the loop bounds.
+6. Initialize `idx` with `s.charCodeAt(right) - 65`.
+7. Return final answer as `best`.
+
 ### 88. Check Inclusion (`checkInclusion`)
 
 **Problem Statement**
-Implement **checkInclusion(s1, s2)** to solve the **Check Inclusion** problem efficiently in JavaScript.
+Solve **Check Inclusion** by implementing **checkInclusion(s1, s2)**.
+- **Input:** `s1`: integer/number; `s2`: string
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle empty strings, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `checkInclusion("abc", "abc")`
-   Output: `result according to problem definition`
-2. Input: `checkInclusion("", "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `checkInclusion("ab", "eidbaooo")`
+   Output: `true`
+2. Input: `checkInclusion(0, 0)`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -2653,16 +4995,46 @@ function checkInclusion(s1, s2) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Expand the right boundary, and contract left boundary only when window constraints break.
+- **Correctness Invariant:** Window always represents current valid or near-valid segment after each shrink/expand.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Expand right pointer] --> B[update counts in window]
+  B --> C{window violates condition}
+  C -- yes --> D[shrink from left]
+  C -- no --> E[record best answer]
+  D --> C
+  E --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `s1.length > s2.length`, return `false` immediately.
+2. Initialize `need` with `Array(26).fill(0)`.
+3. Initialize `have` with `Array(26).fill(0)`.
+4. Iterate through `s1`, processing each element as `ch`.
+5. Initialize `matches` with `0`.
+6. Run indexed loop controlled by `i` according to the loop bounds.
+7. Return final answer as `false`.
+
 ### 89. Max Sliding Window (`maxSlidingWindow`)
 
 **Problem Statement**
-Implement **maxSlidingWindow(nums, k)** to solve the **Max Sliding Window** problem efficiently in JavaScript.
+Solve **Max Sliding Window** by implementing **maxSlidingWindow(nums, k)**.
+- **Input:** `nums`: integer/number; `k`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `maxSlidingWindow([1, 2, 3], 2)`
-   Output: `number`
+1. Input: `maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3)`
+   Output: `[3,3,5,5,6,7]`
 2. Input: `maxSlidingWindow([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2684,18 +5056,48 @@ function maxSlidingWindow(nums, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Expand the right boundary, and contract left boundary only when window constraints break.
+- **Correctness Invariant:** Window always represents current valid or near-valid segment after each shrink/expand.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(k)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Expand right pointer] --> B[update counts in window]
+  B --> C{window violates condition}
+  C -- yes --> D[shrink from left]
+  C -- no --> E[record best answer]
+  D --> C
+  E --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `deque` as a working array/DP structure.
+2. Initialize `out` as a working array/DP structure.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Repeat loop while condition `deque.length && deque[0] <= i - k) deque.shift(` remains true.
+5. Repeat loop while condition `deque.length && nums[deque[deque.length - 1]] <= nums[i]` remains true.
+6. Branch logic based on condition `i >= k - 1) out.push(nums[deque[0]]`.
+7. Return final answer as `out`.
+
 ## 8) Binary Tree
 
 ### 90. Preorder Traversal (`preorderTraversal`)
 
 **Problem Statement**
-Implement **preorderTraversal(root)** to solve the **Preorder Traversal** problem efficiently in JavaScript.
+Solve **Preorder Traversal** by implementing **preorderTraversal(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `preorderTraversal(treeRoot)`
-   Output: `array / list structure`
+1. Input: `preorderTraversal(tree([..]))`
+   Output: `[1,2,3]`
 2. Input: `preorderTraversal(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2712,16 +5114,41 @@ function preorderTraversal(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Branch logic based on condition `!node`.
+3. Return final answer as `out`.
+
 ### 91. Inorder Traversal (`inorderTraversal`)
 
 **Problem Statement**
-Implement **inorderTraversal(root)** to solve the **Inorder Traversal** problem efficiently in JavaScript.
+Solve **Inorder Traversal** by implementing **inorderTraversal(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `inorderTraversal(treeRoot)`
-   Output: `array / list structure`
+1. Input: `inorderTraversal(tree([..]))`
+   Output: `[2,1,3]`
 2. Input: `inorderTraversal(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2738,16 +5165,41 @@ function inorderTraversal(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Branch logic based on condition `!node`.
+3. Return final answer as `out`.
+
 ### 92. Postorder Traversal (`postorderTraversal`)
 
 **Problem Statement**
-Implement **postorderTraversal(root)** to solve the **Postorder Traversal** problem efficiently in JavaScript.
+Solve **Postorder Traversal** by implementing **postorderTraversal(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `postorderTraversal(treeRoot)`
-   Output: `array / list structure`
+1. Input: `postorderTraversal(tree([..]))`
+   Output: `[2,3,1]`
 2. Input: `postorderTraversal(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2764,16 +5216,41 @@ function postorderTraversal(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Branch logic based on condition `!node`.
+3. Return final answer as `out`.
+
 ### 93. Level Order (`levelOrder`)
 
 **Problem Statement**
-Implement **levelOrder(root)** to solve the **Level Order** problem efficiently in JavaScript.
+Solve **Level Order** by implementing **levelOrder(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `levelOrder(treeRoot)`
-   Output: `array / list structure`
+1. Input: `levelOrder(tree([..]))`
+   Output: `[[1],[2,3]]`
 2. Input: `levelOrder(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2799,16 +5276,45 @@ function levelOrder(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process nodes level-by-level with a queue to build breadth-oriented outputs.
+- **Correctness Invariant:** Queue contains exactly the next frontier to process in level order.
+- **Code Lens:** Key variables in this code: `left`, `right`, `q`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[queue root] --> B[loop while queue not empty]
+  B --> C[read current level size]
+  C --> D[pop each node in level]
+  D --> E[push children]
+  E --> F[store level answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!root`, return `[]` immediately.
+2. Initialize `out` as a working array/DP structure.
+3. Initialize `q` with `[root]`.
+4. Initialize `head` with `0`.
+5. Repeat loop while condition `head < q.length` remains true.
+6. Initialize `size` with `q.length - head`.
+7. Return final answer as `out`.
+
 ### 94. Max Depth (`maxDepth`)
 
 **Problem Statement**
-Implement **maxDepth(root)** to solve the **Max Depth** problem efficiently in JavaScript.
+Solve **Max Depth** by implementing **maxDepth(root)**.
+- **Input:** `root`: node reference
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `maxDepth(treeRoot)`
-   Output: `number`
+1. Input: `maxDepth(tree([..]))`
+   Output: `2`
 2. Input: `maxDepth(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2818,16 +5324,38 @@ function maxDepth(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compute the answer directly from input values using a fixed number of operations.
+- **Correctness Invariant:** No iterative state is required; each expression is evaluated exactly once.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Read input values] --> B[Apply direct formula check or transform]
+  B --> C[Return result immediately]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Read the required input values.
+2. Apply a direct expression/check with constant operations.
+3. Return the computed value immediately.
+
 ### 95. Has Path Sum (`hasPathSum`)
 
 **Problem Statement**
-Implement **hasPathSum(root, targetSum)** to solve the **Has Path Sum** problem efficiently in JavaScript.
+Solve **Has Path Sum** by implementing **hasPathSum(root, targetSum)**.
+- **Input:** `root`: node reference; `targetSum`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle `null` structure inputs, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `hasPathSum(treeRoot, "abc")`
-   Output: `true or false`
-2. Input: `hasPathSum(null, "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `hasPathSum(tree([..]), 2)`
+   Output: `false`
+2. Input: `hasPathSum(null, 0)`
+   Output: `false`
 
 **JavaScript Solution**
 ```javascript
@@ -2841,16 +5369,41 @@ function hasPathSum(root, targetSum) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Recursively compute answer for left and right children first.
+2. Combine child results with current node value/rule.
+3. Return combined value upward until root finishes.
+
 ### 96. Is Symmetric (`isSymmetric`)
 
 **Problem Statement**
-Implement **isSymmetric(root)** to solve the **Is Symmetric** problem efficiently in JavaScript.
+Solve **Is Symmetric** by implementing **isSymmetric(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `isSymmetric(treeRoot)`
-   Output: `true or false`
+1. Input: `isSymmetric(tree([..]))`
+   Output: `false`
 2. Input: `isSymmetric(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -2864,16 +5417,42 @@ function isSymmetric(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!a && !b`, return `true` immediately.
+2. Handle edge/base case early: if `!a || !b`, return `false` immediately.
+3. Return final answer as `a.val === b.val && mirror(a.left, b.right) && mirror(a.right, b.left)`.
+4. Return final answer as `mirror(root, root)`.
+
 ### 97. Invert Tree (`invertTree`)
 
 **Problem Statement**
-Implement **invertTree(root)** to solve the **Invert Tree** problem efficiently in JavaScript.
+Solve **Invert Tree** by implementing **invertTree(root)**.
+- **Input:** `root`: node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `invertTree(treeRoot)`
-   Output: `result according to problem definition`
+1. Input: `invertTree(tree([..]))`
+   Output: `[1,3,2]`
 2. Input: `invertTree(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -2884,16 +5463,38 @@ function invertTree(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compute the answer directly from input values using a fixed number of operations.
+- **Correctness Invariant:** No iterative state is required; each expression is evaluated exactly once.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Read input values] --> B[Apply direct formula check or transform]
+  B --> C[Return result immediately]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!root`, return `null` immediately.
+2. Update multiple variables together using destructuring assignment: `[root.left, root.right] = [invertTree(root.right), invertTree(root.left)];`.
+3. Return final answer as `root`.
+
 ### 98. Is Same Tree (`isSameTree`)
 
 **Problem Statement**
-Implement **isSameTree(p, q)** to solve the **Is Same Tree** problem efficiently in JavaScript.
+Solve **Is Same Tree** by implementing **isSameTree(p, q)**.
+- **Input:** `p`: node reference; `q`: node reference
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `isSameTree(..., ...)`
-   Output: `true or false`
-2. Input: `isSameTree(..., ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `isSameTree(null, null)`
+   Output: `true`
+2. Input: `isSameTree(null, null)`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -2904,16 +5505,38 @@ function isSameTree(p, q) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Compute the answer directly from input values using a fixed number of operations.
+- **Correctness Invariant:** No iterative state is required; each expression is evaluated exactly once.
+- **Code Lens:** Key variables in this code: `left`, `right`, `q`.
+- **Time Complexity:** O(1)
+- **Space Complexity:** O(1)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Read input values] --> B[Apply direct formula check or transform]
+  B --> C[Return result immediately]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!p && !q`, return `true` immediately.
+2. Handle edge/base case early: if `!p || !q`, return `false` immediately.
+3. Return final answer as `p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)`.
+
 ### 99. Is Balanced (`isBalanced`)
 
 **Problem Statement**
-Implement **isBalanced(root)** to solve the **Is Balanced** problem efficiently in JavaScript.
+Solve **Is Balanced** by implementing **isBalanced(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `isBalanced(treeRoot)`
-   Output: `true or false`
+1. Input: `isBalanced(tree([..]))`
+   Output: `true`
 2. Input: `isBalanced(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -2931,16 +5554,45 @@ function isBalanced(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!node`, return `0` immediately.
+2. Initialize `lh` with `height(node.left)`.
+3. Handle edge/base case early: if `lh === -1`, return `-1` immediately.
+4. Initialize `rh` with `height(node.right)`.
+5. Handle edge/base case early: if `rh === -1`, return `-1` immediately.
+6. Handle edge/base case early: if `Math.abs(lh - rh) > 1`, return `-1` immediately.
+7. Return final answer as `height(root) !== -1`.
+
 ### 100. Diameter Of Binary Tree (`diameterOfBinaryTree`)
 
 **Problem Statement**
-Implement **diameterOfBinaryTree(root)** to solve the **Diameter Of Binary Tree** problem efficiently in JavaScript.
+Solve **Diameter Of Binary Tree** by implementing **diameterOfBinaryTree(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `diameterOfBinaryTree(treeRoot)`
-   Output: `number`
+1. Input: `diameterOfBinaryTree(tree([..]))`
+   Output: `2`
 2. Input: `diameterOfBinaryTree(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -2958,16 +5610,45 @@ function diameterOfBinaryTree(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `l`, `r`, `left`, `right`, `best`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `best` with `0`.
+2. Handle edge/base case early: if `!node`, return `0` immediately.
+3. Initialize `l` with `dfs(node.left)`.
+4. Initialize `r` with `dfs(node.right)`.
+5. Update `best` using optimal-choice comparison: `Math.max(best, l + r)`.
+6. Return final answer as `1 + Math.max(l, r)`.
+7. Return final answer as `best`.
+
 ### 101. Zigzag Level Order (`zigzagLevelOrder`)
 
 **Problem Statement**
-Implement **zigzagLevelOrder(root)** to solve the **Zigzag Level Order** problem efficiently in JavaScript.
+Solve **Zigzag Level Order** by implementing **zigzagLevelOrder(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `zigzagLevelOrder(treeRoot)`
-   Output: `array / list structure`
+1. Input: `zigzagLevelOrder(tree([..]))`
+   Output: `[[1],[3,2]]`
 2. Input: `zigzagLevelOrder(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -2998,16 +5679,45 @@ function zigzagLevelOrder(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process nodes level-by-level with a queue to build breadth-oriented outputs.
+- **Correctness Invariant:** Queue contains exactly the next frontier to process in level order.
+- **Code Lens:** Key variables in this code: `left`, `right`, `q`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[queue root] --> B[loop while queue not empty]
+  B --> C[read current level size]
+  C --> D[pop each node in level]
+  D --> E[push children]
+  E --> F[store level answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!root`, return `[]` immediately.
+2. Initialize `out` as a working array/DP structure.
+3. Initialize `q` with `[root]`.
+4. Initialize `head` with `0`.
+5. Initialize `leftToRight` with `true`.
+6. Repeat loop while condition `head < q.length` remains true.
+7. Return final answer as `out`.
+
 ### 102. Is Subtree (`isSubtree`)
 
 **Problem Statement**
-Implement **isSubtree(root, subRoot)** to solve the **Is Subtree** problem efficiently in JavaScript.
+Solve **Is Subtree** by implementing **isSubtree(root, subRoot)**.
+- **Input:** `root`: node reference; `subRoot`: tree/graph node reference
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `isSubtree(treeRoot, treeRoot)`
-   Output: `true or false`
-2. Input: `isSubtree(null, "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `isSubtree(tree([..]), tree([..]))`
+   Output: `true`
+2. Input: `isSubtree(null, null)`
+   Output: `false`
 
 **JavaScript Solution**
 ```javascript
@@ -3024,16 +5734,44 @@ function isSubtree(root, subRoot) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Traverse candidate roots and run a strict tree-equality check whenever values match.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Traverse every node in main tree] --> B[at each node compare two trees]
+  B --> C{same structure and values}
+  C -- yes --> D[subtree found]
+  C -- no --> E[check left and right recursively]
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!a && !b`, return `true` immediately.
+2. Handle edge/base case early: if `!a || !b`, return `false` immediately.
+3. Return final answer as `a.val === b.val && same(a.left, b.left) && same(a.right, b.right)`.
+4. Handle edge/base case early: if `!root`, return `false` immediately.
+5. Handle edge/base case early: if `same(root, subRoot)`, return `true` immediately.
+6. Return final answer as `isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)`.
+
 ### 103. Lowest Common Ancestor (`lowestCommonAncestor`)
 
 **Problem Statement**
-Implement **lowestCommonAncestor(root, p, q)** to solve the **Lowest Common Ancestor** problem efficiently in JavaScript.
+Solve **Lowest Common Ancestor** by implementing **lowestCommonAncestor(root, p, q)**.
+- **Input:** `root`: node reference; `p`: integer/number; `q`: integer/number
+- **Output:** Return the expected node/object reference, or `null` when no valid result exists.
+- **Edge Cases:** Handle `null` structure inputs, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `lowestCommonAncestor(treeRoot, ..., ...)`
-   Output: `result according to problem definition`
-2. Input: `lowestCommonAncestor(null, ..., ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `lowestCommonAncestor(tree([..]), null, null)`
+   Output: `null`
+2. Input: `lowestCommonAncestor(null, null, null)`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -3047,16 +5785,46 @@ function lowestCommonAncestor(root, p, q) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Return node references from children and identify the first split point as the ancestor.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`, `q`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS root] --> B{root null or root is p q}
+  B -- yes --> C[return root]
+  B -- no --> D[left DFS]
+  B -- no --> E[right DFS]
+  D --> F{both sides non null}
+  E --> F
+  F -- yes --> G[current root is LCA]
+  F -- no --> H[return non null side]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!root || root === p || root === q`, return `root` immediately.
+2. Initialize `left` with `lowestCommonAncestor(root.left, p, q)`.
+3. Initialize `right` with `lowestCommonAncestor(root.right, p, q)`.
+4. Handle edge/base case early: if `left && right`, return `root` immediately.
+5. Return final answer as `left || right`.
+
 ### 104. Right Side View (`rightSideView`)
 
 **Problem Statement**
-Implement **rightSideView(root)** to solve the **Right Side View** problem efficiently in JavaScript.
+Solve **Right Side View** by implementing **rightSideView(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `rightSideView(treeRoot)`
-   Output: `array / list structure`
+1. Input: `rightSideView(tree([..]))`
+   Output: `[1,3]`
 2. Input: `rightSideView(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -3080,16 +5848,45 @@ function rightSideView(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process nodes level-by-level with a queue to build breadth-oriented outputs.
+- **Correctness Invariant:** Queue contains exactly the next frontier to process in level order.
+- **Code Lens:** Key variables in this code: `left`, `right`, `q`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[queue root] --> B[loop while queue not empty]
+  B --> C[read current level size]
+  C --> D[pop each node in level]
+  D --> E[push children]
+  E --> F[store level answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!root`, return `[]` immediately.
+2. Initialize `out` as a working array/DP structure.
+3. Initialize `q` with `[root]`.
+4. Initialize `head` with `0`.
+5. Repeat loop while condition `head < q.length` remains true.
+6. Initialize `size` with `q.length - head`.
+7. Return final answer as `out`.
+
 ### 105. Good Nodes (`goodNodes`)
 
 **Problem Statement**
-Implement **goodNodes(root)** to solve the **Good Nodes** problem efficiently in JavaScript.
+Solve **Good Nodes** by implementing **goodNodes(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `goodNodes(treeRoot)`
-   Output: `result according to problem definition`
+1. Input: `goodNodes(tree([..]))`
+   Output: `3`
 2. Input: `goodNodes(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -3111,16 +5908,44 @@ function goodNodes(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `left`, `right`, `ans`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `ans` with `0`.
+2. Branch logic based on condition `!node`.
+3. Branch logic based on condition `node.val >= maxSeen`.
+4. Increment/update `ans` by `1` based on current state.
+5. Recompute `maxSeen` as `node.val`.
+6. Return final answer as `ans`.
+
 ### 106. Connect (`connect`)
 
 **Problem Statement**
-Implement **connect(root)** to solve the **Connect** problem efficiently in JavaScript.
+Solve **Connect** by implementing **connect(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `connect(treeRoot)`
-   Output: `result according to problem definition`
+1. Input: `connect(linkedList([..]))`
+   Output: `[1]`
 2. Input: `connect(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -3148,16 +5973,45 @@ function connect(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Process nodes level-by-level with a queue to build breadth-oriented outputs.
+- **Correctness Invariant:** Queue contains exactly the next frontier to process in level order.
+- **Code Lens:** Key variables in this code: `left`, `right`, `q`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[queue root] --> B[loop while queue not empty]
+  B --> C[read current level size]
+  C --> D[pop each node in level]
+  D --> E[push children]
+  E --> F[store level answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!root`, return `null` immediately.
+2. Initialize `q` with `[root]`.
+3. Initialize `head` with `0`.
+4. Repeat loop while condition `head < q.length` remains true.
+5. Initialize `size` with `q.length - head`.
+6. Initialize `prev` with `null`.
+7. Return final answer as `root`.
+
 ### 107. Max Path Sum (`maxPathSum`)
 
 **Problem Statement**
-Implement **maxPathSum(root)** to solve the **Max Path Sum** problem efficiently in JavaScript.
+Solve **Max Path Sum** by implementing **maxPathSum(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `maxPathSum(treeRoot)`
-   Output: `number`
+1. Input: `maxPathSum(tree([..]))`
+   Output: `6`
 2. Input: `maxPathSum(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `-Infinity`
 
 **JavaScript Solution**
 ```javascript
@@ -3177,18 +6031,47 @@ function maxPathSum(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use postorder-style recursion to compute child results and combine at each node.
+- **Correctness Invariant:** Returned value from each node fully summarizes that node subtree for parent computation.
+- **Code Lens:** Key variables in this code: `left`, `right`, `best`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[DFS on node] --> B{node null}
+  B -- yes --> C[return base value]
+  B -- no --> D[compute left result]
+  D --> E[compute right result]
+  E --> F[combine at current node]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize sentinel variable `best` as `-Infinity` for comparisons.
+2. Handle edge/base case early: if `!node`, return `0` immediately.
+3. Initialize `left` with `Math.max(0, gain(node.left))`.
+4. Initialize `right` with `Math.max(0, gain(node.right))`.
+5. Update `best` using optimal-choice comparison: `Math.max(best, node.val + left + right)`.
+6. Return final answer as `node.val + Math.max(left, right)`.
+7. Return final answer as `best`.
+
 ## 9) Binary Search Tree
 
 ### 108. Is Valid BST (`isValidBST`)
 
 **Problem Statement**
-Implement **isValidBST(root)** to solve the **Is Valid BST** problem efficiently in JavaScript.
+Solve **Is Valid BST** by implementing **isValidBST(root)**.
+- **Input:** `root`: tree/graph node reference
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `isValidBST(treeRoot)`
-   Output: `true or false`
+1. Input: `isValidBST(tree([..]))`
+   Output: `false`
 2. Input: `isValidBST(null)`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -3202,16 +6085,43 @@ function isValidBST(root) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Exploit BST ordering to skip half the tree on each comparison.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[current node] --> B{target relation with node val}
+  B -- smaller --> C[go left]
+  B -- larger --> D[go right]
+  B -- equal --> E[found answer]
+  C --> A
+  D --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!node`, return `true` immediately.
+2. Handle edge/base case early: if `node.val <= lo || node.val >= hi`, return `false` immediately.
+3. Return final answer as `dfs(node.left, lo, node.val) && dfs(node.right, node.val, hi)`.
+4. Return final answer as `dfs(root, -Infinity, Infinity)`.
+
 ### 109. Search BST (`searchBST`)
 
 **Problem Statement**
-Implement **searchBST(root, val)** to solve the **Search BST** problem efficiently in JavaScript.
+Solve **Search BST** by implementing **searchBST(root, val)**.
+- **Input:** `root`: tree/graph node reference; `val`: integer/number
+- **Output:** Return the expected node/object reference, or `null` when no valid result exists.
+- **Edge Cases:** Handle `null` structure inputs, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `searchBST(treeRoot, "abc")`
-   Output: `result according to problem definition`
+1. Input: `searchBST(tree([..]), 2)`
+   Output: `null`
 2. Input: `searchBST(null, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -3225,16 +6135,44 @@ function searchBST(root, val) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Exploit BST ordering to skip half the tree on each comparison.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[current node] --> B{target relation with node val}
+  B -- smaller --> C[go left]
+  B -- larger --> D[go right]
+  B -- equal --> E[found answer]
+  C --> A
+  D --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `cur` with `root`.
+2. Repeat loop while condition `cur` remains true.
+3. Handle edge/base case early: if `cur.val === val`, return `cur` immediately.
+4. Recompute `cur` as `val < cur.val ? cur.left : cur.right`.
+5. Return final answer as `null`.
+
 ### 110. Insert Into BST (`insertIntoBST`)
 
 **Problem Statement**
-Implement **insertIntoBST(root, val)** to solve the **Insert Into BST** problem efficiently in JavaScript.
+Solve **Insert Into BST** by implementing **insertIntoBST(root, val)**.
+- **Input:** `root`: tree/graph node reference; `val`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle `null` structure inputs, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `insertIntoBST(treeRoot, "abc")`
-   Output: `result according to problem definition`
+1. Input: `insertIntoBST(tree([..]), 2)`
+   Output: `[1,2,3,null,null,2]`
 2. Input: `insertIntoBST(null, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[0]`
 
 **JavaScript Solution**
 ```javascript
@@ -3262,16 +6200,46 @@ function insertIntoBST(root, val) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Exploit BST ordering to skip half the tree on each comparison.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[current node] --> B{target relation with node val}
+  B -- smaller --> C[go left]
+  B -- larger --> D[go right]
+  B -- equal --> E[found answer]
+  C --> A
+  D --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!root`, return `new TreeNode(val)` immediately.
+2. Initialize `cur` with `root`.
+3. Repeat loop while condition `true` remains true.
+4. Branch logic based on condition `val < cur.val`.
+5. Branch logic based on condition `!cur.left`.
+6. Recompute `cur` as `cur.left`.
+7. Return final answer as `root`.
+
 ### 111. Kth Smallest (`kthSmallest`)
 
 **Problem Statement**
-Implement **kthSmallest(root, k)** to solve the **Kth Smallest** problem efficiently in JavaScript.
+Solve **Kth Smallest** by implementing **kthSmallest(root, k)**.
+- **Input:** `root`: tree/graph node reference; `k`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle `null` structure inputs, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `kthSmallest(treeRoot, 2)`
-   Output: `number`
+1. Input: `kthSmallest(tree([..]), 2)`
+   Output: `1`
 2. Input: `kthSmallest(null, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `-1`
 
 **JavaScript Solution**
 ```javascript
@@ -3294,16 +6262,46 @@ function kthSmallest(root, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Exploit BST ordering to skip half the tree on each comparison.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[current node] --> B{target relation with node val}
+  B -- smaller --> C[go left]
+  B -- larger --> D[go right]
+  B -- equal --> E[found answer]
+  C --> A
+  D --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `st` as a working array/DP structure.
+2. Initialize `cur` with `root`.
+3. Repeat loop while condition `cur || st.length` remains true.
+4. Repeat loop while condition `cur` remains true.
+5. Recompute `cur` as `cur.left`.
+6. Update `cur` with container operation result: `st.pop()`.
+7. Return final answer as `-1`.
+
 ### 112. Lowest Common Ancestor BST (`lowestCommonAncestorBST`)
 
 **Problem Statement**
-Implement **lowestCommonAncestorBST(root, p, q)** to solve the **Lowest Common Ancestor BST** problem efficiently in JavaScript.
+Solve **Lowest Common Ancestor BST** by implementing **lowestCommonAncestorBST(root, p, q)**.
+- **Input:** `root`: tree/graph node reference; `p`: tree/graph node reference; `q`: tree/graph node reference
+- **Output:** Return the result exactly as defined in the problem requirements.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `lowestCommonAncestorBST(treeRoot, ..., ...)`
-   Output: `result according to problem definition`
-2. Input: `lowestCommonAncestorBST(null, ..., ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `lowestCommonAncestorBST(tree([..]), null, null)`
+   Output: `Result follows problem definition`
+2. Input: `lowestCommonAncestorBST(null, null, null)`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -3318,18 +6316,46 @@ function lowestCommonAncestorBST(root, p, q) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Exploit BST ordering to skip half the tree on each comparison.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `left`, `right`, `q`.
+- **Time Complexity:** O(n) in general tree traversal
+- **Space Complexity:** O(h) recursion or O(w) queue
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[current node] --> B{target relation with node val}
+  B -- smaller --> C[go left]
+  B -- larger --> D[go right]
+  B -- equal --> E[found answer]
+  C --> A
+  D --> A
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `cur` with `root`.
+2. Repeat loop while condition `cur` remains true.
+3. Branch logic based on condition `p.val < cur.val && q.val < cur.val`.
+4. Handle alternate condition branch `p.val > cur.val && q.val > cur.val`.
+5. Return final answer as `null`.
+
 ## 10) Heap
 
 ### 113. Find Kth Largest (`findKthLargest`)
 
 **Problem Statement**
-Implement **findKthLargest(nums, k)** to solve the **Find Kth Largest** problem efficiently in JavaScript.
+Solve **Find Kth Largest** by implementing **findKthLargest(nums, k)**.
+- **Input:** `nums`: array of numbers; `k`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findKthLargest([1, 2, 3], 2)`
-   Output: `number`
+1. Input: `findKthLargest([3,2,1,5,6,4], 2)`
+   Output: `5`
 2. Input: `findKthLargest([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `undefined`
 
 **JavaScript Solution**
 ```javascript
@@ -3343,16 +6369,42 @@ function findKthLargest(nums, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep only the most relevant k or top candidates in a priority queue.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `heap`.
+- **Time Complexity:** O(log n) per heap update
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Push candidate into heap] --> B{heap size constraint}
+  B -- exceeded --> C[pop root]
+  B -- ok --> D[continue]
+  C --> D
+  D --> E[root stores current kth or best]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `heap` with `new BinaryHeap((a, b) => a - b)`.
+2. Iterate through `nums`, processing each element as `x`.
+3. Branch logic based on condition `heap.size() > k) heap.pop(`.
+4. Return final answer as `heap.peek()`.
+
 ### 114. Kth Largest (`KthLargest`)
 
 **Problem Statement**
-Design and implement the **Kth Largest** class in JavaScript so that its methods behave exactly as required in the DSA sheet.
+Design and implement the **Kth Largest** class in JavaScript with behavior matching the DSA sheet contract.
+- **Input:** Constructor parameters and method calls defined for this class.
+- **Output:** Each method should return/update state exactly as required by the class API.
+- **Edge Cases:** Empty structure operations and single-element transitions must remain valid.
 
 **Example Cases**
-1. Input: `const obj = new KthLargest(...); // call class methods in sequence`
-   Output: `Methods return/update state according to problem rules`
-2. Input: `Use KthLargest with edge state (empty/single element cases)`
-   Output: `Should still follow expected behavior without errors`
+1. Input: `const obj = new KthLargest(...); // invoke methods in sequence`
+   Output: `Methods return values according to operation sequence`
+2. Input: `Use KthLargest with empty/single element states`
+   Output: `All methods handle boundaries safely`
 
 **JavaScript Solution**
 ```javascript
@@ -3371,16 +6423,40 @@ class KthLargest {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Maintain heap order after every insert/remove using bubble-up and bubble-down operations.
+- **Correctness Invariant:** Heap property is restored after every push/pop by bubble operations.
+- **Code Lens:** Key variables in this code: `heap`.
+- **Time Complexity:** O(log n) per heap update
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[push x] --> B[Place at end]
+  B --> C[Bubble up while heap rule breaks]
+  D[pop] --> E[Swap root with last]
+  E --> F[Bubble down to restore order]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Maintains a min-heap of size at most `k`.
+2. Each `add` inserts value, then pops when heap exceeds `k`.
+3. Heap root is always the kth largest among seen values.
+
 ### 115. Last Stone Weight (`lastStoneWeight`)
 
 **Problem Statement**
-Implement **lastStoneWeight(stones)** to solve the **Last Stone Weight** problem efficiently in JavaScript.
+Solve **Last Stone Weight** by implementing **lastStoneWeight(stones)**.
+- **Input:** `stones`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `lastStoneWeight([1, 2, 3])`
-   Output: `result according to problem definition`
-2. Input: `lastStoneWeight("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `lastStoneWeight([2,7,4,1,8,1])`
+   Output: `1`
+2. Input: `lastStoneWeight([])`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -3398,16 +6474,45 @@ function lastStoneWeight(stones) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep only the most relevant k or top candidates in a priority queue.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `heap`.
+- **Time Complexity:** O(log n) per heap update
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Push candidate into heap] --> B{heap size constraint}
+  B -- exceeded --> C[pop root]
+  B -- ok --> D[continue]
+  C --> D
+  D --> E[root stores current kth or best]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `heap` with `new BinaryHeap((a, b) => b - a)`.
+2. Iterate through `stones`, processing each element as `s`.
+3. Repeat loop while condition `heap.size() > 1` remains true.
+4. Initialize `a` with `heap.pop()`.
+5. Initialize `b` with `heap.pop()`.
+6. Branch logic based on condition `a !== b) heap.push(a - b`.
+7. Return final answer as `heap.size() ? heap.pop() : 0`.
+
 ### 116. Top KFrequent (`topKFrequent`)
 
 **Problem Statement**
-Implement **topKFrequent(nums, k)** to solve the **Top KFrequent** problem efficiently in JavaScript.
+Solve **Top KFrequent** by implementing **topKFrequent(nums, k)**.
+- **Input:** `nums`: array of numbers; `k`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `topKFrequent([1, 2, 3], 2)`
-   Output: `array / list structure`
+1. Input: `topKFrequent([1,1,1,2,2,3], 2)`
+   Output: `[1,2]`
 2. Input: `topKFrequent([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -3427,16 +6532,45 @@ function topKFrequent(nums, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep only the most relevant k or top candidates in a priority queue.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `heap`.
+- **Time Complexity:** O(log n) per heap update
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Push candidate into heap] --> B{heap size constraint}
+  B -- exceeded --> C[pop root]
+  B -- ok --> D[continue]
+  C --> D
+  D --> E[root stores current kth or best]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `freq` as a `Map` for keyed frequency/state lookups.
+2. Iterate through `nums`, processing each element as `x`.
+3. Initialize `heap` with `new BinaryHeap((a, b) => a[1] - b[1])`.
+4. Iterate through `freq`, processing each element as `entry`.
+5. Branch logic based on condition `heap.size() > k) heap.pop(`.
+6. Initialize `out` as a working array/DP structure.
+7. Return final answer as `out.reverse()`.
+
 ### 117. Kth Smallest In Sorted Matrix (`kthSmallestInSortedMatrix`)
 
 **Problem Statement**
-Implement **kthSmallestInSortedMatrix(matrix, k)** to solve the **Kth Smallest In Sorted Matrix** problem efficiently in JavaScript.
+Solve **Kth Smallest In Sorted Matrix** by implementing **kthSmallestInSortedMatrix(matrix, k)**.
+- **Input:** `matrix`: integer/number; `k`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `kthSmallestInSortedMatrix([[1, 2], [3, 4]], 2)`
-   Output: `number`
+1. Input: `kthSmallestInSortedMatrix([[1,5,9],[10,11,13],[12,13,15]], 8)`
+   Output: `13`
 2. Input: `kthSmallestInSortedMatrix([[]], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -3465,18 +6599,47 @@ function kthSmallestInSortedMatrix(matrix, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Keep only the most relevant k or top candidates in a priority queue.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `r`, `heap`, `ans`.
+- **Time Complexity:** O(log n) per heap update
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Push candidate into heap] --> B{heap size constraint}
+  B -- exceeded --> C[pop root]
+  B -- ok --> D[continue]
+  C --> D
+  D --> E[root stores current kth or best]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `n` with `matrix.length`.
+2. Initialize `heap` with `new BinaryHeap((a, b) => a.val - b.val)`.
+3. Run indexed loop controlled by `r` according to the loop bounds.
+4. Initialize `ans` with `0`.
+5. Run indexed loop controlled by `i` according to the loop bounds.
+6. Initialize `cur` with `heap.pop()`.
+7. Return final answer as `ans`.
+
 ## 11) Backtracking
 
 ### 118. Subsets (`subsets`)
 
 **Problem Statement**
-Implement **subsets(nums)** to solve the **Subsets** problem efficiently in JavaScript.
+Solve **Subsets** by implementing **subsets(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `subsets([1, 2, 3])`
-   Output: `array / list structure`
+1. Input: `subsets([1,2,3])`
+   Output: `[[1,2,3],[1,2],[1,3],[1],[2,3],[2],[3],[]]`
 2. Input: `subsets([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3501,16 +6664,43 @@ function subsets(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `cur` as a working array/DP structure.
+3. Branch logic based on condition `idx === nums.length`.
+4. Return final answer as `out`.
+
 ### 119. Combine (`combine`)
 
 **Problem Statement**
-Implement **combine(n, k)** to solve the **Combine** problem efficiently in JavaScript.
+Solve **Combine** by implementing **combine(n, k)**.
+- **Input:** `n`: integer/number; `k`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `combine(2, 2)`
-   Output: `array / list structure`
+1. Input: `combine(4, 2)`
+   Output: `[[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]`
 2. Input: `combine(0, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3536,16 +6726,44 @@ function combine(n, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `cur` as a working array/DP structure.
+3. Branch logic based on condition `cur.length === k`.
+4. Run indexed loop controlled by `x` according to the loop bounds.
+5. Return final answer as `out`.
+
 ### 120. Permute (`permute`)
 
 **Problem Statement**
-Implement **permute(nums)** to solve the **Permute** problem efficiently in JavaScript.
+Solve **Permute** by implementing **permute(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `permute([1, 2, 3])`
-   Output: `array / list structure`
+1. Input: `permute([1,2,3])`
+   Output: `[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]`
 2. Input: `permute([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3575,16 +6793,46 @@ function permute(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `used` with `Array(nums.length).fill(false)`.
+3. Initialize `cur` as a working array/DP structure.
+4. Branch logic based on condition `cur.length === nums.length`.
+5. Run indexed loop controlled by `i` according to the loop bounds.
+6. Branch logic based on condition `used[i]`.
+7. Return final answer as `out`.
+
 ### 121. Subsets With Dup (`subsetsWithDup`)
 
 **Problem Statement**
-Implement **subsetsWithDup(nums)** to solve the **Subsets With Dup** problem efficiently in JavaScript.
+Solve **Subsets With Dup** by implementing **subsetsWithDup(nums)**.
+- **Input:** `nums`: array (often sorted in-place)
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays correctly.
 
 **Example Cases**
-1. Input: `subsetsWithDup([1, 2, 3])`
-   Output: `array / list structure`
+1. Input: `subsetsWithDup([1,2,2])`
+   Output: `[[],[1],[1,2],[1,2,2],[2],[2,2]]`
 2. Input: `subsetsWithDup([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3609,16 +6857,44 @@ function subsetsWithDup(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `cur` as a working array/DP structure.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Branch logic based on condition `i > idx && nums[i] === nums[i - 1]`.
+5. Return final answer as `out`.
+
 ### 122. Combination Sum (`combinationSum`)
 
 **Problem Statement**
-Implement **combinationSum(candidates, target)** to solve the **Combination Sum** problem efficiently in JavaScript.
+Solve **Combination Sum** by implementing **combinationSum(candidates, target)**.
+- **Input:** `candidates`: integer/number; `target`: integer
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `combinationSum("abc", "abc")`
-   Output: `number`
-2. Input: `combinationSum("", 0)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `combinationSum([2,3,6,7], 7)`
+   Output: `[[2,2,3],[7]]`
+2. Input: `combinationSum(0, 0)`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3645,16 +6921,44 @@ function combinationSum(candidates, target) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `cur` as a working array/DP structure.
+3. Branch logic based on condition `rem === 0`.
+4. Branch logic based on condition `idx === candidates.length || rem < 0`.
+5. Return final answer as `out`.
+
 ### 123. Combination Sum2 (`combinationSum2`)
 
 **Problem Statement**
-Implement **combinationSum2(candidates, target)** to solve the **Combination Sum2** problem efficiently in JavaScript.
+Solve **Combination Sum2** by implementing **combinationSum2(candidates, target)**.
+- **Input:** `candidates`: array (often sorted in-place); `target`: integer
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `combinationSum2("abc", "abc")`
-   Output: `number`
-2. Input: `combinationSum2("", 0)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `combinationSum2([10,1,2,7,6,1,5], 8)`
+   Output: `[[1,1,6],[1,2,5],[1,7],[2,6]]`
+2. Input: `combinationSum2(0, 0)`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -3683,16 +6987,46 @@ function combinationSum2(candidates, target) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `cur` as a working array/DP structure.
+3. Branch logic based on condition `rem === 0`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Branch logic based on condition `i > start && candidates[i] === candidates[i - 1]`.
+6. Branch logic based on condition `candidates[i] > rem`.
+7. Return final answer as `out`.
+
 ### 124. Combination Sum3 (`combinationSum3`)
 
 **Problem Statement**
-Implement **combinationSum3(k, n)** to solve the **Combination Sum3** problem efficiently in JavaScript.
+Solve **Combination Sum3** by implementing **combinationSum3(k, n)**.
+- **Input:** `k`: integer/number; `n`: integer
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `combinationSum3(2, 2)`
-   Output: `number`
+1. Input: `combinationSum3(3, 7)`
+   Output: `[[1,2,4]]`
 2. Input: `combinationSum3(0, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3719,16 +7053,45 @@ function combinationSum3(k, n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `cur` as a working array/DP structure.
+3. Branch logic based on condition `cur.length === k && rem === 0`.
+4. Branch logic based on condition `cur.length >= k || rem <= 0`.
+5. Run indexed loop controlled by `x` according to the loop bounds.
+6. Return final answer as `out`.
+
 ### 125. Letter Combinations (`letterCombinations`)
 
 **Problem Statement**
-Implement **letterCombinations(digits)** to solve the **Letter Combinations** problem efficiently in JavaScript.
+Solve **Letter Combinations** by implementing **letterCombinations(digits)**.
+- **Input:** `digits`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `letterCombinations("abc")`
-   Output: `result according to problem definition`
+1. Input: `letterCombinations("23")`
+   Output: `["ad","ae","af","bd","be","bf","cd","ce","cf"]`
 2. Input: `letterCombinations("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -3767,16 +7130,45 @@ function letterCombinations(digits) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!digits`, return `[]` immediately.
+2. Initialize `out` as a working array/DP structure.
+3. Initialize `cur` as a working array/DP structure.
+4. Branch logic based on condition `idx === digits.length`.
+5. Iterate through `map[digits[idx]]`, processing each element as `ch`.
+6. Return final answer as `out`.
+
 ### 126. Permute Unique (`permuteUnique`)
 
 **Problem Statement**
-Implement **permuteUnique(nums)** to solve the **Permute Unique** problem efficiently in JavaScript.
+Solve **Permute Unique** by implementing **permuteUnique(nums)**.
+- **Input:** `nums`: array (often sorted in-place)
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays correctly.
 
 **Example Cases**
-1. Input: `permuteUnique([1, 2, 3])`
-   Output: `array / list structure`
+1. Input: `permuteUnique([1,1,2])`
+   Output: `[[1,1,2],[1,2,1],[2,1,1]]`
 2. Input: `permuteUnique([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3809,16 +7201,46 @@ function permuteUnique(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `cur` as a working array/DP structure.
+3. Initialize `used` with `Array(nums.length).fill(false)`.
+4. Branch logic based on condition `cur.length === nums.length`.
+5. Run indexed loop controlled by `i` according to the loop bounds.
+6. Branch logic based on condition `used[i]`.
+7. Return final answer as `out`.
+
 ### 127. Partition (`partition`)
 
 **Problem Statement**
-Implement **partition(s)** to solve the **Partition** problem efficiently in JavaScript.
+Solve **Partition** by implementing **partition(s)**.
+- **Input:** `s`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `partition("abc")`
-   Output: `result according to problem definition`
+1. Input: `partition("aab")`
+   Output: `[["a","a","b"],["aa","b"]]`
 2. Input: `partition("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3854,16 +7276,46 @@ function partition(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `cur` as a working array/DP structure.
+3. Repeat loop while condition `l < r` remains true.
+4. Handle edge/base case early: if `s[l] !== s[r]`, return `false` immediately.
+5. Increment/update `l` by `1` based on current state.
+6. Return final answer as `true`.
+7. Return final answer as `out`.
+
 ### 128. Exist (`exist`)
 
 **Problem Statement**
-Implement **exist(board, word)** to solve the **Exist** problem efficiently in JavaScript.
+Solve **Exist** by implementing **exist(board, word)**.
+- **Input:** `board`: 2D grid/matrix; `word`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle empty/single-cell grids, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `exist([[1, 2], [3, 4]], "abc")`
-   Output: `result according to problem definition`
+1. Input: `exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED")`
+   Output: `true`
 2. Input: `exist([[]], "")`
-   Output: `handles boundary/edge case correctly`
+   Output: `false`
 
 **JavaScript Solution**
 ```javascript
@@ -3906,16 +7358,46 @@ function exist(board, word) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variables in this code: `r`.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `rows` with `board.length`.
+2. Initialize `cols` with `board[0].length`.
+3. Handle edge/base case early: if `i === word.length`, return `true` immediately.
+4. Return final answer as `false`.
+5. Initialize `ch` with `board[r][c]`.
+6. Return final answer as `ok`.
+7. Run indexed loop controlled by `r` according to the loop bounds.
+
 ### 129. Solve NQueens (`solveNQueens`)
 
 **Problem Statement**
-Implement **solveNQueens(n)** to solve the **Solve NQueens** problem efficiently in JavaScript.
+Solve **Solve NQueens** by implementing **solveNQueens(n)**.
+- **Input:** `n`: integer size/count value
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `solveNQueens(2)`
-   Output: `result according to problem definition`
+1. Input: `solveNQueens(4)`
+   Output: `[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]`
 2. Input: `solveNQueens(0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -3954,18 +7436,48 @@ function solveNQueens(n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Try a choice, recurse, then undo that choice to explore the next branch cleanly.
+- **Correctness Invariant:** `path` is always a valid partial solution before each recursive call.
+- **Code Lens:** Key variables in this code: `r`.
+- **Time Complexity:** Exponential in decision depth (problem dependent)
+- **Space Complexity:** O(depth) plus output size
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Choose next candidate] --> B[append to path]
+  B --> C[recurse deeper]
+  C --> D[pop to backtrack]
+  D --> E[next candidate]
+  C --> F{base case reached}
+  F -- yes --> G[copy path to output]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `board` as a working array/DP structure.
+3. Initialize `cols` as a `Set` for fast membership checks.
+4. Initialize `diag1` as a `Set` for fast membership checks.
+5. Initialize `diag2` as a `Set` for fast membership checks.
+6. Branch logic based on condition `r === n`.
+7. Return final answer as `out`.
+
 ## 12) Greedy Algorithm
 
 ### 130. Two City Sched Cost (`twoCitySchedCost`)
 
 **Problem Statement**
-Implement **twoCitySchedCost(costs)** to solve the **Two City Sched Cost** problem efficiently in JavaScript.
+Solve **Two City Sched Cost** by implementing **twoCitySchedCost(costs)**.
+- **Input:** `costs`: array (often sorted in-place)
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays correctly.
 
 **Example Cases**
-1. Input: `twoCitySchedCost([1, 2, 3])`
-   Output: `number`
+1. Input: `twoCitySchedCost([[10,20],[30,200],[400,50],[30,20]])`
+   Output: `110`
 2. Input: `twoCitySchedCost([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -3983,16 +7495,41 @@ function twoCitySchedCost(costs) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Sort by the greedy key that ensures locally optimal picks stay globally optimal.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `ans`.
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Sort by greedy key] --> B[process in sorted order]
+  B --> C[commit local best choice]
+  C --> D[local choice stays globally optimal]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `n` with `costs.length / 2`.
+2. Initialize `ans` with `0`.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Branch logic based on condition `i < n`.
+5. Return final answer as `ans`.
+
 ### 131. Find Content Children (`findContentChildren`)
 
 **Problem Statement**
-Implement **findContentChildren(g, s)** to solve the **Find Content Children** problem efficiently in JavaScript.
+Solve **Find Content Children** by implementing **findContentChildren(g, s)**.
+- **Input:** `g`: array (often sorted in-place); `s`: array (often sorted in-place)
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays correctly.
 
 **Example Cases**
-1. Input: `findContentChildren(..., "abc")`
-   Output: `result according to problem definition`
-2. Input: `findContentChildren(..., "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `findContentChildren([1,2,3], [1,1])`
+   Output: `1`
+2. Input: `findContentChildren(0, "")`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -4011,16 +7548,42 @@ function findContentChildren(g, s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Sort by the greedy key that ensures locally optimal picks stay globally optimal.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Sort by greedy key] --> B[process in sorted order]
+  B --> C[commit local best choice]
+  C --> D[local choice stays globally optimal]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `i` with `0`.
+2. Initialize `j` with `0`.
+3. Repeat loop while condition `i < g.length && j < s.length` remains true.
+4. Branch logic based on condition `s[j] >= g[i]`.
+5. Increment/update `j` by `1` based on current state.
+6. Return final answer as `i`.
+
 ### 132. Lemonade Change (`lemonadeChange`)
 
 **Problem Statement**
-Implement **lemonadeChange(bills)** to solve the **Lemonade Change** problem efficiently in JavaScript.
+Solve **Lemonade Change** by implementing **lemonadeChange(bills)**.
+- **Input:** `bills`: value required by the problem
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary inputs according to the function contract without runtime errors.
 
 **Example Cases**
-1. Input: `lemonadeChange("abc")`
-   Output: `number`
-2. Input: `lemonadeChange("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `lemonadeChange([5,5,5,10,20])`
+   Output: `true`
+2. Input: `lemonadeChange(0)`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -4051,16 +7614,46 @@ function lemonadeChange(bills) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Make best immediate choice each step while preserving feasibility invariants.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[scan once] --> B[track current feasible state]
+  B --> C{constraint broken}
+  C -- yes --> D[reset or spend resource]
+  C -- no --> E[continue]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `five` with `0`.
+2. Initialize `ten` with `0`.
+3. Iterate through `bills`, processing each element as `b`.
+4. Branch logic based on condition `b === 5`.
+5. Increment/update `five` by `1` based on current state.
+6. Handle edge/base case early: if `five === 0`, return `false` immediately.
+7. Return final answer as `true`.
+
 ### 133. Max Profit II (`maxProfitII`)
 
 **Problem Statement**
-Implement **maxProfitII(prices)** to solve the **Max Profit II** problem efficiently in JavaScript.
+Solve **Max Profit II** by implementing **maxProfitII(prices)**.
+- **Input:** `prices`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `maxProfitII([1, 2, 3])`
-   Output: `number`
+1. Input: `maxProfitII([7,1,5,3,6,4])`
+   Output: `7`
 2. Input: `maxProfitII([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4073,16 +7666,43 @@ function maxProfitII(prices) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Make best immediate choice each step while preserving feasibility invariants.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `ans`.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[scan once] --> B[track current feasible state]
+  B --> C{constraint broken}
+  C -- yes --> D[reset or spend resource]
+  C -- no --> E[continue]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `ans` with `0`.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Branch logic based on condition `prices[i] > prices[i - 1]`.
+4. Return final answer as `ans`.
+
 ### 134. Insert (`insert`)
 
 **Problem Statement**
-Implement **insert(intervals, newInterval)** to solve the **Insert** problem efficiently in JavaScript.
+Solve **Insert** by implementing **insert(intervals, newInterval)**.
+- **Input:** `intervals`: integer/number; `newInterval`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `insert("abc", "abc")`
-   Output: `result according to problem definition`
-2. Input: `insert("", 0)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `insert([[1,3],[6,9]], [2,5])`
+   Output: `[[1,5],[6,9]]`
+2. Input: `insert([], [])`
+   Output: `[[]]`
 
 **JavaScript Solution**
 ```javascript
@@ -4111,16 +7731,46 @@ function insert(intervals, newInterval) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Make best immediate choice each step while preserving feasibility invariants.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[scan once] --> B[track current feasible state]
+  B --> C{constraint broken}
+  C -- yes --> D[reset or spend resource]
+  C -- no --> E[continue]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `out` as a working array/DP structure.
+2. Initialize `i` with `0`.
+3. Repeat loop while condition `i < intervals.length && intervals[i][1] < newInterval[0]` remains true.
+4. Increment/update `i` by `1` based on current state.
+5. Repeat loop while condition `i < intervals.length && intervals[i][0] <= newInterval[1]` remains true.
+6. Repeat loop while condition `i < intervals.length` remains true.
+7. Return final answer as `out`.
+
 ### 135. Merge (`merge`)
 
 **Problem Statement**
-Implement **merge(intervals)** to solve the **Merge** problem efficiently in JavaScript.
+Solve **Merge** by implementing **merge(intervals)**.
+- **Input:** `intervals`: array (often sorted in-place)
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle empty arrays correctly.
 
 **Example Cases**
-1. Input: `merge("abc")`
-   Output: `result according to problem definition`
-2. Input: `merge("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `merge([[1,3],[2,6],[8,10],[15,18]])`
+   Output: `[[1,6],[8,10],[15,18]]`
+2. Input: `merge([])`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -4142,16 +7792,42 @@ function merge(intervals) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Sort by the greedy key that ensures locally optimal picks stay globally optimal.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Sort by greedy key] --> B[process in sorted order]
+  B --> C[commit local best choice]
+  C --> D[local choice stays globally optimal]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `intervals.length <= 1`, return `intervals` immediately.
+2. Initialize `out` with `[intervals[0]]`.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Initialize `last` with `out[out.length - 1]`.
+5. Branch logic based on condition `intervals[i][0] <= last[1]`.
+6. Return final answer as `out`.
+
 ### 136. Partition Labels (`partitionLabels`)
 
 **Problem Statement**
-Implement **partitionLabels(s)** to solve the **Partition Labels** problem efficiently in JavaScript.
+Solve **Partition Labels** by implementing **partitionLabels(s)**.
+- **Input:** `s`: integer/number
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `partitionLabels("abc")`
-   Output: `array / list structure`
+1. Input: `partitionLabels("ababcbacadefegdehijhklij")`
+   Output: `[9,7,8]`
 2. Input: `partitionLabels("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -4175,16 +7851,46 @@ function partitionLabels(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Make best immediate choice each step while preserving feasibility invariants.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[scan once] --> B[track current feasible state]
+  B --> C{constraint broken}
+  C -- yes --> D[reset or spend resource]
+  C -- no --> E[continue]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `last` as a `Map` for keyed frequency/state lookups.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Initialize `out` as a working array/DP structure.
+4. Initialize `start` with `0`.
+5. Initialize `end` with `0`.
+6. Update `end` using optimal-choice comparison: `Math.max(end, last.get(s[i]))`.
+7. Return final answer as `out`.
+
 ### 137. Erase Overlap Intervals (`eraseOverlapIntervals`)
 
 **Problem Statement**
-Implement **eraseOverlapIntervals(intervals)** to solve the **Erase Overlap Intervals** problem efficiently in JavaScript.
+Solve **Erase Overlap Intervals** by implementing **eraseOverlapIntervals(intervals)**.
+- **Input:** `intervals`: array (often sorted in-place)
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays correctly.
 
 **Example Cases**
-1. Input: `eraseOverlapIntervals("abc")`
-   Output: `result according to problem definition`
-2. Input: `eraseOverlapIntervals("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `eraseOverlapIntervals([[1,2],[2,3],[3,4],[1,3]])`
+   Output: `1`
+2. Input: `eraseOverlapIntervals([])`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4207,16 +7913,43 @@ function eraseOverlapIntervals(intervals) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Sort by the greedy key that ensures locally optimal picks stay globally optimal.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Sort by greedy key] --> B[process in sorted order]
+  B --> C[commit local best choice]
+  C --> D[local choice stays globally optimal]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `intervals.length === 0`, return `0` immediately.
+2. Initialize `count` with `0`.
+3. Initialize `end` with `intervals[0][1]`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Branch logic based on condition `intervals[i][0] < end`.
+6. Increment/update `count` by `1` based on current state.
+7. Return final answer as `count`.
+
 ### 138. Least Interval (`leastInterval`)
 
 **Problem Statement**
-Implement **leastInterval(tasks, n)** to solve the **Least Interval** problem efficiently in JavaScript.
+Solve **Least Interval** by implementing **leastInterval(tasks, n)**.
+- **Input:** `tasks`: integer; `n`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `leastInterval("abc", 2)`
-   Output: `result according to problem definition`
-2. Input: `leastInterval("", 0)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `leastInterval(["A","A","A","B","B","B"], 2)`
+   Output: `8`
+2. Input: `leastInterval(0, 0)`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -4236,16 +7969,43 @@ function leastInterval(tasks, n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Sort by the greedy key that ensures locally optimal picks stay globally optimal.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Sort by greedy key] --> B[process in sorted order]
+  B --> C[commit local best choice]
+  C --> D[local choice stays globally optimal]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `freq` with `Array(26).fill(0)`.
+2. Iterate through `tasks`, processing each element as `t`.
+3. Initialize `maxFreq` with `freq[0]`.
+4. Initialize `maxCount` with `0`.
+5. Iterate through `freq`, processing each element as `f`.
+6. Branch logic based on condition `f === maxFreq`.
+7. Return final answer as `Math.max(tasks.length, (maxFreq - 1) * (n + 1) + maxCount)`.
+
 ### 139. Can Complete Circuit (`canCompleteCircuit`)
 
 **Problem Statement**
-Implement **canCompleteCircuit(gas, cost)** to solve the **Can Complete Circuit** problem efficiently in JavaScript.
+Solve **Can Complete Circuit** by implementing **canCompleteCircuit(gas, cost)**.
+- **Input:** `gas`: integer/number; `cost`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `canCompleteCircuit([1, 2, 3], [1, 2, 3])`
-   Output: `true or false`
-2. Input: `canCompleteCircuit("", [])`
-   Output: `handles boundary/edge case correctly`
+1. Input: `canCompleteCircuit([1,2,3,4,5], [3,4,5,1,2])`
+   Output: `3`
+2. Input: `canCompleteCircuit([], [])`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4269,16 +8029,46 @@ function canCompleteCircuit(gas, cost) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Make best immediate choice each step while preserving feasibility invariants.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[scan once] --> B[track current feasible state]
+  B --> C{constraint broken}
+  C -- yes --> D[reset or spend resource]
+  C -- no --> E[continue]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `total` with `0`.
+2. Initialize `tank` with `0`.
+3. Initialize `start` with `0`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Initialize `diff` with `gas[i] - cost[i]`.
+6. Increment/update `total` by `diff` based on current state.
+7. Return final answer as `total >= 0 ? start : -1`.
+
 ### 140. Car Pooling (`carPooling`)
 
 **Problem Statement**
-Implement **carPooling(trips, capacity)** to solve the **Car Pooling** problem efficiently in JavaScript.
+Solve **Car Pooling** by implementing **carPooling(trips, capacity)**.
+- **Input:** `trips`: edge/connection list; `capacity`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `carPooling([[0, 1], [1, 2]], "abc")`
-   Output: `result according to problem definition`
-2. Input: `carPooling("", 0)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `carPooling([[2,1,5],[3,3,7]], 4)`
+   Output: `false`
+2. Input: `carPooling([], 0)`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -4300,16 +8090,43 @@ function carPooling(trips, capacity) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Sort by the greedy key that ensures locally optimal picks stay globally optimal.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Sort by greedy key] --> B[process in sorted order]
+  B --> C[commit local best choice]
+  C --> D[local choice stays globally optimal]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `stops` as a `Map` for keyed frequency/state lookups.
+2. Initialize `sorted` as a working array/DP structure.
+3. Initialize `cur` with `0`.
+4. Iterate through `sorted`, processing each element as `x`.
+5. Increment/update `cur` by `stops.get(x)` based on current state.
+6. Handle edge/base case early: if `cur > capacity`, return `false` immediately.
+7. Return final answer as `true`.
+
 ### 141. Candy (`candy`)
 
 **Problem Statement**
-Implement **candy(ratings)** to solve the **Candy** problem efficiently in JavaScript.
+Solve **Candy** by implementing **candy(ratings)**.
+- **Input:** `ratings`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `candy([1, 2, 3])`
-   Output: `true or false`
+1. Input: `candy([1,0,2])`
+   Output: `5`
 2. Input: `candy([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4331,18 +8148,47 @@ function candy(ratings) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Make best immediate choice each step while preserving feasibility invariants.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n)
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[scan once] --> B[track current feasible state]
+  B --> C{constraint broken}
+  C -- yes --> D[reset or spend resource]
+  C -- no --> E[continue]
+  D --> B
+  E --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `n` with `ratings.length`.
+2. Initialize `candies` with `Array(n).fill(1)`.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Branch logic based on condition `ratings[i] > ratings[i - 1]`.
+5. Branch logic based on condition `ratings[i] > ratings[i + 1]`.
+6. Return final answer as `candies.reduce((a, b) => a + b, 0)`.
+
 ## 13) Dynamic Programming
 
 ### 142. Climb Stairs (`climbStairs`)
 
 **Problem Statement**
-Implement **climbStairs(n)** to solve the **Climb Stairs** problem efficiently in JavaScript.
+Solve **Climb Stairs** by implementing **climbStairs(n)**.
+- **Input:** `n`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `climbStairs(2)`
-   Output: `result according to problem definition`
+1. Input: `climbStairs(5)`
+   Output: `8`
 2. Input: `climbStairs(0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4357,16 +8203,43 @@ function climbStairs(n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `n <= 2`, return `n` immediately.
+2. Initialize `a` with `1`.
+3. Initialize `b` with `2`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Update multiple variables together using destructuring assignment: `[a, b] = [b, a + b];`.
+6. Return final answer as `b`.
+
 ### 143. Min Cost Climbing Stairs (`minCostClimbingStairs`)
 
 **Problem Statement**
-Implement **minCostClimbingStairs(cost)** to solve the **Min Cost Climbing Stairs** problem efficiently in JavaScript.
+Solve **Min Cost Climbing Stairs** by implementing **minCostClimbingStairs(cost)**.
+- **Input:** `cost`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `minCostClimbingStairs([1, 2, 3])`
-   Output: `number`
+1. Input: `minCostClimbingStairs([10,15,20])`
+   Output: `15`
 2. Input: `minCostClimbingStairs([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4382,16 +8255,44 @@ function minCostClimbingStairs(cost) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `a` with `0`.
+2. Initialize `b` with `0`.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Initialize `c` with `Math.min(b + cost[i - 1], a + cost[i - 2])`.
+5. Recompute `a` as `b`.
+6. Recompute `b` as `c`.
+7. Return final answer as `b`.
+
 ### 144. Rob (`rob`)
 
 **Problem Statement**
-Implement **rob(nums)** to solve the **Rob** problem efficiently in JavaScript.
+Solve **Rob** by implementing **rob(nums)**.
+- **Input:** `nums`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `rob([1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `rob([2,7,9,3,1])`
+   Output: `12`
 2. Input: `rob([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4409,16 +8310,44 @@ function rob(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `prev2` with `0`.
+2. Initialize `prev1` with `0`.
+3. Iterate through `nums`, processing each element as `x`.
+4. Initialize `cur` with `Math.max(prev1, prev2 + x)`.
+5. Recompute `prev2` as `prev1`.
+6. Recompute `prev1` as `cur`.
+7. Return final answer as `prev1`.
+
 ### 145. Rob II (`robII`)
 
 **Problem Statement**
-Implement **robII(nums)** to solve the **Rob II** problem efficiently in JavaScript.
+Solve **Rob II** by implementing **robII(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `robII([1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `robII([2,3,2])`
+   Output: `3`
 2. Input: `robII([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4440,16 +8369,44 @@ function robII(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `nums.length === 1`, return `nums[0]` immediately.
+2. Initialize `prev2` with `0`.
+3. Initialize `prev1` with `0`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Initialize `cur` with `Math.max(prev1, prev2 + nums[i])`.
+6. Recompute `prev2` as `prev1`.
+7. Return final answer as `Math.max(robRange(0, nums.length - 2), robRange(1, nums.length - 1))`.
+
 ### 146. Coin Change (`coinChange`)
 
 **Problem Statement**
-Implement **coinChange(coins, amount)** to solve the **Coin Change** problem efficiently in JavaScript.
+Solve **Coin Change** by implementing **coinChange(coins, amount)**.
+- **Input:** `coins`: array of numbers; `amount`: integer/number
+- **Output:** Return the minimum number of coins needed to make `amount`; return `-1` if impossible.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `coinChange([1, 2, 3], "abc")`
-   Output: `number`
+1. Input: `coinChange([1,2,5], 11)`
+   Output: `3`
 2. Input: `coinChange([], 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4467,16 +8424,41 @@ function coinChange(coins, amount) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Build minimum coins for every sum from 0..amount using previously solved smaller sums.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `dp`.
+- **Time Complexity:** O(amount * number_of_coins)
+- **Space Complexity:** O(amount)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dp x minimum coins for sum x] --> B[dp zero equals zero]
+  B --> C[for each coin update reachable sums]
+  C --> D[dp x equals min old and dp x minus coin plus one]
+  D --> E[dp amount or minus one if unreachable]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize sentinel variable `dp` as `Array(amount + 1).fill(Infinity)` for comparisons.
+2. Iterate through `coins`, processing each element as `c`.
+3. Run indexed loop controlled by `x` according to the loop bounds.
+4. Return final answer as `dp[amount] === Infinity ? -1 : dp[amount]`.
+
 ### 147. Count Substrings (`countSubstrings`)
 
 **Problem Statement**
-Implement **countSubstrings(s)** to solve the **Count Substrings** problem efficiently in JavaScript.
+Solve **Count Substrings** by implementing **countSubstrings(s)**.
+- **Input:** `s`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `countSubstrings("abc")`
-   Output: `number`
+1. Input: `countSubstrings("aaa")`
+   Output: `6`
 2. Input: `countSubstrings("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4500,16 +8482,43 @@ function countSubstrings(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `l`, `r`, `ans`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `ans` with `0`.
+2. Repeat loop while condition `l >= 0 && r < s.length && s[l] === s[r]` remains true.
+3. Increment/update `ans` by `1` based on current state.
+4. Increment/update `r` by `1` based on current state.
+5. Run indexed loop controlled by `i` according to the loop bounds.
+6. Return final answer as `ans`.
+
 ### 148. Longest Palindrome (`longestPalindrome`)
 
 **Problem Statement**
-Implement **longestPalindrome(s)** to solve the **Longest Palindrome** problem efficiently in JavaScript.
+Solve **Longest Palindrome** by implementing **longestPalindrome(s)**.
+- **Input:** `s`: integer/number
+- **Output:** Return the resulting string.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `longestPalindrome("abc")`
-   Output: `string`
+1. Input: `longestPalindrome("babad")`
+   Output: `"bab"`
 2. Input: `longestPalindrome("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `""`
 
 **JavaScript Solution**
 ```javascript
@@ -4545,16 +8554,44 @@ function longestPalindrome(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `l`, `r`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `s.length < 2`, return `s` immediately.
+2. Initialize `start` with `0`.
+3. Initialize `end` with `0`.
+4. Repeat loop while condition `l >= 0 && r < s.length && s[l] === s[r]` remains true.
+5. Increment/update `r` by `1` based on current state.
+6. Return final answer as `[l + 1, r - 1]`.
+7. Return final answer as `s.slice(start, end + 1)`.
+
 ### 149. Num Decodings (`numDecodings`)
 
 **Problem Statement**
-Implement **numDecodings(s)** to solve the **Num Decodings** problem efficiently in JavaScript.
+Solve **Num Decodings** by implementing **numDecodings(s)**.
+- **Input:** `s`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `numDecodings("abc")`
-   Output: `number`
+1. Input: `numDecodings("226")`
+   Output: `3`
 2. Input: `numDecodings("")`
-   Output: `handles boundary/edge case correctly`
+   Output: `1`
 
 **JavaScript Solution**
 ```javascript
@@ -4580,16 +8617,44 @@ function numDecodings(s) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `s[0] === "0"`, return `0` immediately.
+2. Initialize `prev2` with `1`.
+3. Initialize `prev1` with `1`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Initialize `cur` with `0`.
+6. Branch logic based on condition `s[i] !== "0"`.
+7. Return final answer as `prev1`.
+
 ### 150. Max Sub Array (`maxSubArray`)
 
 **Problem Statement**
-Implement **maxSubArray(nums)** to solve the **Max Sub Array** problem efficiently in JavaScript.
+Solve **Max Sub Array** by implementing **maxSubArray(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `maxSubArray([1, 2, 3])`
-   Output: `number`
+1. Input: `maxSubArray([-2,1,-3,4,-1,2,1,-5,4])`
+   Output: `6`
 2. Input: `maxSubArray([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `undefined`
 
 **JavaScript Solution**
 ```javascript
@@ -4606,16 +8671,43 @@ function maxSubArray(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `best`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `cur` with `nums[0]`.
+2. Initialize `best` with `nums[0]`.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Update `cur` using optimal-choice comparison: `Math.max(nums[i], cur + nums[i])`.
+5. Update `best` using optimal-choice comparison: `Math.max(best, cur)`.
+6. Return final answer as `best`.
+
 ### 151. Max Product (`maxProduct`)
 
 **Problem Statement**
-Implement **maxProduct(nums)** to solve the **Max Product** problem efficiently in JavaScript.
+Solve **Max Product** by implementing **maxProduct(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `maxProduct([1, 2, 3])`
-   Output: `number`
+1. Input: `maxProduct([2,3,-2,4])`
+   Output: `6`
 2. Input: `maxProduct([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `undefined`
 
 **JavaScript Solution**
 ```javascript
@@ -4638,16 +8730,44 @@ function maxProduct(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `best`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `maxHere` with `nums[0]`.
+2. Initialize `minHere` with `nums[0]`.
+3. Initialize `best` with `nums[0]`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Initialize `x` with `nums[i]`.
+6. Branch logic based on condition `x < 0`.
+7. Return final answer as `best`.
+
 ### 152. Word Break (`wordBreak`)
 
 **Problem Statement**
-Implement **wordBreak(s, wordDict)** to solve the **Word Break** problem efficiently in JavaScript.
+Solve **Word Break** by implementing **wordBreak(s, wordDict)**.
+- **Input:** `s`: integer/number; `wordDict`: string
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle empty strings, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `wordBreak("abc", "abc")`
-   Output: `result according to problem definition`
+1. Input: `wordBreak("leetcode", ["leet","code"])`
+   Output: `true`
 2. Input: `wordBreak("", "")`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -4669,16 +8789,43 @@ function wordBreak(s, wordDict) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `dp`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `set` as a `Set` for fast membership checks.
+2. Initialize `dp` with `Array(s.length + 1).fill(false)`.
+3. Run indexed loop controlled by `i` according to the loop bounds.
+4. Run indexed loop controlled by `j` according to the loop bounds.
+5. Branch logic based on condition `dp[j] && set.has(s.slice(j, i))`.
+6. Return final answer as `dp[s.length]`.
+
 ### 153. Length Of LIS (`lengthOfLIS`)
 
 **Problem Statement**
-Implement **lengthOfLIS(nums)** to solve the **Length Of LIS** problem efficiently in JavaScript.
+Solve **Length Of LIS** by implementing **lengthOfLIS(nums)**.
+- **Input:** `nums`: array of numbers
+- **Output:** Return the length of the longest strictly increasing subsequence.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `lengthOfLIS([1, 2, 3])`
-   Output: `number`
+1. Input: `lengthOfLIS([10,9,2,5,3,7,101,18])`
+   Output: `4`
 2. Input: `lengthOfLIS([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4702,16 +8849,43 @@ function lengthOfLIS(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Maintain minimal tail values for increasing subsequences by length and update via binary search.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `l`, `r`, `m`.
+- **Time Complexity:** O(n log n)
+- **Space Complexity:** O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Maintain tails array] --> B[Binary search insertion index for x]
+  B --> C[replace tails index with x]
+  C --> D[length of tails equals LIS length]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `tails` as a working array/DP structure.
+2. Iterate through `nums`, processing each element as `x`.
+3. Initialize `l` with `0`.
+4. Initialize `r` with `tails.length`.
+5. Repeat loop while condition `l < r` remains true.
+6. Initialize `m` with `Math.floor((l + r) / 2)`.
+7. Return final answer as `tails.length`.
+
 ### 154. Can Partition (`canPartition`)
 
 **Problem Statement**
-Implement **canPartition(nums)** to solve the **Can Partition** problem efficiently in JavaScript.
+Solve **Can Partition** by implementing **canPartition(nums)**.
+- **Input:** `nums`: array
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle empty arrays correctly.
 
 **Example Cases**
-1. Input: `canPartition([1, 2, 3])`
-   Output: `true or false`
+1. Input: `canPartition([1,5,11,5])`
+   Output: `true`
 2. Input: `canPartition([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -4733,16 +8907,44 @@ function canPartition(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `dp`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `total` with `nums.reduce((a, b) => a + b, 0)`.
+2. Handle edge/base case early: if `total % 2 !== 0`, return `false` immediately.
+3. Initialize `target` with `total / 2`.
+4. Initialize `dp` with `Array(target + 1).fill(false)`.
+5. Iterate through `nums`, processing each element as `x`.
+6. Run indexed loop controlled by `s` according to the loop bounds.
+7. Return final answer as `dp[target]`.
+
 ### 155. Change (`change`)
 
 **Problem Statement**
-Implement **change(amount, coins)** to solve the **Change** problem efficiently in JavaScript.
+Solve **Change** by implementing **change(amount, coins)**.
+- **Input:** `amount`: integer/number; `coins`: array of numbers
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `change("abc", [1, 2, 3])`
-   Output: `number`
+1. Input: `change(5, [1,2,5])`
+   Output: `4`
 2. Input: `change(0, [])`
-   Output: `handles boundary/edge case correctly`
+   Output: `1`
 
 **JavaScript Solution**
 ```javascript
@@ -4760,16 +8962,41 @@ function change(amount, coins) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `dp`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `dp` with `Array(amount + 1).fill(0)`.
+2. Iterate through `coins`, processing each element as `c`.
+3. Run indexed loop controlled by `x` according to the loop bounds.
+4. Return final answer as `dp[amount]`.
+
 ### 156. Unique Paths (`uniquePaths`)
 
 **Problem Statement**
-Implement **uniquePaths(m, n)** to solve the **Unique Paths** problem efficiently in JavaScript.
+Solve **Unique Paths** by implementing **uniquePaths(m, n)**.
+- **Input:** `m`: integer/number; `n`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `uniquePaths(2, 2)`
-   Output: `number`
+1. Input: `uniquePaths(3, 7)`
+   Output: `28`
 2. Input: `uniquePaths(0, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `undefined`
 
 **JavaScript Solution**
 ```javascript
@@ -4784,16 +9011,41 @@ function uniquePaths(m, n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `r`, `m`, `dp`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `dp` with `Array(n).fill(1)`.
+2. Run indexed loop controlled by `r` according to the loop bounds.
+3. Run indexed loop controlled by `c` according to the loop bounds.
+4. Return final answer as `dp[n - 1]`.
+
 ### 157. Can Jump (`canJump`)
 
 **Problem Statement**
-Implement **canJump(nums)** to solve the **Can Jump** problem efficiently in JavaScript.
+Solve **Can Jump** by implementing **canJump(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `canJump([1, 2, 3])`
-   Output: `true or false`
+1. Input: `canJump([2,3,1,1,4])`
+   Output: `true`
 2. Input: `canJump([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -4807,16 +9059,42 @@ function canJump(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `reach` with `0`.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Handle edge/base case early: if `i > reach`, return `false` immediately.
+4. Update `reach` using optimal-choice comparison: `Math.max(reach, i + nums[i])`.
+5. Return final answer as `true`.
+
 ### 158. Jump (`jump`)
 
 **Problem Statement**
-Implement **jump(nums)** to solve the **Jump** problem efficiently in JavaScript.
+Solve **Jump** by implementing **jump(nums)**.
+- **Input:** `nums`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `jump([1, 2, 3])`
-   Output: `result according to problem definition`
+1. Input: `jump([2,3,1,1,4])`
+   Output: `2`
 2. Input: `jump([])`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4837,16 +9115,44 @@ function jump(nums) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `jumps` with `0`.
+2. Initialize `curEnd` with `0`.
+3. Initialize `curFar` with `0`.
+4. Run indexed loop controlled by `i` according to the loop bounds.
+5. Update `curFar` using optimal-choice comparison: `Math.max(curFar, i + nums[i])`.
+6. Branch logic based on condition `i === curEnd`.
+7. Return final answer as `jumps`.
+
 ### 159. Min Cost (`minCost`)
 
 **Problem Statement**
-Implement **minCost(n, cuts)** to solve the **Min Cost** problem efficiently in JavaScript.
+Solve **Min Cost** by implementing **minCost(n, cuts)**.
+- **Input:** `n`: integer; `cuts`: array (often sorted in-place)
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle empty arrays, boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `minCost(2, "abc")`
-   Output: `number`
-2. Input: `minCost(0, "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `minCost(7, [1,3,4,5])`
+   Output: `16`
+2. Input: `minCost(0, 0)`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -4875,16 +9181,44 @@ function minCost(n, cuts) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Define a 2D state table and fill it in dependency order to avoid recomputation.
+- **Correctness Invariant:** `dp[r][c]` (or analogous state) is finalized only after dependencies are finalized.
+- **Code Lens:** Key variables in this code: `m`, `dp`.
+- **Time Complexity:** O(states * transitions)
+- **Space Complexity:** O(states)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp on two dimensions] --> B[initialize first row col]
+  B --> C[fill table by dependency order]
+  C --> D[state uses left right or previous split]
+  D --> E[read dp target cell]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Recompute `cuts` as `[0, ...cuts, n]`.
+2. Initialize `m` with `cuts.length`.
+3. Initialize `dp` as a working array/DP structure.
+4. Run indexed loop controlled by `len` according to the loop bounds.
+5. Run indexed loop controlled by `i` according to the loop bounds.
+6. Initialize `j` with `i + len`.
+7. Return final answer as `dp[0][m - 1]`.
+
 ### 160. Super Egg Drop (`superEggDrop`)
 
 **Problem Statement**
-Implement **superEggDrop(k, n)** to solve the **Super Egg Drop** problem efficiently in JavaScript.
+Solve **Super Egg Drop** by implementing **superEggDrop(k, n)**.
+- **Input:** `k`: integer/number; `n`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `superEggDrop(2, 2)`
-   Output: `result according to problem definition`
+1. Input: `superEggDrop(2, 6)`
+   Output: `3`
 2. Input: `superEggDrop(0, 0)`
-   Output: `handles boundary/edge case correctly`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -4903,18 +9237,45 @@ function superEggDrop(k, n) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Model answer as a recurrence over earlier indices and keep only needed previous states.
+- **Correctness Invariant:** `dp[i]` stores best/correct answer for prefix or state `i` before moving to `i+1`.
+- **Code Lens:** Key variables in this code: `dp`.
+- **Time Complexity:** O(n) to O(n^2) by transition count
+- **Space Complexity:** O(1) to O(n)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[Define dp i as best up to i] --> B[initialize base values]
+  B --> C[transition from earlier states]
+  C --> D[store only needed previous states]
+  D --> E[answer at final index]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `dp` with `Array(k + 1).fill(0)`.
+2. Initialize `moves` with `0`.
+3. Repeat loop while condition `dp[k] < n` remains true.
+4. Increment/update `moves` by `1` based on current state.
+5. Run indexed loop controlled by `e` according to the loop bounds.
+6. Return final answer as `moves`.
+
 ## 14) Graphs
 
 ### 161. Clone Graph (`cloneGraph`)
 
 **Problem Statement**
-Implement **cloneGraph(node)** to solve the **Clone Graph** problem efficiently in JavaScript.
+Solve **Clone Graph** by implementing **cloneGraph(node)**.
+- **Input:** `node`: tree/graph node reference
+- **Output:** Return the result exactly as defined in the problem requirements.
+- **Edge Cases:** Handle `null` structure inputs correctly.
 
 **Example Cases**
-1. Input: `cloneGraph(treeRoot)`
-   Output: `result according to problem definition`
-2. Input: `cloneGraph(0)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `cloneGraph(tree([..]))`
+   Output: `Result follows problem definition`
+2. Input: `cloneGraph(null)`
+   Output: `null`
 
 **JavaScript Solution**
 ```javascript
@@ -4940,16 +9301,44 @@ function cloneGraph(node) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Explore neighbors deeply while tracking visited nodes to avoid repeated work.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[start node] --> B[mark visited]
+  B --> C[visit each neighbor]
+  C --> D[recurse if unvisited]
+  D --> C
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `!node`, return `null` immediately.
+2. Initialize `map` as a `Map` for keyed frequency/state lookups.
+3. Handle edge/base case early: if `map.has(cur)`, return `map.get(cur)` immediately.
+4. Initialize `copy` with `new GraphNode(cur.val)`.
+5. Iterate through `cur.neighbors`, processing each element as `nei`.
+6. Return final answer as `copy`.
+7. Return final answer as `dfs(node)`.
+
 ### 162. Valid Path (`validPath`)
 
 **Problem Statement**
-Implement **validPath(n, edges, source, destination)** to solve the **Valid Path** problem efficiently in JavaScript.
+Solve **Valid Path** by implementing **validPath(n, edges, source, destination)**.
+- **Input:** `n`: integer size/count value; `edges`: edge/connection list; `source`: value required by the problem; `destination`: integer/number
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `validPath(2, [[0, 1], [1, 2]], "abc", "abc")`
-   Output: `array / list structure`
-2. Input: `validPath(0, "", "", "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `validPath(3, [[0,1],[1,2],[2,0]], 0, 2)`
+   Output: `true`
+2. Input: `validPath(0, [], 0, 0)`
+   Output: `true`
 
 **JavaScript Solution**
 ```javascript
@@ -4980,16 +9369,44 @@ function validPath(n, edges, source, destination) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use queue-based frontier expansion to visit nodes in increasing edge distance.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variables in this code: `q`.
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[enqueue source] --> B[dequeue front]
+  B --> C[visit neighbors]
+  C --> D[enqueue unseen nodes]
+  D --> B
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `adj` as a working array/DP structure.
+2. Initialize `seen` with `Array(n).fill(false)`.
+3. Initialize `q` with `[source]`.
+4. Initialize `head` with `0`.
+5. Repeat loop while condition `head < q.length` remains true.
+6. Initialize `cur` with `q[head++]`.
+7. Return final answer as `false`.
+
 ### 163. All Paths Source Target (`allPathsSourceTarget`)
 
 **Problem Statement**
-Implement **allPathsSourceTarget(graph)** to solve the **All Paths Source Target** problem efficiently in JavaScript.
+Solve **All Paths Source Target** by implementing **allPathsSourceTarget(graph)**.
+- **Input:** `graph`: value required by the problem
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary inputs according to the function contract without runtime errors.
 
 **Example Cases**
-1. Input: `allPathsSourceTarget([[1], [2], []])`
-   Output: `number`
-2. Input: `allPathsSourceTarget(...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `allPathsSourceTarget([[1,2],[3],[3],[]])`
+   Output: `[[0,1,3],[0,2,3]]`
+2. Input: `allPathsSourceTarget([])`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -5016,16 +9433,43 @@ function allPathsSourceTarget(graph) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Explore neighbors deeply while tracking visited nodes to avoid repeated work.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[start node] --> B[mark visited]
+  B --> C[visit each neighbor]
+  C --> D[recurse if unvisited]
+  D --> C
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `target` with `graph.length - 1`.
+2. Initialize `out` as a working array/DP structure.
+3. Initialize `path` with `[0]`.
+4. Branch logic based on condition `node === target`.
+5. Iterate through `graph[node]`, processing each element as `nei`.
+6. Return final answer as `out`.
+
 ### 164. Find Itinerary (`findItinerary`)
 
 **Problem Statement**
-Implement **findItinerary(tickets)** to solve the **Find Itinerary** problem efficiently in JavaScript.
+Solve **Find Itinerary** by implementing **findItinerary(tickets)**.
+- **Input:** `tickets`: edge/connection list
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary inputs according to the function contract without runtime errors.
 
 **Example Cases**
-1. Input: `findItinerary([[0, 1], [1, 2]])`
-   Output: `result according to problem definition`
-2. Input: `findItinerary("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `findItinerary([["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]])`
+   Output: `["JFK","MUC","LHR","SFO","SJC"]`
+2. Input: `findItinerary([])`
+   Output: `["JFK"]`
 
 **JavaScript Solution**
 ```javascript
@@ -5052,16 +9496,44 @@ function findItinerary(tickets) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Explore neighbors deeply while tracking visited nodes to avoid repeated work.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[start node] --> B[mark visited]
+  B --> C[visit each neighbor]
+  C --> D[recurse if unvisited]
+  D --> C
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `adj` as a `Map` for keyed frequency/state lookups.
+2. Branch logic based on condition `!adj.has(from)) adj.set(from, []`.
+3. Iterate through `adj.values(`, processing each element as `list`.
+4. Initialize `route` as a working array/DP structure.
+5. Initialize `list` with `adj.get(airport) || []`.
+6. Repeat loop while condition `list.length` remains true.
+7. Return final answer as `route.reverse()`.
+
 ### 165. Detect Cycle Undirected (`detectCycleUndirected`)
 
 **Problem Statement**
-Implement **detectCycleUndirected(n, adj)** to solve the **Detect Cycle Undirected** problem efficiently in JavaScript.
+Solve **Detect Cycle Undirected** by implementing **detectCycleUndirected(n, adj)**.
+- **Input:** `n`: integer/number; `adj`: value required by the problem
+- **Output:** Return a boolean indicating whether the required condition holds.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `detectCycleUndirected(2, "abc")`
-   Output: `result according to problem definition`
-2. Input: `detectCycleUndirected(0, ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `detectCycleUndirected(3, [[1,2],[0,2],[0,1]])`
+   Output: `true`
+2. Input: `detectCycleUndirected(0, 0)`
+   Output: `false`
 
 **JavaScript Solution**
 ```javascript
@@ -5088,16 +9560,44 @@ function detectCycleUndirected(n, adj) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Explore neighbors deeply while tracking visited nodes to avoid repeated work.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[start node] --> B[mark visited]
+  B --> C[visit each neighbor]
+  C --> D[recurse if unvisited]
+  D --> C
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `seen` with `Array(n).fill(false)`.
+2. Iterate through `adj[u]`, processing each element as `v`.
+3. Branch logic based on condition `!seen[v]`.
+4. Handle edge/base case early: if `dfs(v, u)`, return `true` immediately.
+5. Return final answer as `true`.
+6. Return final answer as `false`.
+7. Run indexed loop controlled by `i` according to the loop bounds.
+
 ### 166. Topological Sort DFS (`topologicalSortDFS`)
 
 **Problem Statement**
-Implement **topologicalSortDFS(v, adj)** to solve the **Topological Sort DFS** problem efficiently in JavaScript.
+Solve **Topological Sort DFS** by implementing **topologicalSortDFS(v, adj)**.
+- **Input:** `v`: integer/number; `adj`: value required by the problem
+- **Output:** Return the resulting array/list structure as defined by the problem.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `topologicalSortDFS(..., "abc")`
-   Output: `result according to problem definition`
-2. Input: `topologicalSortDFS(..., ...)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `topologicalSortDFS(6, [[2,3],[3,4],[5],[5],[],[]])`
+   Output: `[1,4,0,3,2,5]`
+2. Input: `topologicalSortDFS(0, 0)`
+   Output: `[]`
 
 **JavaScript Solution**
 ```javascript
@@ -5126,16 +9626,46 @@ function topologicalSortDFS(v, adj) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Use DFS colors to detect cycles and push nodes postorder to form topological order.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dfs unvisited node] --> B[mark visiting]
+  B --> C[dfs neighbors]
+  C --> D{back edge found}
+  D -- yes --> E[cycle invalid]
+  D -- no --> F[mark done and push order]
+  F --> G[reverse order for topo]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `seen` with `Array(v).fill(0)`.
+2. Initialize `order` as a working array/DP structure.
+3. Handle edge/base case early: if `seen[u] === 1`, return `false` immediately.
+4. Handle edge/base case early: if `seen[u] === 2`, return `true` immediately.
+5. Iterate through `adj[u]`, processing each element as `nei`.
+6. Handle edge/base case early: if `!dfs(nei)`, return `false` immediately.
+7. Return final answer as `order.reverse()`.
+
 ### 167. Make Connected (`makeConnected`)
 
 **Problem Statement**
-Implement **makeConnected(n, connections)** to solve the **Make Connected** problem efficiently in JavaScript.
+Solve **Make Connected** by implementing **makeConnected(n, connections)**.
+- **Input:** `n`: integer/number; `connections`: edge/connection list
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `makeConnected(2, [[0, 1], [1, 2]])`
-   Output: `result according to problem definition`
-2. Input: `makeConnected(0, "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `makeConnected(4, [[0,1],[0,2],[1,2]])`
+   Output: `1`
+2. Input: `makeConnected(0, [])`
+   Output: `-1`
 
 **JavaScript Solution**
 ```javascript
@@ -5148,16 +9678,39 @@ function makeConnected(n, connections) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Union all existing connections and derive required new edges from remaining components.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(E * alpha(V))
+- **Space Complexity:** O(V)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[Need at least n minus one edges] --> B[Union endpoints]
+  B --> C[count connected components]
+  C --> D[operations needed equals components minus one]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Handle edge/base case early: if `connections.length < n - 1`, return `-1` immediately.
+2. Initialize `dsu` with `new DSU(n)`.
+3. Return final answer as `dsu.components - 1`.
+
 ### 168. Find Cheapest Price (`findCheapestPrice`)
 
 **Problem Statement**
-Implement **findCheapestPrice(n, flights, src, dst, k)** to solve the **Find Cheapest Price** problem efficiently in JavaScript.
+Solve **Find Cheapest Price** by implementing **findCheapestPrice(n, flights, src, dst, k)**.
+- **Input:** `n`: integer; `flights`: edge/connection list; `src`: integer; `dst`: integer; `k`: integer/number
+- **Output:** Return the cheapest cost from `src` to `dst` with at most `k` stops; return `-1` if unreachable.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `findCheapestPrice(2, [[0, 1], [1, 2]], "abc", "abc", 2)`
-   Output: `result according to problem definition`
-2. Input: `findCheapestPrice(0, "", "", "", 0)`
-   Output: `handles boundary/edge case correctly`
+1. Input: `findCheapestPrice(4, [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], 0, 3, 1)`
+   Output: `700`
+2. Input: `findCheapestPrice(0, [], 0, 0, 0)`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -5179,16 +9732,44 @@ function findCheapestPrice(n, flights, src, dst, k) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Perform bounded edge relaxations for at most k stops using previous-round distances only.
+- **Correctness Invariant:** Round `i` uses only paths with at most `i` edges by reading previous round values.
+- **Code Lens:** Key variables in this code: `dist`.
+- **Time Complexity:** O((k + 1) * E)
+- **Space Complexity:** O(V)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dist from source] --> B[repeat k plus one rounds]
+  B --> C[clone dist to next]
+  C --> D[relax each flight using previous round only]
+  D --> E[assign next to dist]
+  E --> F[answer dist dst]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize sentinel variable `dist` as `Array(n).fill(Infinity)` for comparisons.
+2. Run indexed loop controlled by `i` according to the loop bounds.
+3. Initialize `next` with `dist.slice()`.
+4. Branch logic based on condition `dist[u] !== Infinity`.
+5. Recompute `dist` as `next`.
+6. Return final answer as `dist[dst] === Infinity ? -1 : dist[dst]`.
+
 ### 169. Count Paths (`countPaths`)
 
 **Problem Statement**
-Implement **countPaths(n, roads)** to solve the **Count Paths** problem efficiently in JavaScript.
+Solve **Count Paths** by implementing **countPaths(n, roads)**.
+- **Input:** `n`: integer size/count value; `roads`: edge/connection list
+- **Output:** Return how many shortest paths exist from node `0` to node `n-1` (modulo `1e9+7`).
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `countPaths(2, [[0, 1], [1, 2]])`
-   Output: `number`
-2. Input: `countPaths(0, "")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `countPaths(7, [[0,6,7],[0,1,2],[1,2,3],[1,3,3],[6,3,3],[3,5,1],[6,5,1],[2,5,1],[0,4,5],[4,6,2]])`
+   Output: `4`
+2. Input: `countPaths(0, [])`
+   Output: `Result follows problem definition`
 
 **JavaScript Solution**
 ```javascript
@@ -5229,16 +9810,45 @@ function countPaths(n, roads) {
 }
 ```
 
+**Detailed Explanation**
+- **Core Idea:** Track both shortest distance and number of shortest ways during Dijkstra relaxations.
+- **Correctness Invariant:** `ways[v]` counts shortest routes that match current `dist[v]` exactly.
+- **Code Lens:** Key variables in this code: `heap`, `dist`, `ways`.
+- **Time Complexity:** O((V + E) log V)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart TD
+  A[dijkstra with dist and ways arrays] --> B[find shorter path]
+  B --> C[replace dist and copy ways]
+  A --> D[find equal shortest path]
+  D --> E[add ways modulo mod]
+  C --> F[final ways at destination]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `MOD` with `1_000_000_007`.
+2. Initialize `adj` as a working array/DP structure.
+3. Initialize sentinel variable `dist` as `Array(n).fill(Infinity)` for comparisons.
+4. Initialize `ways` with `Array(n).fill(0)`.
+5. Initialize `heap` with `new BinaryHeap((a, b) => a[0] - b[0])`.
+6. Repeat loop while condition `heap.size()` remains true.
+7. Return final answer as `ways[n - 1]`.
+
 ### 170. Min Cost Connect Points (`minCostConnectPoints`)
 
 **Problem Statement**
-Implement **minCostConnectPoints(points)** to solve the **Min Cost Connect Points** problem efficiently in JavaScript.
+Solve **Min Cost Connect Points** by implementing **minCostConnectPoints(points)**.
+- **Input:** `points`: integer/number
+- **Output:** Return the computed numeric result.
+- **Edge Cases:** Handle boundary numeric values (0/1/min/max ranges) correctly.
 
 **Example Cases**
-1. Input: `minCostConnectPoints("abc")`
-   Output: `number`
-2. Input: `minCostConnectPoints("")`
-   Output: `handles boundary/edge case correctly`
+1. Input: `minCostConnectPoints([[0,0],[2,2],[3,10],[5,2],[7,0]])`
+   Output: `20`
+2. Input: `minCostConnectPoints([])`
+   Output: `0`
 
 **JavaScript Solution**
 ```javascript
@@ -5272,4 +9882,28 @@ function minCostConnectPoints(points) {
   return cost;
 }
 ```
+
+**Detailed Explanation**
+- **Core Idea:** Build adjacency and apply traversal/relaxation invariant that fits path/connectivity goal.
+- **Correctness Invariant:** State variables are updated so partial work is always valid for the next step.
+- **Code Lens:** Key variable names depend on this implementation.
+- **Time Complexity:** O(V + E)
+- **Space Complexity:** O(V + E)
+
+**Diagram (Step-by-Step)**
+```mermaid
+flowchart LR
+  A[build adjacency list] --> B[run traversal]
+  B --> C[update seen dist or parent]
+  C --> D[derive final graph answer]
+```
+
+**Implementation Walkthrough (Code Order)**
+1. Initialize `n` with `points.length`.
+2. Initialize sentinel variable `minDist` as `Array(n).fill(Infinity)` for comparisons.
+3. Initialize `used` with `Array(n).fill(false)`.
+4. Initialize `cost` with `0`.
+5. Run indexed loop controlled by `i` according to the loop bounds.
+6. Initialize `u` with `-1`.
+7. Return final answer as `cost`.
 
